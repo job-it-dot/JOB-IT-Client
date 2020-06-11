@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "mobx-react";
+import { BrowserRouter as Router } from "react-router-dom";
 import stores from "./stores";
 
 ReactDOM.render(
-  <Provider {...stores}>
-    <App />
-  </Provider>,
+  <Router>
+    <Provider {...stores}>
+      <App />
+    </Provider>
+  </Router>,
 
   document.getElementById("root")
 );

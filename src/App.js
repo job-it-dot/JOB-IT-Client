@@ -1,13 +1,9 @@
 import React from "react";
 import "./App.less";
-import { Button } from "antd";
+import routes from "./routes";
 
 function App() {
-  return (
-    <div className="App">
-      <Button type={"primary"}>Jobit</Button>
-    </div>
-  );
+  return <div className="App">{routes}</div>;
 }
 
 export default App;
