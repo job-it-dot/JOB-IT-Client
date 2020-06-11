@@ -32,9 +32,11 @@
     "lint": "eslint src --ext=js",
     "eject": "react-scripts eject"
   },
-  "hooks": {
-    "pre-commit": "npm run lint",
-    "pre-push": "npm run lint"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
