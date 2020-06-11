@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Redirect } from "react-router";
+import React from 'react';
+import { Route, Redirect } from 'react-router';
 
 function PrivateRoutes({ component: Component, ...others }) {
   // TODO
@@ -8,13 +8,9 @@ function PrivateRoutes({ component: Component, ...others }) {
   return (
     <Route
       {...others}
-      render={props => {
+      render={(props) => {
         if (!isLoggedIn) {
-          return (
-            <Redirect
-              to={{ pathname: "/login", state: { from: props.location } }}
-            />
-          );
+          return <Redirect to={{ pathname: '/login', state: { from: props.location } }} />;
         }
         return <Component {...props} />;
       }}
