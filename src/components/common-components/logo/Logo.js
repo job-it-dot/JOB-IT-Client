@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LogoImage from '../../../assets/jobit.png';
+import LogoImage from '../../../assets/jobit.svg';
 
 const Logo = () => {
   return (
