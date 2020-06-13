@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import Jobs from '../components/page-components/index/Jobs';
 
 class Index extends Component {
   render() {
-    return <div>Index</div>;
+    return (
+      <div>
+        <Jobs />
+      </div>
+    );
   }
 }
 
