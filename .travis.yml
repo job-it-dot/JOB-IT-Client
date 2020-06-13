@@ -11,6 +11,7 @@ script:
   - npm run build
 deploy:
   - provider: firebase
+    skip_cleanup: true
     on:
       branch: master
     token:
