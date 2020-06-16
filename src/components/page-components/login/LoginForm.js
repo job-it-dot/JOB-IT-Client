@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
-import { UserOutlined, LockOutlined, CloseOutlined } from '@ant-design/icons';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import classes from './LoginForm.module.less';
 import Logo from '../../common-components/layout/Logo/Logo';
 import kakaologin from '../../../assets/kakaologin.png';
@@ -10,16 +10,15 @@ const LoginForm = () => {
     console.log('Received values of form: ', values);
   };
 
-  const kakaologinbtn = () => {
+  const kakaoLoginButton = () => {
     console.log('카카오로그인');
   };
 
   return (
     <>
       <div className={classes.box}>
-        <div className={classes.Logo}>
+        <div className={classes.logo}>
           <Logo />
-          <CloseOutlined style={{ float: 'right', marginTop: 0, fontSize: 24 }} />
         </div>
         <div>
           <h1 className={classes.title}>
@@ -27,7 +26,7 @@ const LoginForm = () => {
             <br />
             회사를 추천해 주세요!
           </h1>
-          <h2 className={classes.subtitle}>
+          <h2 className={classes.sub_title}>
             JOB-IT는 친구에게 좋은 회사를 추천하고,
             <br />
             채용 성공시 보상 받을 수 있는 서비스 입니다.
@@ -85,7 +84,7 @@ const LoginForm = () => {
           <h2 style={{ textAlign: 'center', fontSize: 17 }}>소셜로그인</h2>
         </div>
         <div>
-          <button onClick={kakaologinbtn} className={classes.kakaobutton}>
+          <button onClick={kakaoLoginButton} className={classes.kakao_button}>
             <img src={kakaologin} height={50} alt="카카오로그인" />
           </button>
         </div>
