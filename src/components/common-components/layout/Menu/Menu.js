@@ -18,12 +18,14 @@ const Menu = () => {
         </ul>
       </nav>
       <nav className={classes.nav}>
-          <ul className={classes.list}>
-            <li className={classes.item}><Link to="/login">회원가입/로그인</Link></li>
-            <li className={classes.item}>기업 서비스</li>
-          </ul>
-        </nav>
-        <aside className={classes.aside}>
+        <ul className={classes.list}>
+          <li className={classes.item}>
+            <Link to="/login">회원가입/로그인</Link>
+          </li>
+          <li className={classes.item}>기업 서비스</li>
+        </ul>
+      </nav>
+      <aside className={classes.aside}>
         <SearchOutlined />
         <BellOutlined />
       </aside>
