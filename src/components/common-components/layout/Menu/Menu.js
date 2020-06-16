@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import classes from './Menu.module.less';
 import { SearchOutlined, BellOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
   return (
@@ -16,7 +17,13 @@ const Menu = () => {
           <li className={classes.item}>매치업</li>
         </ul>
       </nav>
-      <aside className={classes.aside}>
+      <nav className={classes.nav}>
+          <ul className={classes.list}>
+            <li className={classes.item}><Link to="/login">회원가입/로그인</Link></li>
+            <li className={classes.item}>기업 서비스</li>
+          </ul>
+        </nav>
+        <aside className={classes.aside}>
         <SearchOutlined />
         <BellOutlined />
       </aside>
