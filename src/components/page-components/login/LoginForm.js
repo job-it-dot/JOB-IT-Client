@@ -4,6 +4,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import classes from './LoginForm.module.less';
 import Logo from '../../common-components/layout/Logo/Logo';
 import kakaologin from '../../../assets/kakaologin.png';
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
   const onFinish = (values) => {
@@ -76,7 +77,7 @@ const LoginForm = () => {
             <Button type="primary" htmlType="submit" className="login-form-button">
               로그인
             </Button>
-            &nbsp;&nbsp;회원이 아니신가요? <a href="b">회원가입</a>
+            &nbsp;&nbsp;회원이 아니신가요? <Link to="/signup">회원가입</Link>
           </Form.Item>
         </Form>
         <hr />
