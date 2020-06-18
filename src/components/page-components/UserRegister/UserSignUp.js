@@ -28,7 +28,7 @@ class UserSignUp extends Component {
         <form>
           <div className={classes.center}>
             <div style={{ marginBottom: 10 }}>
-              <span style={{ fontSize: 25, fontWeight: 'bold', marginLeft: 25 }}>
+              <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 25 }}>
                 회원가입하고 다양한 혜택을 누리세요!
                 <span style={{ fontSize: 13, float: 'right', marginTop: 10 }}>
                   <strong>*</strong>
