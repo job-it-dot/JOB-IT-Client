@@ -1,105 +1,114 @@
-import React, { Component } from 'react';
-import Logo from '../../common-components/layout/Logo/Logo';
-import classes from './RegForm.module.less';
-import { CheckOutlined } from '@ant-design/icons';
+import React from 'react';
+import { Button, Col, Divider, Form, Input } from 'antd';
+import { LockOutlined, UserOutlined, MobileOutlined } from '@ant-design/icons';
+import classes from './UserSignUp.module.less';
+import kakaologin from '../../../assets/kakaologin.png';
 import { Link } from 'react-router-dom';
 
-class UserSignUp extends Component {
-  render() {
-    return (
-      <>
-        <div className={classes.header}>
-          <div className={classes.logo}>
-            <Logo />
-            <ul className={classes.ul}>
-              <li className={classes.person}>
-                <Link to="/signup" className={classes.person_link}>
-                  개인회원
-                </Link>
-              </li>
-              <li className={classes.corp}>
-                <Link to="/corpSignUp" className={classes.corp_link}>
-                  기업회원
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <form>
-          <div className={classes.center}>
-            <div style={{ marginBottom: 10 }}>
-              <span style={{ fontSize: 20, fontWeight: 'bold', marginLeft: 25 }}>
-                회원가입하고 다양한 혜택을 누리세요!
-                <span style={{ fontSize: 13, float: 'right', marginTop: 10 }}>
-                  <strong>*</strong>
-                  필수 입력 정보입니다
-                </span>
-              </span>
-            </div>
-            <div>
-              <div>
-                <input
-                  type="text"
-                  id="M_Name"
-                  name="M_Name"
-                  maxLength="12"
-                  placeholder="＊이름(실명)"
-                  className={classes.inputName}
-                ></input>
-                <div>
-                  <p></p>
-                </div>
-              </div>
-              <div>
-                <input
-                  type="email"
-                  id="M_Name"
-                  name="M_Name"
-                  placeholder="＊ 이메일"
-                  className={classes.inputName}
-                ></input>
-                <div>
-                  <p></p>
-                </div>
-              </div>
-              <div>
-                <input
-                  type="password"
-                  id="M_Name"
-                  name="M_Name"
-                  placeholder="＊ 비밀번호"
-                  className={classes.inputName}
-                ></input>
-                <div>
-                  <p></p>
-                </div>
-              </div>
-              <div>
-                <input
-                  type="text"
-                  id="M_Name"
-                  name="M_Name"
-                  placeholder="＊ 휴대폰번호"
-                  className={classes.inputName}
-                ></input>
-                <div>
-                  <p></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={classes.button_div}>
-            <button className={classes.reg_button}>
-              <span className={classes.reg_span}>
-                <CheckOutlined style={{ color: 'white' }} />
-                &nbsp;가입하기
-              </span>
-            </button>
-          </div>
-        </form>
-      </>
-    );
-  }
-}
+const LoginForm = () => {
+  const onFinish = (values) => {
+    console.log('Received values of form: ', values);
+  };
 
-export default UserSignUp;
+  const kakaoLoginButton = () => {
+    console.log('카카오로그인');
+  };
+
+  return (
+    <Col xs={{ span: 24 }} sm={{ span: 12, offset: 6 }} md={{ span: 8, offset: 8 }}>
+      <h1 className={classes.title}>
+        초.간.단 회원가입하고
+        <br />
+        취준생 탈출하자!
+      </h1>
+      <Form
+        name="normal_login"
+        className="login-form"
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+      >
+        <Form.Item
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: '아이디를 입력하세요',
+            },
+          ]}
+        >
+          <Input
+            size={'large'}
+            prefix={<UserOutlined className="site-form-item-icon" />}
+            placeholder="계정을 입력해 주세요(이메일)"
+          />
+        </Form.Item>
+        <Form.Item
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: '비밀번호를 입력하세요',
+            },
+          ]}
+        >
+          <Input
+            size={'large'}
+            prefix={<LockOutlined className="site-form-item-icon" />}
+            type="password"
+            placeholder="비밀번호를 입력해 주세요"
+          />
+        </Form.Item>
+        <Form.Item
+          name="password2"
+          rules={[
+            {
+              required: true,
+              message: '비밀번호를 입력하세요',
+            },
+          ]}
+        >
+          <Input
+            size={'large'}
+            prefix={<LockOutlined className="site-form-item-icon" />}
+            type="password"
+            placeholder="비밀번호를 한번 더 입력해 주세요"
+          />
+        </Form.Item>
+        <Form.Item
+          name="phone"
+          rules={[
+            {
+              required: true,
+              message: '휴대폰 번호를 입력하세요',
+            },
+          ]}
+        >
+          <Input
+            size={'large'}
+            prefix={<MobileOutlined className="site-form-item-icon" />}
+            type="text"
+            placeholder="휴대폰 번호를 입력하세요"
+          />
+        </Form.Item>
+        <Form.Item>
+          <Button block size={'large'} type="primary" htmlType="submit" className="login-form-button">
+            회원가입
+          </Button>
+          <div style={{ marginTop: 8 }}>
+            이미 회원이신가요? <Link to="/login">로그인</Link>
+          </div>
+        </Form.Item>
+      </Form>
+      <Divider />
+      <div>
+        <button onClick={kakaoLoginButton} className={classes.kakao_button}>
+          <img src={kakaologin} height={50} alt="카카오로그인" />
+        </button>
+      </div>
+    </Col>
+  );
+};
+
+export default LoginForm;
