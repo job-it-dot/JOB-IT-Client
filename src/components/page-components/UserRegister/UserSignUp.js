@@ -57,6 +57,8 @@ const LoginForm = () => {
             size={'large'}
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
+            minLength="8"
+            maxLength="16"
             placeholder="비밀번호를 입력해 주세요"
           />
         </Form.Item>
@@ -73,6 +75,8 @@ const LoginForm = () => {
             size={'large'}
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
+            minLength="8"
+            maxLength="16"
             placeholder="비밀번호를 한번 더 입력해 주세요"
           />
         </Form.Item>
