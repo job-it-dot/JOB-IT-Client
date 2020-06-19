@@ -20,7 +20,8 @@ const Menu = () => {
       <nav className={classes.nav}>
         <ul className={classes.list}>
           <li className={classes.item}>
-            <Link to="/login">회원가입/로그인</Link>
+            <Link to="/signup">회원가입</Link>
+            <Link to="/login">/로그인</Link>
           </li>
           <li className={classes.item}>기업 서비스</li>
         </ul>
