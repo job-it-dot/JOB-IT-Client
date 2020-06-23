@@ -11,7 +11,9 @@ const Menu = () => {
         <ul className={classes.list}>
           <li className={classNames(classes.item, classes.active)}>탐색</li>
           <li className={classes.item}>직군별 연봉</li>
-          <li className={classes.item}>이력서</li>
+          <li className={classes.item}>
+            <Link to="/resume">이력서</Link>
+          </li>
           <li className={classes.item}>추천</li>
           <li className={classes.item}>이벤트</li>
           <li className={classes.item}>매치업</li>

@@ -1,0 +1,240 @@
+import React, { Component } from 'react';
+import { Steps, Input, DatePicker, Select, Row, Col, Form, Button, Space } from 'antd';
+import {
+  UserOutlined,
+  MobileOutlined,
+  HomeOutlined,
+  SearchOutlined,
+  MinusCircleOutlined,
+  PlusOutlined,
+} from '@ant-design/icons';
+import './Resume.css';
+
+const { Step } = Steps;
+
+class ResumeForm1 extends Component {
+  state = {
+    current: 0,
+  };
+
+  onChange = (current) => {
+    console.log('onChange:', current);
+    this.setState({ current });
+    if (current === 1) {
+      // 페이지이동..
+    }
+  };
+
+  PageOnChange = () => {
+    console.log('current 1증가');
+  };
+
+  DateonChange = (date, dateString) => {
+    console.log(date, dateString);
+  };
+
+  handleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
+
+  importaddress = () => {
+    console.log('주소API');
+  };
+
+  importschool = () => {
+    console.log('학교명API');
+  };
+
+  onFinish = (values) => {
+    console.log('Received values of form:', values);
+  };
+
+  render() {
+    const { Option } = Select;
+    const { current } = this.state;
+    return (
+      <>
+        <div>
+          <Steps
+            type="navigation"
+            current={current}
+            onChange={this.onChange}
+            className="site-navigation-steps"
+            style={{ marginTop: 30, marginBottom: 40 }}
+          >
+            <Step status="process" title="개인정보/학력" />
+            <Step status="finish" title="경력" />
+            <Step status="wait" title="자격증" />
+            <Step status="wait" title="어학능력" />
+            <Step status="wait" title="포트폴리오" />
+            <Step status="wait" title="자기소개서" />
+          </Steps>
+          <Row>
+            <Col span={50}>
+              <h2>개인정보</h2>
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: 10 }}>
+            <Col span={5.5}>
+              <Input
+                placeholder="이름"
+                prefix={<UserOutlined className="site-form-item-icon" />}
+                disabled
+                style={{ width: 250, height: 60, marginRight: 20 }}
+              />
+            </Col>
+            <Col span={5.5}>
+              <Input
+                placeholder="휴대폰번호"
+                prefix={<MobileOutlined className="site-form-item-icon" />}
+                disabled
+                style={{ width: 250, height: 60, marginRight: 20 }}
+              />
+            </Col>
+            <Col span={5.5}>
+              <DatePicker
+                placeholder="생년월일"
+                onChange={this.DateonChange}
+                style={{ width: 250, height: 60, marginRight: 20 }}
+              />
+            </Col>
+            <Col span={5.5}>
+              <Select defaultValue="성별" onChange={this.handleChange} className="large">
+                <Option value="man">남자</Option>
+                <Option value="woman">여자</Option>
+              </Select>
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: 10 }}>
+            <Col span={16}>
+              <Input
+                placeholder="주소"
+                prefix={<HomeOutlined className="site-form-item-icon" />}
+                suffix={
+                  <button onClick={this.importaddress} style={{ backgroundColor: 'white', border: 0 }}>
+                    <SearchOutlined />
+                  </button>
+                }
+                style={{ width: 920, height: 60, marginRight: 20 }}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col span={25}>
+              <h2>학력</h2>
+            </Col>
+          </Row>
+          <Form name="dynamic_form_nest_item" onFinish={this.onFinish} autoComplete="off" className="EducationForm">
+            <Form.List name="users">
+              {(fields, { add, remove }) => {
+                return (
+                  <div>
+                    {fields.map((field) => (
+                      <Space
+                        key={field.key}
+                        style={{ display: 'flex', flexWrap: 'wrap', marginBottom: 2 }}
+                        align="start"
+                      >
+                        <Form.Item>
+                          <Select defaultValue="학교구분" onChange={this.handleChange} className="school">
+                            <Option value="HighSchool">고등학교</Option>
+                            <Option value="JuniorCollege">대학(2,3년)</Option>
+                            <Option value="University">대학교(4년)</Option>
+                            <Option value="GraduateSchool">대학원</Option>
+                          </Select>
+                        </Form.Item>
+                        <Form.Item>
+                          <Input
+                            style={{ width: 160, height: 60 }}
+                            placeholder="학교명"
+                            prefix={<HomeOutlined className="site-form-item-icon" />}
+                            suffix={
+                              <button onClick={this.importschool} style={{ backgroundColor: 'white', border: 0 }}>
+                                <SearchOutlined />
+                              </button>
+                            }
+                          />
+                        </Form.Item>
+                        <Form.Item>
+                          <DatePicker
+                            onChange={this.onChange}
+                            picker="month"
+                            placeholder="입학년월"
+                            style={{ width: 160, height: 60 }}
+                          />
+                        </Form.Item>
+                        <Form.Item>
+                          <DatePicker
+                            onChange={this.onChange}
+                            picker="month"
+                            placeholder="졸업년월"
+                            style={{ width: 160, height: 60 }}
+                          />
+                        </Form.Item>
+                        <Form.Item>
+                          <Select defaultValue="졸업상태" onChange={this.handleChange} className="school">
+                            <Option value="end">졸업</Option>
+                            <Option value="soonEnd">졸업예정</Option>
+                            <Option value="now">재학</Option>
+                            <Option value="out">중퇴</Option>
+                            <Option value="complete">수료</Option>
+                            <Option value="rest">휴학</Option>
+                          </Select>
+                        </Form.Item>
+                        <Form.Item>
+                          <Input placeholder="전공명" style={{ width: 310, height: 60 }} />
+                        </Form.Item>
+                        <Form.Item>
+                          <Input placeholder="학점" style={{ width: 75, height: 60 }} />
+                        </Form.Item>
+                        <Form.Item>
+                          <Input placeholder="총점" style={{ width: 75, height: 60 }} />
+                        </Form.Item>
+                        <MinusCircleOutlined
+                          style={{ fontSize: 20, marginTop: 20 }}
+                          onClick={() => {
+                            remove(field.name);
+                          }}
+                        />
+                      </Space>
+                    ))}
+
+                    <Form.Item>
+                      <Button
+                        type="dashed"
+                        onClick={() => {
+                          add();
+                        }}
+                        block
+                      >
+                        <PlusOutlined /> 추가
+                      </Button>
+                    </Form.Item>
+                  </div>
+                );
+              }}
+            </Form.List>
+
+            <Form.Item>
+              <Button type="primary" htmlType="submit" style={{ width: 150, height: 40 }}>
+                학력저장
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
+        <div style={{ float: 'right' }}>
+          <Button
+            type="primary"
+            htmlType="submit"
+            onClick={this.PageOnChange}
+            style={{ width: 150, height: 40, marginBottom: 50 }}
+          >
+            다음
+          </Button>
+        </div>
+      </>
+    );
+  }
+}
+
+export default ResumeForm1;

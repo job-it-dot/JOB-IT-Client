@@ -1,0 +1,25 @@
+.large .ant-select-selector {
+  height: 60px !important;
+  width: 110px !important;
+}
+
+.large .ant-select-selector * {
+  line-height: 60px !important;
+}
+
+.school .ant-select-selector {
+  height: 60px !important;
+  width: 140px !important;
+}
+
+.school .ant-select-selector * {
+  line-height: 60px !important;
+}
+
+.EducationForm .ant-space-item * {
+  margin-bottom: 2px !important;
+}
+
+.EducationForm .ant-space-item {
+  margin-bottom: 0px !important;
+}
