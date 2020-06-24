@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Steps, Input, DatePicker, Select, Row, Col, Form, Button, Space } from 'antd';
+import { Input, DatePicker, Select, Row, Col, Form, Button, Space } from 'antd';
 import {
   UserOutlined,
   MobileOutlined,
@@ -9,26 +9,10 @@ import {
   PlusOutlined,
 } from '@ant-design/icons';
 import './Resume.css';
-
-const { Step } = Steps;
+import { Link } from 'react-router-dom';
+import ResumeFormTop from './ResumeFormTop';
 
 class ResumeForm1 extends Component {
-  state = {
-    current: 0,
-  };
-
-  onChange = (current) => {
-    console.log('onChange:', current);
-    this.setState({ current });
-    if (current === 1) {
-      // 페이지이동..
-    }
-  };
-
-  PageOnChange = () => {
-    console.log('current 1증가');
-  };
-
   DateonChange = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -51,24 +35,10 @@ class ResumeForm1 extends Component {
 
   render() {
     const { Option } = Select;
-    const { current } = this.state;
     return (
       <>
         <div>
-          <Steps
-            type="navigation"
-            current={current}
-            onChange={this.onChange}
-            className="site-navigation-steps"
-            style={{ marginTop: 30, marginBottom: 40 }}
-          >
-            <Step status="process" title="개인정보/학력" />
-            <Step status="finish" title="경력" />
-            <Step status="wait" title="자격증" />
-            <Step status="wait" title="어학능력" />
-            <Step status="wait" title="포트폴리오" />
-            <Step status="wait" title="자기소개서" />
-          </Steps>
+          <ResumeFormTop />
           <Row>
             <Col span={50}>
               <h2>개인정보</h2>
@@ -167,7 +137,7 @@ class ResumeForm1 extends Component {
                           <DatePicker
                             onChange={this.onChange}
                             picker="month"
-                            placeholder="졸업년월"
+                            placeholder="졸업년월(예정)"
                             style={{ width: 160, height: 60 }}
                           />
                         </Form.Item>
@@ -223,14 +193,11 @@ class ResumeForm1 extends Component {
           </Form>
         </div>
         <div style={{ float: 'right' }}>
-          <Button
-            type="primary"
-            htmlType="submit"
-            onClick={this.PageOnChange}
-            style={{ width: 150, height: 40, marginBottom: 50 }}
-          >
-            다음
-          </Button>
+          <Link to="/resumeCareer">
+            <Button type="primary" htmlType="button" style={{ width: 150, height: 40, marginBottom: 50 }}>
+              다음
+            </Button>
+          </Link>
         </div>
       </>
     );

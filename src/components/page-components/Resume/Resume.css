@@ -23,3 +23,15 @@
 .EducationForm .ant-space-item {
   margin-bottom: 0px !important;
 }
+
+.ResumeResult {
+  margin-top: 80px;
+}
+
+.ResumeResult .ant-result-subtitle {
+  font-size: 18px;
+}
+
+.ResumeResult .ant-result-title {
+  font-size: 30px;
+}
