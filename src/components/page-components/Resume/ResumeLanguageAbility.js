@@ -5,7 +5,7 @@ import './Resume.css';
 import ResumeFormTop from './ResumeFormTop';
 import { Link } from 'react-router-dom';
 
-class ResumeForm4 extends Component {
+class ResumeLanguageAbility extends Component {
   handleChange = (value) => {
     console.log(`selected ${value}`);
   };
@@ -87,4 +87,4 @@ class ResumeForm4 extends Component {
   }
 }
 
-export default ResumeForm4;
+export default ResumeLanguageAbility;

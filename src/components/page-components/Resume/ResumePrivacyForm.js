@@ -12,7 +12,7 @@ import './Resume.css';
 import { Link } from 'react-router-dom';
 import ResumeFormTop from './ResumeFormTop';
 
-class ResumeForm1 extends Component {
+class ResumePrivacyForm extends Component {
   DateonChange = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -204,4 +204,4 @@ class ResumeForm1 extends Component {
   }
 }
 
-export default ResumeForm1;
+export default ResumePrivacyForm;

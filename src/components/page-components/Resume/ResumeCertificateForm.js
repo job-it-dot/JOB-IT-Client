@@ -5,7 +5,7 @@ import './Resume.css';
 import ResumeFormTop from './ResumeFormTop';
 import { Link } from 'react-router-dom';
 
-class ResumeForm3 extends Component {
+class ResumeCertificateForm extends Component {
   DateonChange = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -87,4 +87,4 @@ class ResumeForm3 extends Component {
   }
 }
 
-export default ResumeForm3;
+export default ResumeCertificateForm;

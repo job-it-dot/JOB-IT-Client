@@ -5,7 +5,7 @@ import './Resume.css';
 import ResumeFormTop from './ResumeFormTop';
 import { Link } from 'react-router-dom';
 
-class ResumeForm2 extends Component {
+class ResumeCareerForm extends Component {
   handleChange = (value) => {
     console.log(`selected ${value}`);
   };
@@ -119,4 +119,4 @@ class ResumeForm2 extends Component {
   }
 }
 
-export default ResumeForm2;
+export default ResumeCareerForm;
