@@ -6,12 +6,12 @@ import Index from './pages/Index';
 import Login from './pages/Login.js';
 import UserSignUp from './pages/SignUpUser.js';
 import ResumeForm from './pages/ResumeForm';
-import ResumeCareerForm from './components/page-components/Resume/ResumeCareerForm';
-import ResumeCertificateForm from './components/page-components/Resume/ResumeCertificateForm';
-import ResumeLanguageAbility from './components/page-components/Resume/ResumeLanguageAbility';
-import ResumePortfolioForm from './components/page-components/Resume/ResumePortfolioForm';
-import ResumeAutobiographyForm from './components/page-components/Resume/ResumeAutobiographyForm';
-import ResumeResult from './components/page-components/Resume/ResumeResult';
+import ResumeCareerForm from './components/page-components/resume/ResumeCareerForm';
+import ResumeCertificateForm from './components/page-components/resume/ResumeCertificateForm';
+import ResumeLanguageAbilityForm from './components/page-components/resume/ResumeLanguageAbilityForm';
+import ResumePortfolioForm from './components/page-components/resume/ResumePortfolioForm';
+import ResumeAutobiographyForm from './components/page-components/resume/ResumeAutobiographyForm';
+import ResumeResult from './components/page-components/resume/ResumeResult';
 
 export default (
   <Switch>
@@ -22,7 +22,7 @@ export default (
     <PrivateRoutes exact path="/resumePrivacy" component={ResumeForm} />
     <PrivateRoutes exact path="/resumeCareer" component={ResumeCareerForm} />
     <PrivateRoutes exact path="/resumeCertificate" component={ResumeCertificateForm} />
-    <PrivateRoutes exact path="/resumeLanguageAbility" component={ResumeLanguageAbility} />
+    <PrivateRoutes exact path="/resumeLanguageAbility" component={ResumeLanguageAbilityForm} />
     <PrivateRoutes exact path="/resumePortfolio" component={ResumePortfolioForm} />
     <PrivateRoutes exact path="/resumeAutobiography" component={ResumeAutobiographyForm} />
     <PrivateRoutes exact path="/resumeResult" component={ResumeResult} />

@@ -4,23 +4,13 @@ import { Steps } from 'antd';
 const { Step } = Steps;
 
 class ResumeFormTop extends Component {
-  state = {
-    current: 0,
-  };
-
-  onChange = (current) => {
-    console.log('onChange:', current);
-    this.setState({ current });
-  };
-
   render() {
-    const { current } = this.state;
     return (
       <div>
         <Steps
           type="navigation"
-          current={current}
-          onChange={this.onChange}
+          current={this.props.current}
+          onChange={this.props.setCurrent}
           className="site-navigation-steps"
           style={{ marginTop: 30, marginBottom: 40 }}
         >

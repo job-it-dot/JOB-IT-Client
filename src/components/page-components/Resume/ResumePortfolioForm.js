@@ -25,6 +25,14 @@ const props = {
 };
 
 class ResumePortfolioForm extends Component {
+  state = {
+    current: 4,
+  };
+
+  setCurrent = (current) => {
+    this.setState({ current });
+  };
+
   handleChange = (value) => {
     console.log(`selected ${value}`);
   };
@@ -33,7 +41,7 @@ class ResumePortfolioForm extends Component {
     return (
       <>
         <div>
-          <ResumeFormTop />
+          <ResumeFormTop current={this.state.current} setCurrent={this.setCurrent} />
           <h2>포트폴리오</h2>
           <Form name="dynamic_form_nest_item" onFinish={this.onFinish} autoComplete="off" className="EducationForm">
             <Form.List name="users">

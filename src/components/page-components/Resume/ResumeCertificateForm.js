@@ -6,7 +6,14 @@ import ResumeFormTop from './ResumeFormTop';
 import { Link } from 'react-router-dom';
 
 class ResumeCertificateForm extends Component {
-  DateonChange = (date, dateString) => {
+  state = {
+    current: 2,
+  };
+  setCurrent = (current) => {
+    this.setState({ current });
+  };
+
+  onDateChange = (date, dateString) => {
     console.log(date, dateString);
   };
 
@@ -14,7 +21,7 @@ class ResumeCertificateForm extends Component {
     return (
       <>
         <div>
-          <ResumeFormTop />
+          <ResumeFormTop current={this.state.current} setCurrent={this.setCurrent} />
           <h2>자격증</h2>
           <Form name="dynamic_form_nest_item" onFinish={this.onFinish} autoComplete="off" className="EducationForm">
             <Form.List name="users">
@@ -36,7 +43,7 @@ class ResumeCertificateForm extends Component {
                         </Form.Item>
                         <Form.Item>
                           <DatePicker
-                            onChange={this.DateonChange}
+                            onChange={this.onDateChange}
                             picker="month"
                             placeholder="취득년월"
                             style={{ width: 160, height: 60 }}

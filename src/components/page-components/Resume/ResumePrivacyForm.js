@@ -13,7 +13,16 @@ import { Link } from 'react-router-dom';
 import ResumeFormTop from './ResumeFormTop';
 
 class ResumePrivacyForm extends Component {
-  DateonChange = (date, dateString) => {
+  state = {
+    current: 0,
+  };
+
+  setCurrent = (current) => {
+    this.setState({ current });
+    // this.props.history.push('/');
+  };
+
+  onDateChange = (date, dateString) => {
     console.log(date, dateString);
   };
 
@@ -38,7 +47,7 @@ class ResumePrivacyForm extends Component {
     return (
       <>
         <div>
-          <ResumeFormTop />
+          <ResumeFormTop current={this.state.current} setCurrent={this.setCurrent} />
           <Row>
             <Col span={50}>
               <h2>개인정보</h2>
@@ -64,7 +73,7 @@ class ResumePrivacyForm extends Component {
             <Col span={5.5}>
               <DatePicker
                 placeholder="생년월일"
-                onChange={this.DateonChange}
+                onChange={this.onDateChange}
                 style={{ width: 250, height: 60, marginRight: 20 }}
               />
             </Col>
@@ -127,7 +136,7 @@ class ResumePrivacyForm extends Component {
                         </Form.Item>
                         <Form.Item>
                           <DatePicker
-                            onChange={this.onChange}
+                            onChange={this.onDateChange}
                             picker="month"
                             placeholder="입학년월"
                             style={{ width: 160, height: 60 }}
@@ -135,7 +144,7 @@ class ResumePrivacyForm extends Component {
                         </Form.Item>
                         <Form.Item>
                           <DatePicker
-                            onChange={this.onChange}
+                            onChange={this.onDateChange}
                             picker="month"
                             placeholder="졸업년월(예정)"
                             style={{ width: 160, height: 60 }}
@@ -194,7 +203,13 @@ class ResumePrivacyForm extends Component {
         </div>
         <div style={{ float: 'right' }}>
           <Link to="/resumeCareer">
-            <Button type="primary" htmlType="button" style={{ width: 150, height: 40, marginBottom: 50 }}>
+            <Button
+              type="primary"
+              htmlType="button"
+              value="1"
+              style={{ width: 150, height: 40, marginBottom: 50 }}
+              onClick={this.resumeChange}
+            >
               다음
             </Button>
           </Link>

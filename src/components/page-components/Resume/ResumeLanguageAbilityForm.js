@@ -5,7 +5,14 @@ import './Resume.css';
 import ResumeFormTop from './ResumeFormTop';
 import { Link } from 'react-router-dom';
 
-class ResumeLanguageAbility extends Component {
+class ResumeLanguageAbilityForm extends Component {
+  state = {
+    current: 3,
+  };
+  setCurrent = (current) => {
+    this.setState({ current });
+  };
+
   handleChange = (value) => {
     console.log(`selected ${value}`);
   };
@@ -15,7 +22,7 @@ class ResumeLanguageAbility extends Component {
     return (
       <>
         <div>
-          <ResumeFormTop />
+          <ResumeFormTop current={this.state.current} setCurrent={this.setCurrent} />
           <h2>어학능력</h2>
           <Form name="dynamic_form_nest_item" onFinish={this.onFinish} autoComplete="off" className="EducationForm">
             <Form.List name="users">
@@ -87,4 +94,4 @@ class ResumeLanguageAbility extends Component {
   }
 }
 
-export default ResumeLanguageAbility;
+export default ResumeLanguageAbilityForm;
