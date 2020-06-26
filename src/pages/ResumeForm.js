@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import ResumePrivacyForm from '../components/page-components/resume/ResumePrivacyForm';
+import ResumeStep1 from '../components/page-components/resume/ResumeStep1';
 
 export default class ResumeForm extends Component {
   render() {
-    return <ResumePrivacyForm />;
+    return <ResumeStep1 />;
   }
 }

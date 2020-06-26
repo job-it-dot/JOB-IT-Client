@@ -9,17 +9,29 @@ import {
   PlusOutlined,
 } from '@ant-design/icons';
 import './Resume.css';
-import { Link } from 'react-router-dom';
-import ResumeFormTop from './ResumeFormTop';
+import { Link, withRouter } from 'react-router-dom';
+import ResumeFormTop from './ResumeTop';
 
-class ResumePrivacyForm extends Component {
+class ResumeStep1 extends Component {
   state = {
     current: 0,
   };
 
   setCurrent = (current) => {
     this.setState({ current });
-    // this.props.history.push('/');
+    if (current === 0) {
+      this.props.history.push('/resumePrivacy');
+    } else if (current === 1) {
+      this.props.history.push('/resumeCareer');
+    } else if (current === 2) {
+      this.props.history.push('/resumeCertificate');
+    } else if (current === 3) {
+      this.props.history.push('/resumeLanguageAbility');
+    } else if (current === 4) {
+      this.props.history.push('/resumePortfolio');
+    } else if (current === 5) {
+      this.props.history.push('/resumeAutobiography');
+    }
   };
 
   onDateChange = (date, dateString) => {
@@ -219,4 +231,4 @@ class ResumePrivacyForm extends Component {
   }
 }
 
-export default ResumePrivacyForm;
+export default withRouter(ResumeStep1);

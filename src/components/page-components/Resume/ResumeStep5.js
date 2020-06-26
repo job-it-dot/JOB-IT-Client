@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Input, Form, Button, Space, Upload, message } from 'antd';
 import { MinusCircleOutlined, LinkOutlined, PlusOutlined, InboxOutlined } from '@ant-design/icons';
 import './Resume.css';
-import ResumeFormTop from './ResumeFormTop';
-import { Link } from 'react-router-dom';
+import ResumeFormTop from './ResumeTop';
+import { Link, withRouter } from 'react-router-dom';
 
 const { Dragger } = Upload;
 
@@ -24,13 +24,26 @@ const props = {
   },
 };
 
-class ResumePortfolioForm extends Component {
+class ResumeStep5 extends Component {
   state = {
     current: 4,
   };
 
   setCurrent = (current) => {
     this.setState({ current });
+    if (current === 0) {
+      this.props.history.push('/resumePrivacy');
+    } else if (current === 1) {
+      this.props.history.push('/resumeCareer');
+    } else if (current === 2) {
+      this.props.history.push('/resumeCertificate');
+    } else if (current === 3) {
+      this.props.history.push('/resumeLanguageAbility');
+    } else if (current === 4) {
+      this.props.history.push('/resumePortfolio');
+    } else if (current === 5) {
+      this.props.history.push('/resumeAutobiography');
+    }
   };
 
   handleChange = (value) => {
@@ -112,4 +125,4 @@ class ResumePortfolioForm extends Component {
   }
 }
 
-export default ResumePortfolioForm;
+export default withRouter(ResumeStep5);

@@ -2,16 +2,29 @@ import React, { Component } from 'react';
 import { Input, Select, Form, Button, Space } from 'antd';
 import { MinusCircleOutlined, PlusOutlined, BankOutlined } from '@ant-design/icons';
 import './Resume.css';
-import ResumeFormTop from './ResumeFormTop';
-import { Link } from 'react-router-dom';
+import ResumeFormTop from './ResumeTop';
+import { Link, withRouter } from 'react-router-dom';
 
-class ResumeCareerForm extends Component {
+class ResumeStep2 extends Component {
   state = {
     current: 1,
   };
 
   setCurrent = (current) => {
     this.setState({ current });
+    if (current === 0) {
+      this.props.history.push('/resumePrivacy');
+    } else if (current === 1) {
+      this.props.history.push('/resumeCareer');
+    } else if (current === 2) {
+      this.props.history.push('/resumeCertificate');
+    } else if (current === 3) {
+      this.props.history.push('/resumeLanguageAbility');
+    } else if (current === 4) {
+      this.props.history.push('/resumePortfolio');
+    } else if (current === 5) {
+      this.props.history.push('/resumeAutobiography');
+    }
   };
 
   handleChange = (value) => {
@@ -127,4 +140,4 @@ class ResumeCareerForm extends Component {
   }
 }
 
-export default ResumeCareerForm;
+export default withRouter(ResumeStep2);

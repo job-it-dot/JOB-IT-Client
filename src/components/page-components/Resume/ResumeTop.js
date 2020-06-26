@@ -3,7 +3,7 @@ import { Steps } from 'antd';
 
 const { Step } = Steps;
 
-class ResumeFormTop extends Component {
+class ResumeTop extends Component {
   render() {
     return (
       <div>
@@ -26,4 +26,4 @@ class ResumeFormTop extends Component {
   }
 }
 
-export default ResumeFormTop;
+export default ResumeTop;
