@@ -12,11 +12,13 @@ import ResumeStep4 from './components/page-components/resume/ResumeStep4';
 import ResumeStep5 from './components/page-components/resume/ResumeStep5';
 import ResumeStep6 from './components/page-components/resume/ResumeStep6';
 import ResumeResult from './components/page-components/resume/ResumeResult';
+import RecruitDetail from './pages/Recruit';
 
 export default (
   <Switch>
     <Route exact path="/login" component={Login} />
     <Route exact path="/signup" component={UserSignUp} />
+    <Route exact path="/recruitDetail" component={RecruitDetail} />
     <PrivateRoutes exact path="/" component={Index} />
     <PrivateRoutes exact path="/resume" component={ResumeForm} />
     <PrivateRoutes exact path="/resumePrivacy" component={ResumeForm} />
