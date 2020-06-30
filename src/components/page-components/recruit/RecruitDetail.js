@@ -4,68 +4,69 @@ import classes from './RecruitDetail.module.less';
 import './Recruit.css';
 import testimg from './../../../assets/kosta.png';
 import { CheckOutlined, StarOutlined, HeartOutlined, ReconciliationOutlined } from '@ant-design/icons';
+import CountDown from './CountDown';
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 const { TabPane } = Tabs;
 
 const data = [
   {
     key: '1',
     name: 'Front End',
-    responsibility: '프론트앤드 개발 , SpringBoot FrameWork 사용가능자',
+    responsibility: 'React , TypeScript 사용 가능자',
     qualifications: '경력(4년이상)',
-    address: '코스타 판교',
-    tags: ['React', 'developer'],
+    address: '서울시 강남구',
+    tags: ['React', 'TypeScript'],
   },
   {
     key: '2',
     name: 'Back End',
-    responsibility: '백앤드 개발',
+    responsibility: 'Spring 및 SpringBoot 사용가능자',
     qualifications: '신입/경력(1년미만)',
-    address: '코스타 판교',
+    address: '서울시 강남구',
     tags: ['Java'],
   },
   {
     key: '3',
     name: 'Front End',
-    responsibility: '프론트앤드 개발',
+    responsibility: 'next.js , graphql 사용가능자',
     qualifications: '신입',
-    address: '코스타 판교',
-    tags: ['JQuery', 'TypeScript', 'React', 'Spring Boot'],
+    address: '서울시 강남구',
+    tags: ['next.js', 'graphql'],
   },
 ];
 
 const columns = [
   {
-    title: 'Position',
+    title: '포지션',
     dataIndex: 'name',
     key: 'name',
   },
   {
-    title: 'Responsibilities',
+    title: '요구기술',
     dataIndex: 'responsibility',
     key: 'responsibility',
   },
   {
-    title: 'Preferred Qualifications',
+    title: '자격요건',
     dataIndex: 'qualifications',
     key: 'qualifications',
   },
   {
-    title: 'One`s place of Work',
+    title: '근무지',
     dataIndex: 'address',
     key: 'address',
   },
   {
-    title: 'Tags',
+    title: '태그',
     key: 'tags',
     dataIndex: 'tags',
     render: (tags) => (
       <>
         {tags.map((tag) => {
           let color = tag.length > 8 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
+          if (tag === 'React') {
+            color = 'pink';
           }
           return (
             <Tag color={color} key={tag}>
@@ -99,7 +100,7 @@ class RecruitDetail extends Component {
           <Col span={18} push={6} className="recruitTop">
             <div className={classes.recruit_style}>
               <div>
-                <h1 style={{ fontSize: 23 }}>(주)코스타</h1>
+                <span style={{ fontSize: 22 }}>(주)코스타</span>
               </div>
               <div>
                 <h1 className={classes.recruit_title}>2020년도 업무지원직 직원 채용(촬영,국공유 실태조사,사무지원)</h1>
@@ -216,7 +217,7 @@ class RecruitDetail extends Component {
             </Button>
           </Col>
         </Row>
-        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{ marginTop: 15, marginBottom: 15 }}>
+        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{ marginTop: 15, marginBottom: 65 }}>
           <Col span={24}>
             <Tabs onChange={this.callback} type="card" size="large">
               <TabPane tab="상세요강" key="1" className={classes.recruit_tabpane}>
@@ -249,95 +250,119 @@ class RecruitDetail extends Component {
                       (주)큐큐시스템, (주)에이폴드를 운영하는 회사입니다.
                     </span>
                   </div>
-                  <div>
-                    <Table columns={columns} dataSource={data} />
+                  <div style={{ marginBottom: 30 }}>
+                    <Table columns={columns} dataSource={data} pagination={false} />
+                  </div>
+                  <div style={{ marginBottom: 50 }}>
+                    <span style={{ fontSize: 24, fontWeight: 'bold', marginLeft: 20 }}>복리후생</span>
+                    <ul style={{ fontSize: 17 }}>
+                      <li>경조사지원</li>
+                      <li>생일자 빌리엔젤 케이크 지급</li>
+                      <li>빌리엔젤 직영 매장 25% 할인</li>
+                      <li>사내 오프라인 직무교육</li>
+                      <li>명절 선물 지급</li>
+                    </ul>
+                  </div>
+                  <div style={{ marginBottom: 50 }}>
+                    <span style={{ fontSize: 24, fontWeight: 'bold', marginLeft: 20 }}>우수사원 공통혜택</span>
+                    <ul style={{ fontSize: 17 }}>
+                      <li>해외 연수 2분기별 1회(년2회)</li>
+                      <li>성과급 : 경영실적에 따라 지급</li>
+                    </ul>
+                  </div>
+                  <div style={{ marginBottom: 50 }}>
+                    <span style={{ fontSize: 24, fontWeight: 'bold', marginLeft: 20 }}>근속혜택</span>
+                    <ul style={{ fontSize: 17 }}>
+                      <li>3년차 교통비 지원 : 거리에 따라 다름(월10만원에서 30만원 지원)</li>
+                      <li>5년차 자녀 학비 보조금 지원(분기별 250만원에서 300만원)</li>
+                    </ul>
                   </div>
                 </Col>
               </TabPane>
-              <TabPane tab="접수기간/방법" key="2">
-                <Col span={24}>접수기간/방법영역</Col>
+              <TabPane tab="접수기간/방법" key="2" className={classes.recruit_tabpane}>
+                <div className={classes.countdown}>
+                  <Col span={24}>
+                    <CountDown timeTillDate="05 26 2019, 6:00 am" timeFormat="MM DD YYYY, h:mm a" />
+                  </Col>
+                </div>
+                <Col span={24}>
+                  <div className={classes.recruit_applicant}>
+                    <h3>지원자 수: 23명</h3>
+                    <Row>
+                      <Col span={12}>
+                        <Row>
+                          <h3>성별 현황:</h3>
+                        </Row>
+                        <Row>
+                          <Col span={12}>
+                            <Tooltip title="남" className={classes.recruit_circle_progress}>
+                              <Progress percent={75} successPercent={0} type="circle" />
+                            </Tooltip>
+                          </Col>
+                          <Col span={12}>
+                            <Tooltip title="여" className={classes.recruit_circle_progress}>
+                              <Progress percent={25} successPercent={0} type="circle" strokeColor="red" />
+                            </Tooltip>
+                          </Col>
+                        </Row>
+                      </Col>
+                      <Col span={12}>
+                        <div>
+                          <h3>연령별 현황:</h3>{' '}
+                        </div>
+                        <div style={{ width: 400 }}>
+                          20대 <Progress percent={30} size="small" />
+                          30대 <Progress percent={50} size="small" strokeColor="red" />
+                          40대 <Progress percent={20} size="small" strokeColor="purple" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                </Col>
               </TabPane>
-              <TabPane tab="기업정보" key="3">
-                <Col span={24}>기업정보영역</Col>
+              <TabPane tab="기업정보" key="3" className={classes.recruit_tabpane}>
+                <Col span={24}>
+                  <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                    <Col span={24}>
+                      <div className={classes.recruit_company_information}>
+                        <Row>
+                          <Col span={8}>
+                            <img className={classes.recurit_company_img} src={testimg} alt="company" />
+                          </Col>
+                          <Col span={16}>
+                            <Row>
+                              <Col span={6}>
+                                <Title level={4}>(주)코스타</Title>
+                              </Col>
+                            </Row>
+                            <Row>
+                              <Col span={12}>
+                                <span className={classes.recruit_name}>산업(업종)</span>{' '}
+                                <span className={classes.card_detail}>IT기업</span>
+                              </Col>
+                              <Col span={12}>
+                                <span className={classes.recruit_name}>사원수</span>{' '}
+                                <span className={classes.card_detail}>250명</span>
+                              </Col>
+                            </Row>
+                            <Row>
+                              <Col span={12}>
+                                <span className={classes.recruit_name}>설립년도</span>{' '}
+                                <span className={classes.card_detail}>2012년(8년차)</span>
+                              </Col>
+                              <Col span={12}>
+                                <span className={classes.recruit_name}>기업형태</span>{' '}
+                                <span className={classes.card_detail}>중소기업</span>
+                              </Col>
+                            </Row>
+                          </Col>
+                        </Row>
+                      </div>
+                    </Col>
+                  </Row>
+                </Col>
               </TabPane>
             </Tabs>
-          </Col>
-        </Row>
-        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-          <Col span={24}>
-            <div className={classes.recruit_detail}>상세요강</div>
-          </Col>
-        </Row>
-        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-          <Col span={24}>
-            <div className={classes.recruit_applicant}>
-              지원자 수: xxx명
-              <Row>
-                <Col span={12}>
-                  <Row>성별 현황:</Row>
-                  <Row>
-                    <Col span={12}>
-                      <Tooltip title="남" className={classes.recruit_circle_progress}>
-                        <Progress percent={60} successPercent={0} type="circle" />
-                      </Tooltip>
-                    </Col>
-                    <Col span={12}>
-                      <Tooltip title="여" className={classes.recruit_circle_progress}>
-                        <Progress percent={40} successPercent={0} type="circle" strokeColor="red" />
-                      </Tooltip>
-                    </Col>
-                  </Row>
-                </Col>
-                <Col span={12}>
-                  <div>연령별 현황: </div>
-                  <div style={{ width: 400 }}>
-                    20대 <Progress percent={30} size="small" />
-                    30대 <Progress percent={50} size="small" strokeColor="red" />
-                    40대 <Progress percent={20} size="small" strokeColor="purple" />
-                  </div>
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
-        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-          <Col span={24}>
-            <div className={classes.recruit_company_information}>
-              기업정보
-              <Row>
-                <Col span={8}>
-                  <img
-                    src="https://previews.123rf.com/images/aquir/aquir1311/aquir131100316/23569861-sample-grunge-red-round-stamp.jpg"
-                    height="120px"
-                    alt="company"
-                  />
-                </Col>
-                <Col span={16}>
-                  <Row>
-                    <Col span={6}>
-                      <Title level={4}>회사이름</Title>
-                    </Col>
-                    <Col span={18}>
-                      <Text keyboard>Tag1</Text>
-                      <Text keyboard>Tag2</Text>
-                      <Text keyboard>Tag3</Text>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col span={12}> 1번항목</Col>
-                    <Col span={12}> 2번항목</Col>
-                  </Row>
-                  <Row>
-                    <Col span={12}> 3번항목</Col>
-                    <Col span={12}> 4번항목</Col>
-                  </Row>
-                  <Row>
-                    <Col span={12}> 5번항목</Col>
-                    <Col span={12}> 6번항목</Col>
-                  </Row>
-                </Col>
-              </Row>
-            </div>
           </Col>
         </Row>
       </>
