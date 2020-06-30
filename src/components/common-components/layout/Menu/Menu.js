@@ -9,7 +9,9 @@ const Menu = () => {
     <>
       <nav className={classes.nav}>
         <ul className={classes.list}>
-          <li className={classNames(classes.item, classes.active)}>탐색</li>
+          <li className={classNames(classes.item, classes.active)}>
+            <Link to="/jobs">탐색</Link>
+          </li>
           <li className={classes.item}>직군별 연봉</li>
           <li className={classes.item}>
             <Link to="/resume">이력서</Link>

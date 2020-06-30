@@ -10,7 +10,7 @@ class ResumeTop extends Component {
         <Steps
           type="navigation"
           current={this.props.current}
-          onChange={this.props.setCurrent}
+          onChange={this.props.onChange}
           className="site-navigation-steps"
           style={{ marginTop: 30, marginBottom: 40 }}
         >
