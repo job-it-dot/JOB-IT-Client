@@ -6,7 +6,6 @@ import { Row, Col } from 'antd';
 import Up from './Up';
 import classes from './TestList.module.less';
 import SearchsButton from './SearchsButton';
-import './index.css';
 import JiyeoSearchs from './Searchs';
 
 class TestList extends Component {

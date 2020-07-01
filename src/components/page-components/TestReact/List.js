@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import './index.css';
 import { List, message, Avatar, Spin } from 'antd';
 import reqwest from 'reqwest';
 
