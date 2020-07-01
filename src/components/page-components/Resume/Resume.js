@@ -12,7 +12,7 @@ import {
   LinkOutlined,
 } from '@ant-design/icons';
 import './Resume.css';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ResumeFormTop from './ResumeTop';
 
 const { Dragger } = Upload;
@@ -39,9 +39,8 @@ class Resume extends Component {
     current: 0,
   };
 
-  resumeChange = (e) => {
-    console.log(e.target.value);
-    this.setState({ current: e.target.value * 1 });
+  resumeChange = (current) => {
+    this.setState({ current });
   };
 
   onChange = (current) => {
@@ -237,7 +236,7 @@ class Resume extends Component {
               htmlType="button"
               value="1"
               style={{ width: 150, height: 40, marginBottom: 50 }}
-              onClick={this.resumeChange}
+              onClick={() => this.resumeChange(1)}
             >
               다음
             </Button>
@@ -343,7 +342,7 @@ class Resume extends Component {
               type="primary"
               htmlType="button"
               style={{ width: 150, height: 40, marginBottom: 50 }}
-              onClick={this.resumeChange}
+              onClick={() => this.resumeChange(2)}
               value="2"
             >
               다음
@@ -420,7 +419,7 @@ class Resume extends Component {
               type="primary"
               htmlType="button"
               style={{ width: 150, height: 40, marginBottom: 50 }}
-              onClick={this.resumeChange}
+              onClick={() => this.resumeChange(3)}
               value="3"
             >
               다음
@@ -497,7 +496,7 @@ class Resume extends Component {
               htmlType="button"
               style={{ width: 150, height: 40, marginBottom: 50 }}
               value="4"
-              onClick={this.resumeChange}
+              onClick={() => this.resumeChange(4)}
             >
               다음
             </Button>
@@ -572,7 +571,7 @@ class Resume extends Component {
               htmlType="button"
               style={{ width: 150, height: 40, marginBottom: 50 }}
               value="5"
-              onClick={this.resumeChange}
+              onClick={() => this.resumeChange(5)}
             >
               다음
             </Button>
@@ -655,4 +654,4 @@ class Resume extends Component {
   }
 }
 
-export default withRouter(Resume);
+export default Resume;

@@ -1,10 +1,16 @@
 import React from 'react';
 import { Row, Col, Typography, Card } from 'antd';
+import { useHistory } from 'react-router-dom';
 const { Title } = Typography;
 
 const { Meta } = Card;
 
 const Jobs = () => {
+  let history = useHistory();
+
+  const cardClick = () => {
+    history.push('/recruitDetail');
+  };
   return (
     <div style={{ marginTop: 30 }}>
       <Title level={4} style={{ marginLeft: 5, marginBottom: 16 }}>
@@ -16,6 +22,7 @@ const Jobs = () => {
             <Card
               hoverable
               cover={<img alt="example" src="https://t1.daumcdn.net/comis/jobs/images/logo/meta_career.png" />}
+              onClick={cardClick}
             >
               <Meta title="백엔드 자바 개발자" description="카카오" />
             </Card>
