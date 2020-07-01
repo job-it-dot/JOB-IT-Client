@@ -3,6 +3,10 @@ import Resume from '../components/page-components/resume/Resume';
 
 export default class ResumeForm extends Component {
   render() {
-    return <Resume />;
+    return (
+      <div>
+        <Resume />
+      </div>
+    );
   }
 }
