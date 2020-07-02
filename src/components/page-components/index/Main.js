@@ -28,11 +28,6 @@ class Main extends Component {
             <table width="97%">
               <tr>
                 <td align="center">
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
                   <div className={classes.smallDiv}>
                     <br></br>
                     <br></br>
@@ -45,11 +40,6 @@ class Main extends Component {
                   </div>
                 </td>
                 <td align="center">
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
                   <div className={classes.smallDiv}>
                     <br></br>
                     <br></br>
