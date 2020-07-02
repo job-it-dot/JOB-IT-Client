@@ -9,9 +9,9 @@ class ResumeViewMain extends Component {
         <Col span={24}>
           <br></br>
           <div>
-            <h1>인적사항</h1>
+            <h2>인적사항</h2>
             <hr></hr>
-            <tabel>
+            <table>
               <tr>
                 <td>
                   <h3>김경화</h3>
@@ -24,16 +24,16 @@ class ResumeViewMain extends Component {
                 <td width="100px">Email |</td>
                 <td width="200px">khkim@kosta.com</td>
               </tr>
-            </tabel>
+            </table>
           </div>
 
           <br></br>
           <br></br>
 
           <div>
-            <h1>학력</h1>
+            <h2>학력</h2>
             <hr></hr>
-            <tabel>
+            <table>
               <tr>
                 <td>2020.02 ~ 2020.07</td>
                 <td>
@@ -46,16 +46,16 @@ class ResumeViewMain extends Component {
                 <td width="100px">학점 |</td>
                 <td width="200px">4.5 / 4.5</td>
               </tr>
-            </tabel>
+            </table>
           </div>
 
           <br></br>
           <br></br>
 
           <div>
-            <h1>경력</h1>
+            <h2>경력</h2>
             <hr></hr>
-            <tabel>
+            <table>
               <tr>
                 <td>2020.02 ~</td>
                 <td>
@@ -73,16 +73,16 @@ class ResumeViewMain extends Component {
                   내가 다 개발함 ㅅㄱ
                 </td>
               </tr>
-            </tabel>
+            </table>
           </div>
 
           <br></br>
           <br></br>
 
           <div>
-            <h1>자격증</h1>
+            <h2>자격증</h2>
             <hr></hr>
-            <tabel>
+            <table>
               <tr>
                 <td width="100px">2018.08</td>
                 <td width="100px">
@@ -90,46 +90,46 @@ class ResumeViewMain extends Component {
                 </td>
                 <td>한국산업인력공단</td>
               </tr>
-            </tabel>
+            </table>
           </div>
 
           <br></br>
           <br></br>
 
           <div>
-            <h1>어학능력</h1>
+            <h2>어학능력</h2>
             <hr></hr>
-            <tabel>
+            <table>
               <tr>
                 <td width="100px">
                   <h3>영어</h3>
                 </td>
                 <td>상</td>
               </tr>
-            </tabel>
+            </table>
           </div>
 
           <br></br>
           <br></br>
 
           <div>
-            <h1>포트폴리오</h1>
+            <h2>포트폴리오</h2>
             <hr></hr>
-            <tabel>
+            <table>
               <tr>
                 <td width="300px">https://github.com/KyunghwaKim</td>
                 <td>포폴올린거 다운</td>
               </tr>
-            </tabel>
+            </table>
           </div>
 
           <br></br>
           <br></br>
 
           <div>
-            <h1>자기소개서</h1>
+            <h2>자기소개서</h2>
             <hr></hr>
-            <tabel>
+            <table>
               <tr>
                 <td>
                   <b>[백엔드의 밝은 미래 김경화]</b>
@@ -141,7 +141,7 @@ class ResumeViewMain extends Component {
                   저를 뽑으세요.
                 </td>
               </tr>
-            </tabel>
+            </table>
           </div>
         </Col>
 

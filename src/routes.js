@@ -10,6 +10,8 @@ import Resume from './components/page-components/Resume/Resume';
 import RecruitDetail from './pages/Recruit';
 import Jobs from './components/page-components/index/Jobs';
 import FindPassWord from './pages/FindPassWord';
+import ResumeList from './components/page-components/Resume/ResumeList';
+import ResumeView from './pages/ResumeView';
 
 export default (
   <Switch>
@@ -20,7 +22,9 @@ export default (
     <Route exact path="/jobs" component={Jobs} />
     <PrivateRoutes exact path="/" component={Jobs} />
     {/* <PrivateRoutes exact path="/" component={Index} /> */}
+    <PrivateRoutes exact path="/resumeList" component={ResumeList} />
     <PrivateRoutes exact path="/resume" component={Resume} />
     <PrivateRoutes exact path="/resumeResult" component={ResumeResult} />
+    <PrivateRoutes exact path="/resumeView" component={ResumeView} />
   </Switch>
 );

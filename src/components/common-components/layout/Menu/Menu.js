@@ -16,7 +16,7 @@ const Menu = () => {
           </li>
           <li className={classes.item}>직군별 연봉</li>
           <li className={classes.item}>
-            <Link to="/resume" style={{ color: 'black' }}>
+            <Link to="/resumeList" style={{ color: 'black' }}>
               이력서
             </Link>
           </li>
