@@ -9,7 +9,7 @@ class ResumeViewMain extends Component {
         <Col span={24}>
           <br></br>
           <div>
-            <h1>인적사항</h1>
+            <h2>인적사항</h2>
             <hr></hr>
             <tabel>
               <tr>
@@ -31,7 +31,7 @@ class ResumeViewMain extends Component {
           <br></br>
 
           <div>
-            <h1>학력</h1>
+            <h2>학력</h2>
             <hr></hr>
             <tabel>
               <tr>
@@ -53,7 +53,7 @@ class ResumeViewMain extends Component {
           <br></br>
 
           <div>
-            <h1>경력</h1>
+            <h2>경력</h2>
             <hr></hr>
             <tabel>
               <tr>
@@ -80,7 +80,7 @@ class ResumeViewMain extends Component {
           <br></br>
 
           <div>
-            <h1>자격증</h1>
+            <h2>자격증</h2>
             <hr></hr>
             <tabel>
               <tr>
@@ -97,7 +97,7 @@ class ResumeViewMain extends Component {
           <br></br>
 
           <div>
-            <h1>어학능력</h1>
+            <h2>어학능력</h2>
             <hr></hr>
             <tabel>
               <tr>
@@ -113,7 +113,7 @@ class ResumeViewMain extends Component {
           <br></br>
 
           <div>
-            <h1>포트폴리오</h1>
+            <h2>포트폴리오</h2>
             <hr></hr>
             <tabel>
               <tr>
@@ -127,7 +127,7 @@ class ResumeViewMain extends Component {
           <br></br>
 
           <div>
-            <h1>자기소개서</h1>
+            <h2>자기소개서</h2>
             <hr></hr>
             <tabel>
               <tr>
