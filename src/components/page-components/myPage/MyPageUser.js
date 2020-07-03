@@ -11,15 +11,14 @@ class MyPageUser extends Component {
           <Descriptions.Item label="이름" span={3}>
             이름
           </Descriptions.Item>
+          <Descriptions.Item label="아이디" span={3}>
+            아이디
+          </Descriptions.Item>
           <Descriptions.Item label="이메일" span={3}>
             이메일
           </Descriptions.Item>
           <Descriptions.Item label="전화번호" span={3}>
             전화번호
-          </Descriptions.Item>
-
-          <Descriptions.Item label="이메일" span={3}>
-            wnsduddududud@naver.com
           </Descriptions.Item>
 
           <Descriptions.Item label="전화번호" span={3}>
@@ -44,7 +43,7 @@ class MyPageUser extends Component {
         </Descriptions>
 
         <Link to="/MyPageUerUpdate">
-          <Button style={{ marginTop: 30, marginLeft: 280 }} type="primary" htmlType="submit">
+          <Button className={css.test} type="primary" htmlType="submit">
             수정하기
           </Button>
         </Link>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Menu } from 'antd';
-import MypageContent from './MyPageContent';
+import MypageContent from './MyPagePasswordChange';
 import MyPageResumeList from './MyPageResumeList';
 import MyPageUserUpdate from './MyPageUserUpdate';
 

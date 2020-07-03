@@ -5,8 +5,8 @@ import PrivateRoutes from './components/common-components/route/PrivateRoutes';
 import Index from './pages/Index';
 import Login from './pages/Login.js';
 import UserSignUp from './pages/SignUpUser.js';
-import testList from './components/page-components/TestReact/TestList';
-import ABC from './components/page-components/TestReact/ABC';
+import testList from './components/page-components/Search/TestList';
+import ABC from './components/page-components/Search/ABC';
 import Mypage from './pages/MyPage';
 
 export default (
