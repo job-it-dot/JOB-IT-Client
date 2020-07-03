@@ -11,6 +11,7 @@ import RecruitDetail from './pages/Recruit';
 import Jobs from './components/page-components/index/Jobs';
 import FindPassWord from './pages/FindPassWord';
 import resumeView from './pages/ResumeView.js';
+import Apply from './pages/Apply.js';
 
 export default (
   <Switch>
@@ -20,6 +21,7 @@ export default (
     <Route exact path="/recruitDetail" component={RecruitDetail} />
     <Route exact path="/jobs" component={Jobs} />
     <Route exact path="/resumeView" component={resumeView} />
+    <Route exact path="/apply" component={Apply} />
     {/*<PrivateRoutes exact path="/" component={Jobs} />*/}
     <PrivateRoutes exact path="/" component={Index} />
     <PrivateRoutes exact path="/resume" component={Resume} />

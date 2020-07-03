@@ -4,8 +4,13 @@ import { Row, Col } from 'antd';
 import { Button } from 'antd';
 import './Main.css';
 import logo from './logo.png';
+import { Link, withRouter } from 'react-router-dom';
 
 class Main extends Component {
+  handleLogin = () => {
+    this.props.history.push('/login');
+  };
+
   render() {
     return (
       <>
@@ -15,7 +20,7 @@ class Main extends Component {
               <b className={classes.bStyle}>요즘 이직, 잡잇</b>
               <p style={{ fontSize: 20 }}>나에게 딱 맞는 회사, 잡잇에서 찾아보세요!</p>
               <Button className="btn" type="primary" shape="round" size={'large'}>
-                지금 시작하기
+                <Link to="/login">지금 시작하기</Link>
               </Button>
             </div>
           </Col>
@@ -26,30 +31,32 @@ class Main extends Component {
         <Row>
           <div className={classes.secondBackground}>
             <table width="97%">
-              <tr>
-                <td align="center">
-                  <div className={classes.smallDiv}>
-                    <br></br>
-                    <br></br>
-                    <b style={{ fontSize: 35 }}>매치업</b>
-                    <br></br>
-                    <br></br>
-                    프로필 등록 한번으로 인사담당자에게<br></br>
-                    직접 면접 제안을 받으세요.<br></br>
-                    <br></br>더 알아보기
-                  </div>
-                </td>
-                <td align="center">
-                  <div className={classes.smallDiv}>
-                    <br></br>
-                    <br></br>
-                    <b style={{ fontSize: 35 }}>맞춤 검색</b>
-                    <br></br>
-                    <br></br>
-                    '재택근무', '반려동물'<br></br>내 취향에 맞는 회사를 찾아보세요.
-                  </div>
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td align="center">
+                    <div className={classes.smallDiv}>
+                      <br></br>
+                      <br></br>
+                      <b style={{ fontSize: 35 }}>매치업</b>
+                      <br></br>
+                      <br></br>
+                      프로필 등록 한번으로 인사담당자에게<br></br>
+                      직접 면접 제안을 받으세요.<br></br>
+                      <br></br>더 알아보기
+                    </div>
+                  </td>
+                  <td align="center">
+                    <div className={classes.smallDiv}>
+                      <br></br>
+                      <br></br>
+                      <b style={{ fontSize: 35 }}>맞춤 검색</b>
+                      <br></br>
+                      <br></br>
+                      '재택근무', '반려동물'<br></br>내 취향에 맞는 회사를 찾아보세요.
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </Row>
@@ -60,67 +67,73 @@ class Main extends Component {
             <br></br>
             <br></br>
             <table>
-              <tr>
-                <td width="300">
-                  <img
-                    width="150"
-                    alt="example"
-                    src="https://static.wanted.co.kr/images/home/logos/logo_naver.png"
-                  ></img>
-                </td>
-                <td width="300">
-                  <img
-                    width="150"
-                    alt="example"
-                    src="https://static.wanted.co.kr/images/home/logos/logo_toss.png"
-                  ></img>
-                </td>
-                <td width="300">
-                  <img
-                    width="150"
-                    alt="example"
-                    src="https://static.wanted.co.kr/images/home/logos/logo_kakao.png"
-                  ></img>
-                </td>
-                <td width="300">
-                  <img
-                    width="150"
-                    alt="example"
-                    src="https://static.wanted.co.kr/images/home/logos/logo_coupang.png"
-                  ></img>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    width="150"
-                    alt="example"
-                    src="https://static.wanted.co.kr/images/home/logos/logo_airbnb.png"
-                  ></img>
-                </td>
-                <td>
-                  <img
-                    width="150"
-                    alt="example"
-                    src="https://static.wanted.co.kr/images/home/logos/logo_wooahan.png"
-                  ></img>
-                </td>
-                <td>
-                  <img width="150" alt="example" src="https://static.wanted.co.kr/images/home/logos/logo_skt.png"></img>
-                </td>
-                <td>
-                  <img
-                    width="150"
-                    alt="example"
-                    src="https://static.wanted.co.kr/images/home/logos/logo_facebook.png"
-                  ></img>
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td width="300">
+                    <img
+                      width="150"
+                      alt="example"
+                      src="https://static.wanted.co.kr/images/home/logos/logo_naver.png"
+                    ></img>
+                  </td>
+                  <td width="300">
+                    <img
+                      width="150"
+                      alt="example"
+                      src="https://static.wanted.co.kr/images/home/logos/logo_toss.png"
+                    ></img>
+                  </td>
+                  <td width="300">
+                    <img
+                      width="150"
+                      alt="example"
+                      src="https://static.wanted.co.kr/images/home/logos/logo_kakao.png"
+                    ></img>
+                  </td>
+                  <td width="300">
+                    <img
+                      width="150"
+                      alt="example"
+                      src="https://static.wanted.co.kr/images/home/logos/logo_coupang.png"
+                    ></img>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      width="150"
+                      alt="example"
+                      src="https://static.wanted.co.kr/images/home/logos/logo_airbnb.png"
+                    ></img>
+                  </td>
+                  <td>
+                    <img
+                      width="150"
+                      alt="example"
+                      src="https://static.wanted.co.kr/images/home/logos/logo_wooahan.png"
+                    ></img>
+                  </td>
+                  <td>
+                    <img
+                      width="150"
+                      alt="example"
+                      src="https://static.wanted.co.kr/images/home/logos/logo_skt.png"
+                    ></img>
+                  </td>
+                  <td>
+                    <img
+                      width="150"
+                      alt="example"
+                      src="https://static.wanted.co.kr/images/home/logos/logo_facebook.png"
+                    ></img>
+                  </td>
+                </tr>
+              </tbody>
             </table>
             <br></br>
             <br></br>
             <br></br>
-            <Button className="btn" type="primary" shape="round" size={'large'}>
+            <Button className="btn" type="primary" shape="round" size={'large'} onClick={this.handleLogin}>
               지금 시작하기
             </Button>
           </div>
@@ -130,4 +143,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(Main);
