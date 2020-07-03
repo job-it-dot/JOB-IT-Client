@@ -5,7 +5,57 @@ import css from './MyPage.module.less';
 import './test.css';
 import DaumPostcodes from './DaumPostcode';
 
+const { Option } = Select;
+
+function handleChange(value) {
+  console.log(`selected ${value}`);
+}
+
 class MyPageUserUpdate extends Component {
+  state = { form: { message: '' } };
+
+  handleChangeInput = (event) => {
+    const { value, maxLength } = event.target;
+    const message = value.slice(0, maxLength);
+
+    this.setState({
+      form: {
+        message,
+      },
+    });
+  };
+
+  handleChangeInputs = (event) => {
+    const { value, maxLength } = event.target;
+    const message = value.slice(0, maxLength);
+
+    this.setState({
+      form: {
+        message,
+      },
+    });
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      financialGoal: '',
+      financialGoals: '',
+    };
+  }
+
+  handleChange(evt) {
+    const financialGoal = evt.target.validity.valid ? evt.target.value : this.state.financialGoal;
+
+    this.setState({ financialGoal });
+  }
+
+  handleChanges(evt) {
+    const financialGoals = evt.target.validity.valid ? evt.target.value : this.state.financialGoals;
+
+    this.setState({ financialGoals });
+  }
+
   state = {
     Zipcode: '',
     roadAddress: '',
@@ -115,18 +165,36 @@ class MyPageUserUpdate extends Component {
               </Descriptions.Item>
 
               <Descriptions.Item label="전화번호" span={3}>
-                <Select id="txtMobile1" placeholder="010">
-                  <option value="010">010</option>
-                  <option value="011">011</option>
-                  <option value="016">016</option>
-                  <option value="017">017</option>
-                  <option value="018">018</option>
-                  <option value="019">019</option>
+                <Select placeholder="010" onChange={handleChange}>
+                  <Option value="010">010</Option>
+                  <Option value="011">011</Option>
+                  <Option value="016">016</Option>
+                  <Option value="017">017</Option>
+                  <Option value="018">018</Option>
+                  <Option value="019">019</Option>
                 </Select>
                 <strong className={css.PhoneNumberTextBox}>-</strong>
-                <Input type="text" placeholder="0000" minLength="4" maxLength="4" className={css.PhoneNumberTextBox} />
+                <Input
+                  type="text"
+                  placeholder="0000"
+                  pattern="[0-9]*"
+                  maxLength="4"
+                  onInput={this.handleChange.bind(this)}
+                  value={this.state.financialGoal}
+                  onChange={this.handleChangeInput}
+                  className={css.PhoneNumberTextBox}
+                />
                 <strong className={css.PhoneNumberTextBox}>-</strong>
-                <Input type="text" placeholder="0000" minLength="4" maxLength="4" className={css.PhoneNumberTextBox} />
+                <Input
+                  type="text"
+                  placeholder="0000"
+                  pattern="[0-9]*"
+                  maxLength="4"
+                  onInput={this.handleChanges.bind(this)}
+                  value={this.state.financialGoals}
+                  onChange={this.handleChangeInputs}
+                  className={css.PhoneNumberTextBox}
+                />
               </Descriptions.Item>
 
               <Descriptions.Item label="생년월일" span={5} className={css.font}>
@@ -139,13 +207,13 @@ class MyPageUserUpdate extends Component {
                   rules={[
                     {
                       type: 'number',
-                      defaultValue: 24,
+                      initialValues: 24,
                       min: 15,
                       max: 120,
                     },
                   ]}
                 >
-                  <InputNumber defaultValue={24} />
+                  <InputNumber initialValues={24} />
                 </Form.Item>
               </Descriptions.Item>
               <Descriptions.Item label="성별" span={14}>

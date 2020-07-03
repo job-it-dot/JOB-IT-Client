@@ -38,10 +38,10 @@ class MyPage extends Component {
 
     return (
       <Row>
-        <Col span={18} push={6} style={{ height: 900 }}>
+        <Col span={18} push={6} style={{ height: 1500 }}>
           {u}
         </Col>
-        <Col span={6} pull={18} style={{ height: 900 }}>
+        <Col span={6} pull={18} style={{ height: 1500 }}>
           <MyPageSide handleClick1={this.handleClick1} />
         </Col>
       </Row>

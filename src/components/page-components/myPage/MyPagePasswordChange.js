@@ -86,12 +86,12 @@ class MypageContent extends Component {
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
             >
-              <Form.Item name="email" rules={[{ required: true, message: '현재 비밀번호를 입력해주세요.' }]}>
+              <Form.Item rules={[{ required: true, message: '현재 비밀번호를 입력해주세요.' }]}>
                 현재 비밀번호{' '}
                 <Input type="password" placeholder="현재 비밀번호를 입력해주세요." style={{ width: 460 }} />
               </Form.Item>
 
-              <Form.Item name="userName" rules={[{ required: true, message: '새로운 비밀번호를 입력해주세요' }]}>
+              <Form.Item rules={[{ required: true, message: '새로운 비밀번호를 입력해주세요' }]}>
                 새로운 비밀번호{' '}
                 <Input
                   type="password"
@@ -102,10 +102,7 @@ class MypageContent extends Component {
                 />
               </Form.Item>
 
-              <Form.Item
-                name="userName"
-                rules={[{ required: true, message: '새로운 비밀번호 확인을 위해 입력해주세요' }]}
-              >
+              <Form.Item rules={[{ required: true, message: '새로운 비밀번호 확인을 위해 입력해주세요' }]}>
                 새로운 비밀번호 확인
                 <Input
                   type="password"

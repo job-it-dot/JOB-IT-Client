@@ -63,13 +63,15 @@ class MypageScrap extends Component {
         <h2>스크랩공고</h2>
         <Form>
           <div className={css.divbox}>
-            <Form.Field control={Checkbox} style={{ marginLeft: 25, marginTop: 5 }} />
-            <Form.Field>
-              <Button style={{ left: 50, top: 0, padding: 0 }} className={css.buttonstyle}>
-                삭제
-              </Button>
-            </Form.Field>
+            <div style={{ width: 20, height: 20 }}>
+              <Form.Field control={Checkbox} />
+            </div>
+
+            <Button className={css.buttonstyle} style={{ left: 400, padding: 0, height: 25 }}>
+              삭제
+            </Button>
           </div>
+
           <div className={css.demoInfiniteContainer}>
             <InfiniteScroll
               initialLoad={false}
