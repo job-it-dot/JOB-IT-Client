@@ -10,6 +10,7 @@ const ResumeList = () => {
 
   const ResumeClick = () => {
     console.log('등록한 이력서 보기');
+    history.push('/ResumeView');
   };
 
   const ResumeInsertClick = () => {
