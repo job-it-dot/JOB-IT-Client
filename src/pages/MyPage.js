@@ -3,10 +3,9 @@ import MyPageSide from './../components/page-components/myPage/MyPageSide';
 import MyPageUser from './../components/page-components/myPage/MyPageUser';
 import { Row, Col } from 'antd';
 import MyPagePasswordChange from '../components/page-components/myPage/MyPagePasswordChange';
-import MyPageSupportList from '../components/page-components/myPage/MyPageSupportList';
-import MyPageResumeList from '../components/page-components/myPage/MyPageResumeList';
 import MyPageUserUpdate from '../components/page-components/myPage/MyPageUserUpdate';
 import MypageScrap from '../components/page-components/myPage/MypageScrap';
+import MyPageAttention from '../components/page-components/myPage/MypageAttention';
 
 class MyPage extends Component {
   state = { key: '0' };
@@ -29,19 +28,15 @@ class MyPage extends Component {
     } else if (key === '6') {
       u = <MypageScrap />;
     } else if (key === '7') {
-      u = <MyPagePasswordChange />;
-    } else if (key === '8') {
-      u = <MyPageResumeList />;
-    } else if (key === '9') {
-      u = <MyPageSupportList />;
+      u = <MyPageAttention />;
     }
 
     return (
       <Row>
-        <Col span={18} push={6} style={{ height: 1500 }}>
+        <Col span={18} push={6} style={{ height: 1000 }}>
           {u}
         </Col>
-        <Col span={6} pull={18} style={{ height: 1500 }}>
+        <Col span={6} pull={18} style={{ height: 1000 }}>
           <MyPageSide handleClick1={this.handleClick1} />
         </Col>
       </Row>

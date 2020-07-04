@@ -36,7 +36,7 @@ class MyPageUser extends Component {
               남성
             </Descriptions.Item>
             <Descriptions.Item label="우편번호" span={3}>
-              경기도 권선구 권선로 165
+              경기도 권선구 권선성로 165
             </Descriptions.Item>
             <Descriptions.Item label="주소" span={3}>
               자이e편한세상 111동 111호

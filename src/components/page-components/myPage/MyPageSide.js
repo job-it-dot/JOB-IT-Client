@@ -25,10 +25,7 @@ class MyPageSide extends Component {
               <SubMenu key="2" title="스크랩/관심기업">
                 <Menu.Item key="6">스크랩</Menu.Item>
                 <Menu.Item key="7">관심기업</Menu.Item>
-                <Menu.Item key="8">최근본 공고</Menu.Item>
               </SubMenu>
-              <Menu.Item key="9">입사지원 목록</Menu.Item>
-              <Menu.Item key="10">test</Menu.Item>
             </Menu>
           </div>
         </Col>

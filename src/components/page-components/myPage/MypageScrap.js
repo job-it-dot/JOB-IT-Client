@@ -1,118 +1,93 @@
 import React, { Component } from 'react';
-import { Col, List, message, Spin, Button } from 'antd';
-import { Checkbox, Form } from 'semantic-ui-react';
-import reqwest from 'reqwest';
-import InfiniteScroll from 'react-infinite-scroller';
+import { Table, Button } from 'antd';
 import 'antd/dist/antd.css';
 import css from './MyPage.module.less';
 
-const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
+const columns = [
+  {
+    title: '기업명',
+    dataIndex: 'name',
+  },
+  {
+    title: '요건',
+    dataIndex: 'age',
+  },
+  {
+    title: '공고',
+    dataIndex: 'address',
+  },
+  {
+    title: '지원',
+    dataIndex: 'button',
+  },
+  {
+    title: '마감일',
+    dataIndex: 'date',
+  },
+];
 
-class MypageScrap extends Component {
+const data = [];
+for (let i = 0; i < 46; i++) {
+  data.push({
+    key: i,
+    name: `jobit(주) 테스ㅌㅌㅌㅌㅌ ${i}`,
+    age: `대졸이상, java가능자 오라클가능자 자바스크립트가능자 다가능한사람`,
+    address: `2020년 kosta web 과정 인재모집 중ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ${i}`,
+    button: (
+      <Button className={css.buttonstyle} style={{ marginBottom: 60, right: 20 }}>
+        즉시지원
+      </Button>
+    ),
+    date: `~07/20`,
+  });
+}
+
+class MyPageResumeList extends Component {
   state = {
-    data: [],
+    selectedRowKeys: [], // Check here to configure the default column
     loading: false,
-    hasMore: true,
   };
 
-  componentDidMount() {
-    this.fetchData((res) => {
+  start = () => {
+    this.setState({ loading: true });
+    // ajax request after empty completing
+    setTimeout(() => {
       this.setState({
-        data: res.results,
+        selectedRowKeys: [],
+        loading: false,
       });
-    });
-  }
-
-  fetchData = (callback) => {
-    reqwest({
-      url: fakeDataUrl,
-      type: 'json',
-      method: 'get',
-      contentType: 'application/json',
-      success: (res) => {
-        callback(res);
-      },
-    });
+    }, 50);
   };
 
-  handleInfiniteOnLoad = () => {
-    let { data } = this.state;
-    this.setState({
-      loading: true,
-    });
-    if (data.length > 14) {
-      message.warning('Infinite List loaded all');
-      this.setState({
-        hasMore: false,
-        loading: false,
-      });
-      return;
-    }
-    this.fetchData((res) => {
-      data = data.concat(res.results);
-      this.setState({
-        data,
-        loading: false,
-      });
-    });
+  onSelectChange = (selectedRowKeys) => {
+    console.log('selectedRowKeys changed: ', selectedRowKeys);
+    this.setState({ selectedRowKeys });
   };
 
   render() {
+    const { loading, selectedRowKeys } = this.state;
+    const rowSelection = {
+      selectedRowKeys,
+      onChange: this.onSelectChange,
+    };
+    const hasSelected = selectedRowKeys.length > 0;
     return (
-      <Col span={22} style={{ marginLeft: 20, marginTop: 80, height: 800 }}>
-        <h2>스크랩공고</h2>
-        <Form>
-          <div className={css.divbox}>
-            <div style={{ width: 20, height: 20 }}>
-              <Form.Field control={Checkbox} />
-            </div>
-
-            <Button className={css.buttonstyle} style={{ left: 400, padding: 0, height: 25 }}>
-              삭제
-            </Button>
-          </div>
-
-          <div className={css.demoInfiniteContainer}>
-            <InfiniteScroll
-              initialLoad={false}
-              pageStart={0}
-              loadMore={this.handleInfiniteOnLoad}
-              hasMore={!this.state.loading && this.state.hasMore}
-              useWindow={false}
-              style={{ height: 600 }}
-            >
-              <List
-                dataSource={this.state.data}
-                renderItem={(item) => (
-                  <List.Item key={item.id}>
-                    <Form.Field control={Checkbox} />
-                    {/* <input type="checkbox" className={css.checksEtrans}/> */}
-
-                    <List.Item.Meta
-                      title={<h3>Jobit(주)</h3>}
-                      description={<h5>2020년 kosta web과정 인재 모집</h5>}
-                      style={{ marginLeft: 30 }}
-                    />
-                    <div>
-                      {' '}
-                      <Button className={css.buttonstyle}>즉시지원</Button>
-                      <h6 style={{ marginLeft: 45, marginTop: 30 }}>~07/20</h6>
-                    </div>
-                  </List.Item>
-                )}
-              >
-                {this.state.loading && this.state.hasMore && (
-                  <div style={{}} className={css.demoLoadingContainer}>
-                    <Spin />
-                  </div>
-                )}
-              </List>
-            </InfiniteScroll>
-          </div>
-        </Form>
-      </Col>
+      <div style={{ marginTop: 20 }}>
+        <div>
+          <Button type="primary" onClick={this.start} disabled={!hasSelected} loading={loading} className={css.sbutton}>
+            삭제
+          </Button>
+        </div>
+        <Table
+          className="tableChange"
+          rowSelection={rowSelection}
+          columns={columns}
+          dataSource={data}
+          pagination={{ pageSize: 5 }}
+        />
+      </div>
     );
   }
 }
 
-export default MypageScrap;
+export default MyPageResumeList;

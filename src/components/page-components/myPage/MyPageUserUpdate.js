@@ -200,7 +200,7 @@ class MyPageUserUpdate extends Component {
               <Descriptions.Item label="생년월일" span={5} className={css.font}>
                 <strong style={{ color: 'gray' }}>1997년 12월 27일</strong>
               </Descriptions.Item>
-              <Descriptions.Item label="나이" span={1} className="paddingAge">
+              <Descriptions.Item label="나이" span={2} className="paddingAge">
                 <Form.Item
                   className="sizeAge"
                   name={['user', 'age']}
@@ -216,7 +216,7 @@ class MyPageUserUpdate extends Component {
                   <InputNumber initialValues={24} />
                 </Form.Item>
               </Descriptions.Item>
-              <Descriptions.Item label="성별" span={14}>
+              <Descriptions.Item label="성별" span={2}>
                 <Radio.Group onChange={this.onChange} value={this.state.value}>
                   <Radio value={1} style={{ color: 'gray' }}>
                     남성

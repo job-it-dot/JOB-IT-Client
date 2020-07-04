@@ -5,17 +5,12 @@ import css from './MyPage.module.less';
 
 const columns = [
   {
-    dataIndex: 'name',
-  },
-  {
-    dataIndex: 'age',
-  },
-  {
-    title: '공고',
+    title: '회사명',
     dataIndex: 'address',
   },
   {
-    dataIndex: 'button',
+    title: '채용진행여부',
+    dataIndex: 'progress',
   },
 ];
 
@@ -23,18 +18,13 @@ const data = [];
 for (let i = 0; i < 46; i++) {
   data.push({
     key: i,
-    name: `jobit(주) ${i}`,
-    age: `대졸이상, java가능자`,
-    address: `2020년 kosta web 과정 인재모집 ${i}`,
-    button: (
-      <Button className={css.buttonstyle} style={{ marginBottom: 60 }}>
-        즉시지원
-      </Button>
-    ),
+
+    address: `한국소프트웨어인재개발원 ${i}`,
+    progress: `채용중 2개`,
   });
 }
 
-class MyPageResumeList extends Component {
+class MypageAttention extends Component {
   state = {
     selectedRowKeys: [], // Check here to configure the default column
     loading: false,
@@ -48,7 +38,7 @@ class MyPageResumeList extends Component {
         selectedRowKeys: [],
         loading: false,
       });
-    }, 1000);
+    }, 50);
   };
 
   onSelectChange = (selectedRowKeys) => {
@@ -65,15 +55,15 @@ class MyPageResumeList extends Component {
     const hasSelected = selectedRowKeys.length > 0;
     return (
       <div style={{ marginTop: 20 }}>
-        <div className="sbutton">
-          <Button type="primary" onClick={this.start} disabled={!hasSelected} loading={loading} className="sbutton">
+        <div>
+          <Button type="primary" onClick={this.start} disabled={!hasSelected} loading={loading} className={css.sbutton}>
             삭제
           </Button>
         </div>
-        <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+        <Table rowSelection={rowSelection} columns={columns} dataSource={data} pagination={{ pageSize: 5 }} />
       </div>
     );
   }
 }
 
-export default MyPageResumeList;
+export default MypageAttention;
