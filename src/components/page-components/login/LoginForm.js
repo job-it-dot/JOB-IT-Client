@@ -65,9 +65,9 @@ const LoginForm = () => {
           <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox>자동 로그인</Checkbox>
           </Form.Item>
-          <a className="login-form-forgot" href="a" style={{ float: 'right' }}>
-            비밀번호 찾기
-          </a>
+          <Link to="/findPassWord">
+            <span>비밀번호 찾기</span>
+          </Link>
         </div>
 
         <Form.Item>
