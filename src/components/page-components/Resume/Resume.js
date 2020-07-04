@@ -69,7 +69,7 @@ class Resume extends Component {
   };
 
   onFinish = (values) => {
-    console.log('Received values of form:', values);
+    console.log('Received values of form:', values.users);
   };
 
   render() {
@@ -86,49 +86,67 @@ class Resume extends Component {
                 <h2>개인정보</h2>
               </Col>
             </Row>
-            <Row style={{ marginBottom: 10 }}>
-              <Col span={5.5}>
-                <Input
-                  placeholder="이름"
-                  prefix={<UserOutlined className="site-form-item-icon" />}
-                  style={{ width: 250, height: 60, marginRight: 20 }}
-                />
-              </Col>
-              <Col span={5.5}>
-                <Input
-                  placeholder="휴대폰번호"
-                  prefix={<MobileOutlined className="site-form-item-icon" />}
-                  style={{ width: 250, height: 60, marginRight: 20 }}
-                />
-              </Col>
-              <Col span={5.5}>
-                <DatePicker
-                  placeholder="생년월일"
-                  onChange={this.onDateChange}
-                  style={{ width: 250, height: 60, marginRight: 20 }}
-                />
-              </Col>
-              <Col span={5.5}>
-                <Select defaultValue="성별" onChange={this.handleChange} className="large">
-                  <Option value="man">남자</Option>
-                  <Option value="woman">여자</Option>
-                </Select>
-              </Col>
-            </Row>
-            <Row style={{ marginBottom: 10 }}>
-              <Col span={16}>
-                <Input
-                  placeholder="주소"
-                  prefix={<HomeOutlined className="site-form-item-icon" />}
-                  suffix={
-                    <button onClick={this.importaddress} style={{ backgroundColor: 'white', border: 0 }}>
-                      <SearchOutlined />
-                    </button>
-                  }
-                  style={{ width: 920, height: 60, marginRight: 20 }}
-                />
-              </Col>
-            </Row>
+            <Form name="basic" onFinish={this.onFinish}>
+              <Row style={{ marginBottom: 10 }}>
+                <Col span={5.5}>
+                  <Form.Item name="userName">
+                    <Input
+                      placeholder="이름"
+                      prefix={<UserOutlined className="site-form-item-icon" />}
+                      style={{ width: 250, height: 60, marginRight: 20 }}
+                    />
+                  </Form.Item>
+                </Col>
+
+                <Col span={5.5}>
+                  <Form.Item name="phoneNumber">
+                    <Input
+                      placeholder="휴대폰번호"
+                      prefix={<MobileOutlined className="site-form-item-icon" />}
+                      style={{ width: 250, height: 60, marginRight: 20 }}
+                    />
+                  </Form.Item>
+                </Col>
+                <Col span={5.5}>
+                  <Form.Item name="birthDay">
+                    <DatePicker
+                      placeholder="생년월일"
+                      onChange={this.onDateChange}
+                      style={{ width: 250, height: 60, marginRight: 20 }}
+                    />
+                  </Form.Item>
+                </Col>
+                <Col span={5.5}>
+                  <Form.Item name="gender">
+                    <Select defaultValue="성별" onChange={this.handleChange} className="large">
+                      <Option value="man">남자</Option>
+                      <Option value="woman">여자</Option>
+                    </Select>
+                  </Form.Item>
+                </Col>
+              </Row>
+              <Row style={{ marginBottom: 10 }}>
+                <Col span={16}>
+                  <Form.Item name="addr">
+                    <Input
+                      placeholder="주소"
+                      prefix={<HomeOutlined className="site-form-item-icon" />}
+                      suffix={
+                        <button onClick={this.importaddress} style={{ backgroundColor: 'white', border: 0 }}>
+                          <SearchOutlined />
+                        </button>
+                      }
+                      style={{ width: 920, height: 60, marginRight: 20 }}
+                    />
+                  </Form.Item>
+                </Col>
+              </Row>
+              <Form.Item>
+                <Button type="primary" htmlType="submit" style={{ width: 150, height: 40, marginTop: 5 }}>
+                  개인정보 저장
+                </Button>
+              </Form.Item>
+            </Form>
             <Row>
               <Col span={25}>
                 <h2>학력</h2>
@@ -145,7 +163,7 @@ class Resume extends Component {
                           style={{ display: 'flex', flexWrap: 'wrap', marginBottom: 2 }}
                           align="start"
                         >
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'schoolSelect']}>
                             <Select defaultValue="학교구분" onChange={this.handleChange} className="school">
                               <Option value="HighSchool">고등학교</Option>
                               <Option value="JuniorCollege">대학(2,3년)</Option>
@@ -153,7 +171,7 @@ class Resume extends Component {
                               <Option value="GraduateSchool">대학원</Option>
                             </Select>
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'schoolName']}>
                             <Input
                               style={{ width: 160, height: 60 }}
                               placeholder="학교명"
@@ -165,7 +183,7 @@ class Resume extends Component {
                               }
                             />
                           </Form.Item>
-                          <Form.Item name="startschool">
+                          <Form.Item name={[field.name, 'firstDate']}>
                             <DatePicker
                               onChange={this.onDateChange}
                               picker="month"
@@ -173,7 +191,7 @@ class Resume extends Component {
                               style={{ width: 160, height: 60 }}
                             />
                           </Form.Item>
-                          <Form.Item name="finishschool">
+                          <Form.Item name={[field.name, 'endDate']}>
                             <DatePicker
                               onChange={this.onDateChange}
                               picker="month"
@@ -181,7 +199,7 @@ class Resume extends Component {
                               style={{ width: 160, height: 60 }}
                             />
                           </Form.Item>
-                          <Form.Item name="schoolstatus">
+                          <Form.Item name={[field.name, 'schoolStatus']}>
                             <Select defaultValue="졸업상태" onChange={this.handleChange} className="school">
                               <Option value="end">졸업</Option>
                               <Option value="soonEnd">졸업예정</Option>
@@ -191,13 +209,13 @@ class Resume extends Component {
                               <Option value="rest">휴학</Option>
                             </Select>
                           </Form.Item>
-                          <Form.Item name="sbuject">
+                          <Form.Item name={[field.name, 'subject']}>
                             <Input placeholder="전공명" style={{ width: 310, height: 60 }} />
                           </Form.Item>
-                          <Form.Item name="score">
+                          <Form.Item name={[field.name, 'score']}>
                             <Input placeholder="학점" style={{ width: 75, height: 60 }} />
                           </Form.Item>
-                          <Form.Item name="fullscore">
+                          <Form.Item name={[field.name, 'totalScore']}>
                             <Input placeholder="총점" style={{ width: 75, height: 60 }} />
                           </Form.Item>
                           <MinusCircleOutlined
@@ -261,33 +279,33 @@ class Resume extends Component {
                           style={{ display: 'flex', flexWrap: 'wrap', marginBottom: 2 }}
                           align="start"
                         >
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'employment']}>
                             <Select defaultValue="고용형태" onChange={this.handleChange} className="school">
                               <Option value="FullTime">정규직</Option>
                               <Option value="ContractWorker">계약직</Option>
                             </Select>
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'companyName']}>
                             <Input
                               style={{ width: 230, height: 60 }}
                               placeholder="회사명"
                               prefix={<BankOutlined className="site-form-item-icon" />}
                             />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'companyWorkingSpace']}>
                             <Input placeholder="부서" style={{ width: 127, height: 60 }} />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'companyValue']}>
                             <Input placeholder="직위" style={{ width: 90, height: 60 }} />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'nowWorking']}>
                             <Select defaultValue="재직여부" onChange={this.handleChange} className="school">
                               <Option value="now">재직</Option>
                               <Option value="rest">휴직</Option>
                               <Option value="no">퇴직</Option>
                             </Select>
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'workingTime']}>
                             <Select defaultValue="재직기간" onChange={this.handleChange} className="school">
                               <Option value="low_one">1년미만</Option>
                               <Option value="one">1~2년</Option>
@@ -300,10 +318,10 @@ class Resume extends Component {
                               <Option value="over_seven">8년이상</Option>
                             </Select>
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'responsibilities']}>
                             <Input placeholder="담당업무" style={{ width: 910, height: 60 }} />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'detailTechnology']}>
                             <TextArea rows={4} placeholder="상세기술" style={{ width: 880 }} />
                           </Form.Item>
                           <MinusCircleOutlined
@@ -368,14 +386,14 @@ class Resume extends Component {
                           style={{ display: 'flex', flexWrap: 'wrap', marginBottom: 2 }}
                           align="start"
                         >
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'certificateName']}>
                             <Input
                               style={{ width: 350, height: 60 }}
                               placeholder="자격증명"
                               prefix={<InboxOutlined className="site-form-item-icon" />}
                             />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'certificateDate']}>
                             <DatePicker
                               onChange={this.onDateChange}
                               picker="month"
@@ -445,14 +463,14 @@ class Resume extends Component {
                           style={{ display: 'flex', flexWrap: 'wrap', marginBottom: 2 }}
                           align="start"
                         >
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'foreignLanguage']}>
                             <Input
                               style={{ width: 200, height: 60 }}
                               placeholder="외국어명"
                               prefix={<InboxOutlined className="site-form-item-icon" />}
                             />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'level']}>
                             <Select defaultValue="수준" onChange={this.handleChange} className="school">
                               <Option value="normal">일상회화</Option>
                               <Option value="business">비즈니스회화</Option>
@@ -521,7 +539,7 @@ class Resume extends Component {
                           style={{ display: 'flex', flexWrap: 'wrap', marginBottom: 2 }}
                           align="start"
                         >
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'portfolioLink']}>
                             <Input
                               style={{ width: 670, height: 60 }}
                               placeholder="링크(http://)"
@@ -596,10 +614,10 @@ class Resume extends Component {
                           style={{ display: 'flex', flexWrap: 'wrap', marginBottom: 2 }}
                           align="start"
                         >
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'selfIntroductionTitle']}>
                             <Input placeholder="제목" style={{ width: 880, height: 60 }} />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name={[field.name, 'selfIntroductionDetail']}>
                             <TextArea rows={4} placeholder="상세내용" style={{ width: 880 }} />
                           </Form.Item>
                           <MinusCircleOutlined
