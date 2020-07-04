@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 
 import { Row, Col } from 'antd';
 import { Menu } from 'antd';
-import { MailOutlined } from '@ant-design/icons';
+import { PlusSquareOutlined } from '@ant-design/icons';
 
 import DashBoard from './DashBoard';
-import AdminApprove from './AdminApprove';
 
 const { SubMenu } = Menu;
 
@@ -38,31 +37,27 @@ class AdminMain extends Component {
       console.log('dd');
       page = <DashBoard />;
     }
-    if (this.state.key === '2') {
-      page = <AdminApprove />;
-    }
     return (
       <>
         <Row style={{ marginTop: 10, width: 1000 }}>
-          <Col span={5} style={{ height: 1450 }}>
+          <Col span={3} style={{ height: 1450 }}>
             <Menu
               onClick={this.handleClick}
               mode="inline"
               openKeys={this.state.openKeys}
               onOpenChange={this.onOpenChange}
-              style={{ width: 256 }}
+              style={{ width: 180 }}
             >
               <SubMenu
                 key="sub1"
                 title={
                   <span>
-                    <MailOutlined />
-                    <span>Navigation One</span>
+                    <PlusSquareOutlined />
+                    <span>메뉴</span>
                   </span>
                 }
               >
                 <Menu.Item key="1">Dash Board</Menu.Item>
-                <Menu.Item key="2">기업 승인</Menu.Item>
               </SubMenu>
             </Menu>
           </Col>

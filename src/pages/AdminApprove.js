@@ -7,39 +7,77 @@ import { Typography } from 'antd';
 
 import { Table, Tag, Space } from 'antd';
 
-const { Column } = Table;
-
-const data = [
+const columns = [
   {
-    key: '1',
-    firstName: '(주)KOSTA',
-
-    age: '중소기업',
-    address: '판교 유스페이스',
-    tags: ['JAVA', '국비지원'],
+    title: '기업명',
+    dataIndex: 'name',
   },
   {
-    key: '2',
-    firstName: '(주)KOSTA',
-
-    age: '중소기업',
-    address: '판교 유스페이스',
-    tags: ['JAVA', '국비지원'],
+    title: '기업규모',
+    dataIndex: 'scale',
   },
   {
-    key: '3',
-    firstName: '(주)KOSTA',
-
-    age: '중소기업',
-    address: '판교 유스페이스',
-    tags: ['JAVA', '국비지원'],
+    title: '태그',
+    dataIndex: 'tag',
+  },
+  {
+    title: 'Action',
+    dataIndex: 'action',
   },
 ];
+
+const data = [];
+for (let i = 0; i < 20; i++) {
+  data.push({
+    key: i,
+    name: `KOSTA ${i}`,
+    scale: '중소',
+    tag: (
+      <span size="middle">
+        <Tag color="blue">자바</Tag>
+        <Tag color="blue">국비교육</Tag>
+      </span>
+    ),
+    action: (
+      <Space size="middle">
+        <Button>승인</Button>
+        <Button>거부</Button>
+      </Space>
+    ),
+  });
+}
 
 const { Text, Title } = Typography;
 
 class AdminApprove extends Component {
+  state = {
+    selectedRowKeys: [], // Check here to configure the default column
+    loading: false,
+  };
+
+  start = () => {
+    this.setState({ loading: true });
+
+    setTimeout(() => {
+      this.setState({
+        selectedRowKeys: [],
+        loading: false,
+      });
+    }, 1000);
+  };
+
+  onSelectChange = (selectedRowKeys) => {
+    console.log('selectedRowKeys changed: ', selectedRowKeys);
+    this.setState({ selectedRowKeys });
+  };
+
   render() {
+    const { selectedRowKeys } = this.state;
+    const rowSelection = {
+      selectedRowKeys,
+      onChange: this.onSelectChange,
+    };
+
     return (
       <>
         <Row>
@@ -56,36 +94,7 @@ class AdminApprove extends Component {
 
         <Row style={{ border: '1px solid #e2e2e2', marginTop: 10 }}></Row>
         <Row>
-          <Table dataSource={data}>
-            <Column title="기업명" dataIndex="firstName" key="firstName" />
-
-            <Column title="기업규모" dataIndex="age" key="age" />
-            <Column title="주소" dataIndex="address" key="address" />
-            <Column
-              title="Tags"
-              dataIndex="tags"
-              key="tags"
-              render={(tags) => (
-                <>
-                  {tags.map((tag) => (
-                    <Tag color="blue" key={tag}>
-                      {tag}
-                    </Tag>
-                  ))}
-                </>
-              )}
-            />
-            <Column
-              title="Action"
-              key="action"
-              render={(text, record) => (
-                <Space size="middle">
-                  <Button>승인</Button>
-                  <Button>거부</Button>
-                </Space>
-              )}
-            />
-          </Table>
+          <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
         </Row>
       </>
     );
