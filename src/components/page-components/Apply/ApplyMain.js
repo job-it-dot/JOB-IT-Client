@@ -25,10 +25,10 @@ class ApplyMain extends Component {
   state = {
     value: 1,
     realValue: '대표이력서',
-    emailValue: 'sample@sample.com',
-    phoneValue: '010',
-    phoneValue2: '0000',
-    phoneValue3: '0000',
+    emailValue: '',
+    phoneValue: '',
+    phoneValue2: '',
+    phoneValue3: '',
     realemailValue: '',
     realphoneValue: '',
     visible: false,
@@ -90,10 +90,9 @@ class ApplyMain extends Component {
     });
   };
 
-  onChange3 = (e) => {
-    console.log(e.target.value);
+  onChange3 = (value) => {
     this.setState({
-      phoneValue: e.target.value,
+      phoneValue: value,
     });
   };
 
@@ -108,10 +107,6 @@ class ApplyMain extends Component {
     this.setState({
       phoneValue3: e.target.value,
     });
-  };
-
-  handleChange = (value) => {
-    console.log(`selected ${value}`);
   };
 
   render() {
@@ -244,21 +239,13 @@ class ApplyMain extends Component {
                                 <Input type="email" placeholder="이메일을 입력해주세요." onChange={this.onChange2} />
                               </Descriptions.Item>
                               <Descriptions.Item label="전화번호" span={3}>
-                                {/* <Select id="txtMobile1" placeholder="010" onChange={this.onChange3}>
+                                <Select placeholder="010" style={{ width: 120 }} onChange={this.onChange3}>
                                     <Option value="010">010</Option>
                                     <Option value="011">011</Option>
                                     <Option value="016">016</Option>
                                     <Option value="017">017</Option>
                                     <Option value="018">018</Option>
                                     <Option value="019">019</Option>
-                                  </Select> */}
-                                <Select defaultValue="lucy" style={{ width: 120 }} onChange={this.handleChange}>
-                                  <Option value="jack">Jack</Option>
-                                  <Option value="lucy">Lucy</Option>
-                                  <Option value="disabled" disabled>
-                                    Disabled
-                                  </Option>
-                                  <Option value="Yiminghe">yiminghe</Option>
                                 </Select>
                                 <strong className={classes.PhoneNumberTextBox}>-</strong>
                                 <Input
@@ -280,26 +267,6 @@ class ApplyMain extends Component {
                                 />
                               </Descriptions.Item>
                             </Descriptions>
-                            {/* <table>
-                              <tbody>
-                                <tr>
-                                  <td width={'100px'}>이메일</td>
-                                  <td width={'300px'}>
-                                    <Input type="email" placeholder="이메일을 입력하세요." onChange={this.onChange2} />
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>휴대폰수정</td>
-                                  <td>
-                                    <Input
-                                      type="text"
-                                      placeholder="휴대폰번호를 입력하세요."
-                                      onChange={this.onChange3}
-                                    />
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table> */}
                           </Modal>
                         </td>
                       </tr>
@@ -309,27 +276,16 @@ class ApplyMain extends Component {
               </div>
             </div>
             <div className={classes.divStyle}>
-              <table>
-                <tbody>
-                  <tr>
-                    <td width={'250px'}>
-                      <b className={classes.bStyle}>선택항목</b>
-                    </td>
-                    <td className={classes.tdStyle} width={'250px'}>
-                      <h5>
-                        <Upload {...props}>
-                          <Button>
-                            <UploadOutlined /> 파일첨부
-                          </Button>
-                        </Upload>
-                      </h5>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <b className={classes.bStyle}>선택항목</b> 
               <hr></hr>
-              <div className={classes.inDivStyle} style={{ textAlign: 'center' }}>
-                <Input type="text" placeholder="추가로 항목을 첨부하실 수 있습니다." />
+              <div style={{paddingLeft:"15px"}}>
+                <h5>
+                  <Upload {...props}>
+                    <Button>
+                      <UploadOutlined /> 파일첨부
+                    </Button>
+                  </Upload>
+                </h5>
               </div>
             </div>
 
