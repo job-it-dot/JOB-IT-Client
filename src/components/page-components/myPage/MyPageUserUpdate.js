@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Col, Descriptions, Button, Input, Form, InputNumber, Radio, Select, Modal } from 'antd';
-import { Link } from 'react-router-dom';
 import css from './MyPage.module.less';
 import './test.css';
 import DaumPostcodes from './DaumPostcode';
@@ -12,6 +11,25 @@ function handleChange(value) {
 }
 
 class MyPageUserUpdate extends Component {
+  state = {
+    name: '',
+    age: '',
+    number: '',
+    gender: '',
+    addr: '',
+    Zipcode: '',
+    roadAddress: '',
+    value: 1,
+  };
+
+  handleCreate = (data) => {
+    console.log(data);
+  };
+
+  datatest = (data) => {
+    console.log(data);
+  };
+
   state = { form: { message: '' } };
 
   handleChangeInput = (event) => {
@@ -55,11 +73,6 @@ class MyPageUserUpdate extends Component {
 
     this.setState({ financialGoals });
   }
-
-  state = {
-    Zipcode: '',
-    roadAddress: '',
-  };
 
   handleAddress = (data) => {
     let fullAddress = data.address;
@@ -106,15 +119,15 @@ class MyPageUserUpdate extends Component {
     });
   };
 
-  state = {
-    value: 1,
-  };
-
   onChange = (e) => {
     console.log('radio checked', e.target.value);
     this.setState({
       value: e.target.value,
     });
+  };
+
+  onFinish = (values) => {
+    console.log(values);
   };
 
   render() {
@@ -132,7 +145,7 @@ class MyPageUserUpdate extends Component {
     return (
       <>
         <Col span={22} style={{ marginLeft: 20, marginTop: 80, height: 800 }}>
-          <Form name="nest-messages" validateMessages={validateMessages}>
+          <Form name="nest-messages" validateMessages={validateMessages} onFinish={this.onFinish}>
             <Descriptions bordered>
               <Descriptions.Item label="이름" span={3} className="paddingName">
                 <Form.Item
@@ -144,7 +157,7 @@ class MyPageUserUpdate extends Component {
                     },
                   ]}
                 >
-                  <Input placeholder="정준영" />
+                  <Input placeholder="정준영" name="name" />
                 </Form.Item>
               </Descriptions.Item>
               <Descriptions.Item label="이메일" span={3} className="paddingEmail">
@@ -165,36 +178,43 @@ class MyPageUserUpdate extends Component {
               </Descriptions.Item>
 
               <Descriptions.Item label="전화번호" span={3}>
-                <Select placeholder="010" onChange={handleChange}>
-                  <Option value="010">010</Option>
-                  <Option value="011">011</Option>
-                  <Option value="016">016</Option>
-                  <Option value="017">017</Option>
-                  <Option value="018">018</Option>
-                  <Option value="019">019</Option>
-                </Select>
+                <Form.Item name={['user', 'number']}>
+                  <Select placeholder="010" onChange={handleChange}>
+                    <Option value="010">010</Option>
+                    <Option value="011">011</Option>
+                    <Option value="016">016</Option>
+                    <Option value="017">017</Option>
+                    <Option value="018">018</Option>
+                    <Option value="019">019</Option>
+                  </Select>
+                </Form.Item>
                 <strong className={css.PhoneNumberTextBox}>-</strong>
-                <Input
-                  type="text"
-                  placeholder="0000"
-                  pattern="[0-9]*"
-                  maxLength="4"
-                  onInput={this.handleChange.bind(this)}
-                  value={this.state.financialGoal}
-                  onChange={this.handleChangeInput}
-                  className={css.PhoneNumberTextBox}
-                />
+                <Form.Item name={['user', 'number1']}>
+                  <Input
+                    type="text"
+                    placeholder="0000"
+                    pattern="[0-9]*"
+                    maxLength="4"
+                    onInput={this.handleChange.bind(this)}
+                    value={this.state.financialGoal}
+                    onChange={this.handleChangeInput}
+                    className={css.PhoneNumberTextBox}
+                  />
+                </Form.Item>
+
                 <strong className={css.PhoneNumberTextBox}>-</strong>
-                <Input
-                  type="text"
-                  placeholder="0000"
-                  pattern="[0-9]*"
-                  maxLength="4"
-                  onInput={this.handleChanges.bind(this)}
-                  value={this.state.financialGoals}
-                  onChange={this.handleChangeInputs}
-                  className={css.PhoneNumberTextBox}
-                />
+                <Form.Item name={['user', 'number2']}>
+                  <Input
+                    type="text"
+                    placeholder="0000"
+                    pattern="[0-9]*"
+                    maxLength="4"
+                    onInput={this.handleChanges.bind(this)}
+                    value={this.state.financialGoals}
+                    onChange={this.handleChangeInputs}
+                    className={css.PhoneNumberTextBox}
+                  />
+                </Form.Item>
               </Descriptions.Item>
 
               <Descriptions.Item label="생년월일" span={5} className={css.font}>
@@ -217,17 +237,20 @@ class MyPageUserUpdate extends Component {
                 </Form.Item>
               </Descriptions.Item>
               <Descriptions.Item label="성별" span={2}>
-                <Radio.Group onChange={this.onChange} value={this.state.value}>
-                  <Radio value={1} style={{ color: 'gray' }}>
-                    남성
-                  </Radio>
-                  <Radio value={2} style={{ color: 'gray' }}>
-                    여성
-                  </Radio>
-                </Radio.Group>
+                <Form.Item name={['user', 'gender']}>
+                  <Radio.Group onChange={this.onChange} value={this.state.value}>
+                    <Radio value={'남성'} style={{ color: 'gray' }}>
+                      남성
+                    </Radio>
+                    <Radio value={'여성'} style={{ color: 'gray' }}>
+                      여성
+                    </Radio>
+                  </Radio.Group>
+                </Form.Item>
               </Descriptions.Item>
               <Descriptions.Item label="우편번호" span={4}>
                 <Input placeholder="우편번호" value={this.state.Zipcode} onClick={this.showModal} />
+
                 <Input
                   placeholder="도로명주소"
                   value={this.state.roadAddress}
@@ -241,17 +264,24 @@ class MyPageUserUpdate extends Component {
               </Descriptions.Item>
 
               <Descriptions.Item label="주소" span={10}>
-                <Input placeholder="상세주소" />
+                <Form.Item name={['user', 'addr']}>
+                  <Input placeholder="상세주소" />
+                </Form.Item>
               </Descriptions.Item>
             </Descriptions>
-            <Link to="/userUpdate">
-              <Button style={{ left: 240 }} className={css.buttonstyle} type="primary" htmlType="submit">
-                수정하기
-              </Button>
-              <Button style={{ left: 270 }} className={css.buttonstyle} type="primary" htmlType="submit">
-                취소
-              </Button>
-            </Link>
+            <Button
+              style={{ left: 240 }}
+              className={css.buttonstyle}
+              type="primary"
+              htmlType="submit"
+              onClick={this.datatest}
+              onCreate={this.handleCreate}
+            >
+              수정하기
+            </Button>
+            <Button style={{ left: 270 }} className={css.buttonstyle}>
+              취소
+            </Button>
           </Form>
         </Col>
       </>
