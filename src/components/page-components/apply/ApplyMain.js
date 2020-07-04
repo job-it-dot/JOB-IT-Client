@@ -5,38 +5,37 @@ import { RetweetOutlined, UploadOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
-function onChange(value) {
-  console.log(`selected ${value}`);
-}
-
-function onBlur() {
-  console.log('blur');
-}
-
-function onFocus() {
-  console.log('focus');
-}
-
-function onSearch(val) {
-  console.log('search:', val);
-}
-
 class ApplyMain extends Component {
+  constructor(props){
+    super(props);
+    this.onChange = this.onChange.bind(this);
+  }
+
+
   state = {
     value: 1,
-    realValue: '대표이력서',
-    emailValue: '',
-    phoneValue: '',
-    phoneValue2: '',
-    phoneValue3: '',
+    realValue: '대표이력서',  //db에 있는 대표이력서 넣어주기
+    emailValue: '', //db에 있는 회원 이메일 넣어주기
+    phoneValue: '', //db에 있는 회원 전화번호 010
+    phoneValue2: '', //db에 있는 회원 전화번호 중간 4자리 1234
+    phoneValue3: '', //db에 있는 회원 전화번호 마지막 4자리 5678
     realemailValue: '',
     realphoneValue: '',
     visible: false,
     visible2: false,
+    applyField: '',
+    fList: '',
   };
 
+  onChangeField = (value) => {
+    // console.log(`selected ${value}`);
+    this.setState ({
+      applyField: value,
+    });
+  }
+
   onChange = (e) => {
-    console.log('radio checked', e.target.value);
+    // console.log('radio checked', e.target.value);
     this.setState({
       value: e.target.value,
     });
@@ -56,7 +55,7 @@ class ApplyMain extends Component {
   };
 
   handleCancel = (e) => {
-    console.log(e);
+    // console.log(e);
     this.setState({
       visible: false,
     });
@@ -77,14 +76,14 @@ class ApplyMain extends Component {
   };
 
   handleCancelTwo = (e) => {
-    console.log(e);
+    // console.log(e);
     this.setState({
       visible2: false,
     });
   };
 
   onChange2 = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.setState({
       emailValue: e.target.value,
     });
@@ -97,7 +96,7 @@ class ApplyMain extends Component {
   };
 
   onChange4 = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.setState({
       phoneValue2: e.target.value,
     });
@@ -109,7 +108,16 @@ class ApplyMain extends Component {
     });
   };
 
-  render() {
+  apply = (e) => {
+    console.log(this.state.applyField);
+    console.log(this.state.realValue);
+    console.log(this.state.realemailValue);
+    console.log(this.state.realphoneValue);
+    console.log(this.state.fList);
+  };
+
+  render() {    
+
     const radioStyle = {
       display: 'block',
       height: '30px',
@@ -117,15 +125,19 @@ class ApplyMain extends Component {
     };
 
     const { value } = this.state;
-
+    const { fList } = this.state;
+    
     const props = {
       action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
       onChange({ file, fileList }) {
         if (file.status !== 'uploading') {
-          console.log(file, fileList);
+          console.log(fileList[0].name);
+          console.log(fList); 
         }
-      },
+      },      
     };
+
+
 
     return (
       <>
@@ -142,10 +154,7 @@ class ApplyMain extends Component {
             style={{ width: 500 }}
             placeholder="지원분야를 선택해주세요."
             optionFilterProp="children"
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onSearch={onSearch}
+            onChange={this.onChangeField}
             filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
           >
             <Option value="mobile">모바일 APP 개발</Option>
@@ -184,10 +193,6 @@ class ApplyMain extends Component {
                           </Radio>
                           <Radio style={radioStyle} value={3}>
                             이력서3
-                          </Radio>
-                          <Radio style={radioStyle} value={4}>
-                            More...
-                            {value === 4 ? <Input style={{ width: 100, marginLeft: 10 }} /> : null}
                           </Radio>
                         </Radio.Group>
                       </Modal>
@@ -290,14 +295,11 @@ class ApplyMain extends Component {
             </div>
 
             <div className={classes.divButton}>
-              <Button style={{ width: '200px' }} type="primary">
+              <Button style={{ width: '200px' }} type="primary" onClick={this.apply}>
                 지원하기
               </Button>
             </div>
           </div>
-        </Row>
-        <Row>
-          <br></br>
         </Row>
       </>
     );
