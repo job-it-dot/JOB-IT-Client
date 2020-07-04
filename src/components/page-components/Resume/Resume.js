@@ -39,6 +39,10 @@ class Resume extends Component {
     current: 0,
   };
 
+  onFinish = (values) => {
+    console.log('Received values of form: ', values);
+  };
+
   resumeChange = (current) => {
     this.setState({ current });
   };
@@ -87,7 +91,6 @@ class Resume extends Component {
                 <Input
                   placeholder="이름"
                   prefix={<UserOutlined className="site-form-item-icon" />}
-                  disabled
                   style={{ width: 250, height: 60, marginRight: 20 }}
                 />
               </Col>
@@ -95,7 +98,6 @@ class Resume extends Component {
                 <Input
                   placeholder="휴대폰번호"
                   prefix={<MobileOutlined className="site-form-item-icon" />}
-                  disabled
                   style={{ width: 250, height: 60, marginRight: 20 }}
                 />
               </Col>
@@ -163,7 +165,7 @@ class Resume extends Component {
                               }
                             />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name="startschool">
                             <DatePicker
                               onChange={this.onDateChange}
                               picker="month"
@@ -171,7 +173,7 @@ class Resume extends Component {
                               style={{ width: 160, height: 60 }}
                             />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name="finishschool">
                             <DatePicker
                               onChange={this.onDateChange}
                               picker="month"
@@ -179,7 +181,7 @@ class Resume extends Component {
                               style={{ width: 160, height: 60 }}
                             />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name="schoolstatus">
                             <Select defaultValue="졸업상태" onChange={this.handleChange} className="school">
                               <Option value="end">졸업</Option>
                               <Option value="soonEnd">졸업예정</Option>
@@ -189,13 +191,13 @@ class Resume extends Component {
                               <Option value="rest">휴학</Option>
                             </Select>
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name="sbuject">
                             <Input placeholder="전공명" style={{ width: 310, height: 60 }} />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name="score">
                             <Input placeholder="학점" style={{ width: 75, height: 60 }} />
                           </Form.Item>
-                          <Form.Item>
+                          <Form.Item name="fullscore">
                             <Input placeholder="총점" style={{ width: 75, height: 60 }} />
                           </Form.Item>
                           <MinusCircleOutlined

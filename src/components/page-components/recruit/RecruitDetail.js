@@ -5,6 +5,7 @@ import './Recruit.css';
 import testimg from './../../../assets/kosta.png';
 import { CheckOutlined, StarOutlined, HeartOutlined, ReconciliationOutlined } from '@ant-design/icons';
 import CountDown from './CountDown';
+import { withRouter } from 'react-router-dom';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -86,6 +87,7 @@ class RecruitDetail extends Component {
 
   support = () => {
     console.log('지원하기');
+    this.props.history.push('/apply');
   };
 
   scrap = () => {
@@ -370,4 +372,4 @@ class RecruitDetail extends Component {
   }
 }
 
-export default RecruitDetail;
+export default withRouter(RecruitDetail);
