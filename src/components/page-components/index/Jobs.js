@@ -1,15 +1,32 @@
 import React from 'react';
 import { Row, Col, Typography, Card } from 'antd';
 import { useHistory } from 'react-router-dom';
-const { Title } = Typography;
+import axios from 'axios';
 
+const { Title } = Typography;
 const { Meta } = Card;
 
 const Jobs = () => {
   let history = useHistory();
 
-  const cardClick = () => {
-    history.push('/recruitDetail');
+  const cardClick = (index) => {
+    console.log(index);
+    axios({
+      method: 'post',
+      url: 'http://api.jobit.co.kr:9595/guest/readRecruit',
+      data: {
+        recruitId: index,
+      },
+    })
+      .then(({ data }) => {
+        history.push({
+          pathname: '/recruitDetail',
+          state: { detail: data.applys },
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   return (
     <div style={{ marginTop: 30 }}>
@@ -22,7 +39,7 @@ const Jobs = () => {
             <Card
               hoverable
               cover={<img alt="example" src="https://t1.daumcdn.net/comis/jobs/images/logo/meta_career.png" />}
-              onClick={cardClick}
+              onClick={() => cardClick(index)}
             >
               <Meta title="백엔드 자바 개발자" description="카카오" />
             </Card>

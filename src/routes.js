@@ -8,7 +8,7 @@ import UserSignUp from './pages/SignUpUser.js';
 import ResumeResult from './components/page-components/Resume/ResumeResult';
 import Resume from './components/page-components/Resume/Resume';
 import RecruitDetail from './pages/Recruit';
-import Jobs from './components/page-components/index/Jobs';
+import JobMain from './pages/JobMain';
 import FindPassWord from './pages/FindPassWord';
 import ResumeList from './components/page-components/Resume/ResumeList';
 import ResumeView from './pages/ResumeView';
@@ -21,7 +21,7 @@ export default (
     <Route exact path="/findPassWord" component={FindPassWord} />
     <Route exact path="/signup" component={UserSignUp} />
     <Route exact path="/recruitDetail" component={RecruitDetail} />
-    <Route exact path="/jobs" component={Jobs} />
+    <Route exact path="/jobs" component={JobMain} />
     <Route exact path="/companyDetail" component={CompanyDetail} />
     <Route exact path="/" component={Index} />
     <PrivateRoutes exact path="/resumeList" component={ResumeList} />
