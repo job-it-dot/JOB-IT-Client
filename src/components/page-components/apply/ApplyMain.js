@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import classes from './ApplyMain.module.less';
-import { Row, Select, Button, Modal, Radio, Input, Upload, Descriptions } from 'antd';
-import { RetweetOutlined, UploadOutlined } from '@ant-design/icons';
+import { Row, Select, Button, Modal, Radio, Input, Descriptions } from 'antd';
+import { RetweetOutlined } from '@ant-design/icons';
+import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 const { Option } = Select;
 
 class ApplyMain extends Component {
-  constructor(props){
-    super(props);
-    this.onChange = this.onChange.bind(this);
-  }
-
-
   state = {
     value: 1,
-    realValue: '대표이력서',  //db에 있는 대표이력서 넣어주기
+    resumeValue: '대표이력서', //db에 있는 대표이력서 넣어주기
     emailValue: '', //db에 있는 회원 이메일 넣어주기
     phoneValue: '', //db에 있는 회원 전화번호 010
     phoneValue2: '', //db에 있는 회원 전화번호 중간 4자리 1234
@@ -24,18 +20,19 @@ class ApplyMain extends Component {
     visible: false,
     visible2: false,
     applyField: '',
-    fList: '',
+  };
+
+  어떤함수 = () => {
+    this.props.history.push('/apply');
   };
 
   onChangeField = (value) => {
-    // console.log(`selected ${value}`);
-    this.setState ({
+    this.setState({
       applyField: value,
     });
-  }
+  };
 
   onChange = (e) => {
-    // console.log('radio checked', e.target.value);
     this.setState({
       value: e.target.value,
     });
@@ -50,12 +47,11 @@ class ApplyMain extends Component {
   handleOk = (e) => {
     this.setState({
       visible: false,
-      realValue: this.state.value,
+      resumeValue: this.state.value,
     });
   };
 
   handleCancel = (e) => {
-    // console.log(e);
     this.setState({
       visible: false,
     });
@@ -76,14 +72,12 @@ class ApplyMain extends Component {
   };
 
   handleCancelTwo = (e) => {
-    // console.log(e);
     this.setState({
       visible2: false,
     });
   };
 
   onChange2 = (e) => {
-    // console.log(e.target.value);
     this.setState({
       emailValue: e.target.value,
     });
@@ -96,7 +90,6 @@ class ApplyMain extends Component {
   };
 
   onChange4 = (e) => {
-    // console.log(e.target.value);
     this.setState({
       phoneValue2: e.target.value,
     });
@@ -110,14 +103,29 @@ class ApplyMain extends Component {
 
   apply = (e) => {
     console.log(this.state.applyField);
-    console.log(this.state.realValue);
+    console.log(this.state.resumeValue);
     console.log(this.state.realemailValue);
     console.log(this.state.realphoneValue);
-    console.log(this.state.fList);
+
+    axios({
+      method: 'post',
+      url: 'http://api.jobit.co.kr:9595/user/apply/company',
+      data: JSON.stringify({
+        recruitId: this.state.resumeValue,
+        resumeId: this.state.resumeValue,
+        memberEmail: this.state.realemailValue,
+        userPhone: this.state.realphoneValue,
+      }),
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => console.log('성공' + res))
+      .catch((res) => console.log('실패' + res));
   };
 
-  render() {    
-
+  render() {
     const radioStyle = {
       display: 'block',
       height: '30px',
@@ -125,19 +133,6 @@ class ApplyMain extends Component {
     };
 
     const { value } = this.state;
-    const { fList } = this.state;
-    
-    const props = {
-      action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-      onChange({ file, fileList }) {
-        if (file.status !== 'uploading') {
-          console.log(fileList[0].name);
-          console.log(fList); 
-        }
-      },      
-    };
-
-
 
     return (
       <>
@@ -202,7 +197,7 @@ class ApplyMain extends Component {
               </table>
               <hr></hr>
               <div className={classes.inDivStyle}>
-                <Input type="text" value={this.state.realValue} />
+                <Input type="text" value={this.state.resumeValue} />
               </div>
 
               <div className={classes.inDivStyle}>
@@ -280,19 +275,6 @@ class ApplyMain extends Component {
                 </h5>
               </div>
             </div>
-            <div className={classes.divStyle}>
-              <b className={classes.bStyle}>선택항목</b>
-              <hr></hr>
-              <div style={{ paddingLeft: '15px' }}>
-                <h5>
-                  <Upload {...props}>
-                    <Button>
-                      <UploadOutlined /> 파일첨부
-                    </Button>
-                  </Upload>
-                </h5>
-              </div>
-            </div>
 
             <div className={classes.divButton}>
               <Button style={{ width: '200px' }} type="primary" onClick={this.apply}>
@@ -306,4 +288,4 @@ class ApplyMain extends Component {
   }
 }
 
-export default ApplyMain;
+export default withRouter(ApplyMain);

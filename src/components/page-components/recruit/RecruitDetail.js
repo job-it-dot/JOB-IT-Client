@@ -6,6 +6,7 @@ import testimg from './../../../assets/kosta.png';
 import { CheckOutlined, StarOutlined, HeartOutlined, ReconciliationOutlined } from '@ant-design/icons';
 import CountDown from './CountDown';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -86,8 +87,17 @@ class RecruitDetail extends Component {
   };
 
   support = () => {
+    axios({
+      method: 'post',
+      url: '어쩌구URl',
+      data: {
+        공고번호: '공고번호',
+        '더필요하면 더': '더 필요하면 더',
+      },
+    })
+      .then((res) => console.log(res), this.props.history.push('/apply'))
+      .catch((res) => console.log(res), this.props.history.push('/apply'));
     console.log('지원하기');
-    this.props.history.push('/apply');
   };
 
   scrap = () => {
