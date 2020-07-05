@@ -34,7 +34,6 @@ class AdminMain extends Component {
   render() {
     let page;
     if (this.state.key === '1') {
-      console.log('dd');
       page = <DashBoard />;
     }
     return (

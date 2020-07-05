@@ -9,10 +9,6 @@ import { Typography } from 'antd';
 import { Pagination } from 'antd';
 import moment from 'moment';
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
-
 const data = [
   {
     title: '웹 프론트 지원',
@@ -32,6 +28,68 @@ const { Option } = Select;
 const dateFormat = 'YYYY/MM/DD';
 
 class ShowApplyForm extends Component {
+  state = {
+    onedate: '',
+    twodate: '',
+    afterdate: '',
+    step: '',
+    read: '',
+    recruit: '',
+  };
+
+  clickDate = (data) => {
+    this.setState({
+      onedate: data,
+    });
+    console.log(data);
+  };
+
+  beforeDateChange = (data) => {
+    this.setState({
+      twodate: data,
+    });
+    console.log(data);
+  };
+  afterDateChange = (data) => {
+    this.setState({
+      afterdate: data,
+    });
+    console.log(data);
+  };
+
+  stepChange = (data) => {
+    this.setState({
+      step: data,
+    });
+  };
+
+  readChange = (data) => {
+    this.setState({
+      read: data,
+    });
+  };
+
+  recruitChange = (data) => {
+    this.setState({
+      recruit: data,
+    });
+  };
+
+  //검색 할때 모든 조건 값 받아온다.
+  onSearch = (data) => {
+    console.log(`검색조건 값은 : ${this.state.onedate} , ${this.state.twodate}, ${this.state.afterdate}, ${this.state.step}, 
+    ${this.state.read}, ${this.state.recruit}`);
+  };
+
+  recruitList = (data) => {
+    console.log(data);
+  };
+
+  //통과 버튼 클릭시 이력서 id 값을 받아온다.
+  // pass = (recruit_id) => {
+  //   console.log(1);
+  // }
+
   render() {
     return (
       <>
@@ -52,16 +110,32 @@ class ShowApplyForm extends Component {
               조회기간
             </Text>
 
-            <Button style={{ marginRight: 6, marginLeft: 4, marginTop: 5 }}>1주일</Button>
-            <Button style={{ marginRight: 5 }}>1개월</Button>
-            <Button style={{ marginRight: 5 }}>2개월</Button>
-            <Button style={{ marginRight: 5 }}>3개월</Button>
+            <Button
+              style={{ marginRight: 6, marginLeft: 4, marginTop: 5 }}
+              value="1week"
+              onClick={() => this.clickDate('1주일')}
+            >
+              1주일
+            </Button>
+            <Button style={{ marginRight: 5, marginTop: 5 }} value="1month" onClick={() => this.clickDate('1개월')}>
+              1개월
+            </Button>
+            <Button style={{ marginRight: 5, marginTop: 5 }} value="2month" onClick={() => this.clickDate('2개월')}>
+              2개월
+            </Button>
+            <Button
+              style={{ marginRight: 5, marginTop: 5 }}
+              value="3month"
+              onClick={(event) => this.clickDate(event.target.value)}
+            >
+              3개월
+            </Button>
 
             <Text type={'secondary'} style={{ marginRight: 10, marginLeft: 10 }}>
               진행 여부
             </Text>
-            <Select defaultValue="전체" style={{ width: 100, marginTop: 10 }} onChange={handleChange}>
-              <Option value="all">전체</Option>
+            <Select defaultValue="선택" style={{ width: 100, marginTop: 10 }} onChange={this.stepChange}>
+              <Option value="all_step">전체</Option>
               <Option value="ing">진행중</Option>
               <Option value="end">마감</Option>
             </Select>
@@ -69,8 +143,8 @@ class ShowApplyForm extends Component {
             <Text type={'secondary'} style={{ marginRight: 10, marginLeft: 10 }}>
               열람 여부
             </Text>
-            <Select defaultValue="열람" style={{ width: 107, marginTop: 10 }} onChange={handleChange}>
-              <Option value="all">전체</Option>
+            <Select defaultValue="선택" style={{ width: 107, marginTop: 10 }} onChange={this.readChange}>
+              <Option value="all_read">전체</Option>
               <Option value="read">열람</Option>
               <Option value="noread">미열람</Option>
             </Select>
@@ -84,6 +158,7 @@ class ShowApplyForm extends Component {
               defaultValue={moment('2020/01/01', dateFormat)}
               format={dateFormat}
               style={{ width: 120, marginTop: 5 }}
+              onChange={this.beforeDateChange}
             />
             <Text
               type={'secondary'}
@@ -91,19 +166,28 @@ class ShowApplyForm extends Component {
             >
               ~
             </Text>
-            <DatePicker defaultValue={moment('2020/12/12', dateFormat)} format={dateFormat} style={{ width: 120 }} />
+            <DatePicker
+              defaultValue={moment('2020/12/12', dateFormat)}
+              format={dateFormat}
+              style={{ width: 120 }}
+              onChange={this.afterDateChange}
+            />
 
             <Text type={'secondary'} style={{ marginRight: 10, marginLeft: 23 }}>
               채용공고
             </Text>
-            <Select defaultValue="전체" style={{ marginTop: 10, width: 280 }} onChange={handleChange}>
-              <Option value="all">전체</Option>
-              <Option value="read">2020년KOSTA 신입/경력사원 공개채용(연구원)</Option>
-              <Option value="noread">2020년 잡코리아 마케팅팀 인턴 채용</Option>
+            <Select defaultValue="선택" style={{ marginTop: 10, width: 280 }} onChange={this.recruitChange}>
+              <Option value="allRecruit">전체</Option>
+              <Option value="1.Recruit">2020년KOSTA 신입/경력사원 공개채용(연구원)</Option>
+              <Option value="2.Recruit">2020년 잡코리아 마케팅팀 인턴 채용</Option>
             </Select>
           </Col>
           <Col span={1}>
-            <Button type="primary" style={{ height: 70, width: 90, marginTop: 3, marginBottom: 10 }}>
+            <Button
+              type="primary"
+              style={{ height: 70, width: 90, marginTop: 3, marginBottom: 10 }}
+              onClick={this.onSearch}
+            >
               검색
             </Button>
           </Col>
@@ -112,17 +196,27 @@ class ShowApplyForm extends Component {
           <List
             itemLayout="horizontal"
             dataSource={data}
+            onClick={this.recruitList}
             renderItem={(item) => (
-              <List.Item>
+              <List.Item
+                actions={[
+                  <Button style={{ marginLeft: 540 }} value={item.title} onClick={() => this.recruitList(item.title)}>
+                    통과
+                  </Button>,
+                  <Button style={{ marginLeft: 20 }} value={item.title} onClick={() => this.recruitList(item.title)}>
+                    탈락
+                  </Button>,
+                ]}
+              >
                 <List.Item.Meta
                   avatar={<Avatar src="https://image.flaticon.com/icons/png/512/484/484648.png" />}
-                  title={<a href="https://www.naver.com">{item.title}</a>}
+                  title={item.title}
                   style={{ marginLeft: 20 }}
                   description="학사/인턴 경험 등"
+                  onClick={() => this.recruitList(item.title)}
                 />
-
-                <Button style={{ marginLeft: 540 }}>통과</Button>
-                <Button style={{ marginLeft: 20 }}>탈락</Button>
+                {/* <Button style={{ marginLeft: 540 }} onClick={this.pass} key={1}>통과</Button>
+                <Button style={{ marginLeft: 20 }} onClick={this.fall}>탈락</Button> */}
               </List.Item>
             )}
           />

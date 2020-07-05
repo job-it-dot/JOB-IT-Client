@@ -26,6 +26,10 @@ const columns = [
   },
 ];
 
+const approveButton = (data) => {
+  console.log(data);
+};
+
 const data = [];
 for (let i = 0; i < 20; i++) {
   data.push({
@@ -40,8 +44,8 @@ for (let i = 0; i < 20; i++) {
     ),
     action: (
       <Space size="middle">
-        <Button>승인</Button>
-        <Button>거부</Button>
+        <Button onClick={() => approveButton(data[i])}>승인</Button>
+        <Button onClick={() => approveButton(data[i])}>거부</Button>
       </Space>
     ),
   });

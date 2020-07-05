@@ -88,35 +88,34 @@ class ApproveCompany extends Component {
       <>
         <Row style={{ marginTop: 30 }}>
           <Col span={7} className={classes.secondbox} style={{ marginRight: 20 }}>
-            <Link to="">
-              <Row>
-                <Col span={3} style={{ height: 100, marginRight: 20 }}>
-                  <UserAddOutlined style={{ fontSize: 45, marginTop: 35, marginLeft: 10 }} />
-                </Col>
-                <Col span={9} style={{ height: 100 }}>
-                  <Row style={{ height: 50, width: 700 }}>
-                    <Col span={9}>
-                      <Title level={4} style={{ marginTop: 30, marginLeft: 10 }}>
-                        채용공고등록 &nbsp;
-                        <RightOutlined />
-                      </Title>
-                    </Col>
-                  </Row>
-                  <Row style={{ height: 50, width: 700 }}>
-                    <Col span={9}>
-                      <Text type={'secondary'} style={{ float: 'left', fontSize: 20, marginTop: 20, marginLeft: 6 }}>
-                        간편하게 채용공고를
-                        <br />
-                        등록 하고 여러 지원자
-                        <br />
-                        들의 이력서를 받아요.
-                        <br />
-                      </Text>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-            </Link>
+            <Row>
+              <Col span={3} style={{ height: 100, marginRight: 20 }}>
+                <UserAddOutlined style={{ fontSize: 45, marginTop: 35, marginLeft: 10 }} />
+              </Col>
+              <Col span={9} style={{ height: 100 }}>
+                <Row style={{ height: 50, width: 700 }}>
+                  <Col span={9}>
+                    <Title level={4} style={{ marginTop: 30, marginLeft: 10 }}>
+                      채용공고등록 &nbsp;
+                      <RightOutlined />
+                    </Title>
+                  </Col>
+                </Row>
+                <Row style={{ height: 50, width: 700 }}>
+                  <Col span={9}>
+                    <Text type={'secondary'} style={{ float: 'left', fontSize: 20, marginTop: 20, marginLeft: 6 }}>
+                      간편하게 채용공고를
+                      <br />
+                      등록 하고 여러 지원자
+                      <br />
+                      들의 이력서를 받아요.
+                      <br />
+                    </Text>
+                    <Button style={{ height: 70, marginTop: 7, marginLeft: 10, width: 190 }}>공고 등록 하기</Button>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
           </Col>
 
           <Col span={7} className={classes.thbox} style={{ marginLeft: 16 }}>
@@ -142,6 +141,7 @@ class ApproveCompany extends Component {
                         주세 요. 최적의 후보자
                         <br />를 연결 시켜드립니다.
                       </Text>
+                      <Button style={{ height: 70, marginTop: 7, marginLeft: 10, width: 190 }}>헌팅 의뢰</Button>
                     </Col>
                   </Row>
                 </Col>
@@ -156,13 +156,13 @@ class ApproveCompany extends Component {
             </Row>
             <Row>
               <Radio.Group onChange={this.onChange} value={this.state.value} style={{ marginLeft: 20 }}>
-                <Radio value={1}>기업</Radio>
-                <Radio value={2}>파견/대행</Radio>
-                <Radio value={3}>교육기관</Radio>
+                <Radio value={'company'}>기업</Radio>
+                <Radio value={'headhunt'}>파견/대행</Radio>
+                <Radio value={'edu'}>교육기관</Radio>
               </Radio.Group>
             </Row>
             <Row>
-              <Col span={17}>
+              <Col span={24}>
                 <Form
                   {...layout}
                   name="basic"
@@ -194,9 +194,14 @@ class ApproveCompany extends Component {
                   >
                     <Input.Password placeholder="비밀번호" style={{ marginLeft: 20 }} />
                   </Form.Item>
+                  <Form.Item>
+                    <Button htmlType="submit" style={{ marginLeft: 20, width: 243 }}>
+                      로그인
+                    </Button>
+                  </Form.Item>
                 </Form>
               </Col>
-              <Col span={6} style={{ marginTop: 10 }}>
+              {/* <Col span={6} style={{ marginTop: 10 }}>
                 <Button
                   style={{
                     paddingBottom: 83,
@@ -210,7 +215,7 @@ class ApproveCompany extends Component {
                 >
                   로그인
                 </Button>
-              </Col>
+              </Col> */}
             </Row>
           </Col>
         </Row>
