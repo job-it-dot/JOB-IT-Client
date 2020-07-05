@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom';
 const { Option } = Select;
 
 class ApplyMain extends Component {
+
   state = {
     value: 1,
     resumeValue: '대표이력서', //db에 있는 대표이력서 넣어주기
