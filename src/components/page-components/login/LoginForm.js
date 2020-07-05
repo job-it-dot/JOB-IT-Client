@@ -10,11 +10,9 @@ const LoginForm = () => {
     console.log('Received values of form: ', values);
     axios({
       method: 'post',
-      url: 'http://192.168.0.136:9595/login?memberEmail=' + values.username + '&memberPassword=' + values.password,
-      data: JSON.stringify({
-        memberEmail: values.username,
-        memberPassword: values.password,
-      }),
+      url: 'http://api.jobit.co.kr:9595/login?memberEmail=' + values.username + '&memberPassword=' + values.password,
+      data: JSON.stringify({}),
+      withCredentials: true,
       headers: {
         'Content-Type': 'application/json',
       },

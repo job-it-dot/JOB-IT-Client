@@ -6,15 +6,14 @@ import { RetweetOutlined, UploadOutlined } from '@ant-design/icons';
 const { Option } = Select;
 
 class ApplyMain extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.onChange = this.onChange.bind(this);
   }
 
-
   state = {
     value: 1,
-    realValue: '대표이력서',  //db에 있는 대표이력서 넣어주기
+    realValue: '대표이력서', //db에 있는 대표이력서 넣어주기
     emailValue: '', //db에 있는 회원 이메일 넣어주기
     phoneValue: '', //db에 있는 회원 전화번호 010
     phoneValue2: '', //db에 있는 회원 전화번호 중간 4자리 1234
@@ -29,10 +28,10 @@ class ApplyMain extends Component {
 
   onChangeField = (value) => {
     // console.log(`selected ${value}`);
-    this.setState ({
+    this.setState({
       applyField: value,
     });
-  }
+  };
 
   onChange = (e) => {
     // console.log('radio checked', e.target.value);
@@ -116,8 +115,7 @@ class ApplyMain extends Component {
     console.log(this.state.fList);
   };
 
-  render() {    
-
+  render() {
     const radioStyle = {
       display: 'block',
       height: '30px',
@@ -126,18 +124,16 @@ class ApplyMain extends Component {
 
     const { value } = this.state;
     const { fList } = this.state;
-    
+
     const props = {
       action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
       onChange({ file, fileList }) {
         if (file.status !== 'uploading') {
           console.log(fileList[0].name);
-          console.log(fList); 
+          console.log(fList);
         }
-      },      
+      },
     };
-
-
 
     return (
       <>
