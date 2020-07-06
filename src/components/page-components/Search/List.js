@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import { List, message, Avatar, Spin } from 'antd';
+import './index.css';
+import { List, message, Spin, Button } from 'antd';
 import reqwest from 'reqwest';
+import css from './TestList.module.less';
 
-import classes from './TestList.module.less';
 import InfiniteScroll from 'react-infinite-scroller';
 
 const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
@@ -71,13 +72,9 @@ class PartialSearch extends Component {
             dataSource={this.state.data}
             renderItem={(item) => (
               <List.Item key={item.id}>
-                <List.Item.Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                  title="(주)Job it" //{<a href="https://ant.design">{item.name.last}</a>}
-                  description="소프트웨어개발,소프트웨어" //{item.email}
-                />
+                <List.Item.Meta title="웹개발자 모집  " description="학력무관, 컴퓨터공학 우대, java" />
                 <div>
-                  <button className={classes.Parbutton}>상세보기</button>
+                  <Button className={css.buttonssss}>상세보기</Button>
                 </div>
               </List.Item>
             )}

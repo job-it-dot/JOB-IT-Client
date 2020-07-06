@@ -15,14 +15,36 @@ const columns = [
 ];
 
 const data = [];
-for (let i = 0; i < 46; i++) {
-  data.push({
-    key: i,
 
-    address: `한국소프트웨어인재개발원 ${i}`,
-    progress: `채용중 2개`,
-  });
-}
+data.push({
+  address: `한국소프트웨어인재개발원`,
+  progress: `채용중 2개`,
+});
+
+data.push({
+  address: `Kosta Web 인재개발원`,
+  progress: `채용중 1개`,
+});
+
+data.push({
+  address: `(주)경동나비엔`,
+  progress: `채용중 2개`,
+});
+
+data.push({
+  address: `(주)다보링크`,
+  progress: `채용중 0개`,
+});
+
+data.push({
+  address: `LGcns`,
+  progress: `채용중 3개`,
+});
+
+data.push({
+  address: `KT`,
+  progress: `채용중 1개`,
+});
 
 class MypageAttention extends Component {
   state = {
@@ -54,14 +76,21 @@ class MypageAttention extends Component {
     };
     const hasSelected = selectedRowKeys.length > 0;
     return (
-      <div style={{ marginTop: 20 }}>
+      <>
         <div>
-          <Button type="primary" onClick={this.start} disabled={!hasSelected} loading={loading} className={css.sbutton}>
+          <Button
+            type="primary"
+            onClick={this.start}
+            disabled={!hasSelected}
+            loading={loading}
+            className={css.sbutton}
+            style={{ marginTop: 0 }}
+          >
             삭제
           </Button>
         </div>
         <Table rowSelection={rowSelection} columns={columns} dataSource={data} pagination={{ pageSize: 5 }} />
-      </div>
+      </>
     );
   }
 }

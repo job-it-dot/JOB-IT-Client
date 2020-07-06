@@ -22,14 +22,6 @@ class MyPageUserUpdate extends Component {
     value: 1,
   };
 
-  handleCreate = (data) => {
-    console.log(data);
-  };
-
-  datatest = (data) => {
-    console.log(data);
-  };
-
   state = { form: { message: '' } };
 
   handleChangeInput = (event) => {
@@ -145,6 +137,7 @@ class MyPageUserUpdate extends Component {
     return (
       <>
         <Col span={22} style={{ marginLeft: 20, marginTop: 80, height: 800 }}>
+          <h3>회원정보 수정</h3>
           <Form name="nest-messages" validateMessages={validateMessages} onFinish={this.onFinish}>
             <Descriptions bordered>
               <Descriptions.Item label="이름" span={3} className="paddingName">
@@ -169,52 +162,48 @@ class MyPageUserUpdate extends Component {
                     },
                   ]}
                 >
-                  <Input placeholder="wnsdddddd@naver.com" />
+                  <Input placeholder="wnsdud@naver.com" />
                 </Form.Item>
               </Descriptions.Item>
 
               <Descriptions.Item label="아이디" span={3}>
-                <strong style={{ color: 'gray' }}>nicejobit</strong>
+                <strong style={{ color: 'gray' }}>wnsduddlcjd</strong>
               </Descriptions.Item>
 
               <Descriptions.Item label="전화번호" span={3}>
-                <Form.Item name={['user', 'number']}>
-                  <Select placeholder="010" onChange={handleChange}>
-                    <Option value="010">010</Option>
-                    <Option value="011">011</Option>
-                    <Option value="016">016</Option>
-                    <Option value="017">017</Option>
-                    <Option value="018">018</Option>
-                    <Option value="019">019</Option>
-                  </Select>
-                </Form.Item>
+                <Select placeholder="010" onChange={handleChange}>
+                  <Option value="010">010</Option>
+                  <Option value="011">011</Option>
+                  <Option value="016">016</Option>
+                  <Option value="017">017</Option>
+                  <Option value="018">018</Option>
+                  <Option value="019">019</Option>
+                </Select>
                 <strong className={css.PhoneNumberTextBox}>-</strong>
-                <Form.Item name={['user', 'number1']}>
-                  <Input
-                    type="text"
-                    placeholder="0000"
-                    pattern="[0-9]*"
-                    maxLength="4"
-                    onInput={this.handleChange.bind(this)}
-                    value={this.state.financialGoal}
-                    onChange={this.handleChangeInput}
-                    className={css.PhoneNumberTextBox}
-                  />
-                </Form.Item>
+
+                <Input
+                  type="text"
+                  placeholder="8544"
+                  pattern="[0-9]*"
+                  maxLength="4"
+                  onInput={this.handleChange.bind(this)}
+                  value={this.state.financialGoal}
+                  onChange={this.handleChangeInput}
+                  className={css.PhoneNumberTextBox}
+                />
 
                 <strong className={css.PhoneNumberTextBox}>-</strong>
-                <Form.Item name={['user', 'number2']}>
-                  <Input
-                    type="text"
-                    placeholder="0000"
-                    pattern="[0-9]*"
-                    maxLength="4"
-                    onInput={this.handleChanges.bind(this)}
-                    value={this.state.financialGoals}
-                    onChange={this.handleChangeInputs}
-                    className={css.PhoneNumberTextBox}
-                  />
-                </Form.Item>
+
+                <Input
+                  type="text"
+                  placeholder="6458"
+                  pattern="[0-9]*"
+                  maxLength="4"
+                  onInput={this.handleChanges.bind(this)}
+                  value={this.state.financialGoals}
+                  onChange={this.handleChangeInputs}
+                  className={css.PhoneNumberTextBox}
+                />
               </Descriptions.Item>
 
               <Descriptions.Item label="생년월일" span={5} className={css.font}>
@@ -248,11 +237,11 @@ class MyPageUserUpdate extends Component {
                   </Radio.Group>
                 </Form.Item>
               </Descriptions.Item>
-              <Descriptions.Item label="우편번호" span={4}>
-                <Input placeholder="우편번호" value={this.state.Zipcode} onClick={this.showModal} />
+              <Descriptions.Item label="우편번호/도로명주소" span={4}>
+                <Input placeholder="16582" value={this.state.Zipcode} onClick={this.showModal} />
 
                 <Input
-                  placeholder="도로명주소"
+                  placeholder="경기 수원시 권선구 권광로 55권선자이 이편한세상"
                   value={this.state.roadAddress}
                   onClick={this.showModal}
                   style={{ top: 5 }}
@@ -265,18 +254,11 @@ class MyPageUserUpdate extends Component {
 
               <Descriptions.Item label="주소" span={10}>
                 <Form.Item name={['user', 'addr']}>
-                  <Input placeholder="상세주소" />
+                  <Input placeholder="519동 207호" />
                 </Form.Item>
               </Descriptions.Item>
             </Descriptions>
-            <Button
-              style={{ left: 240 }}
-              className={css.buttonstyle}
-              type="primary"
-              htmlType="submit"
-              onClick={this.datatest}
-              onCreate={this.handleCreate}
-            >
+            <Button style={{ left: 240 }} className={css.buttonstyle} type="primary" htmlType="submit">
               수정하기
             </Button>
             <Button style={{ left: 270 }} className={css.buttonstyle}>

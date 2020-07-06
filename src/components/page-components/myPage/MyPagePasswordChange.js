@@ -1,24 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, Col } from 'antd';
 import classes from './MyPage.module.less';
-
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 5,
-  },
-};
-const onFinish = (values) => {
-  console.log('Success:', values);
-};
+import { withRouter } from 'react-router-dom';
 
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
@@ -26,6 +9,7 @@ const onFinishFailed = (errorInfo) => {
 
 class MypageContent extends Component {
   state = {
+    name: '',
     password: '',
     confirmPassword: '',
   };
@@ -65,6 +49,14 @@ class MypageContent extends Component {
     console.log('비밀번호찾기');
   };
 
+  onClicks = (value) => {
+    console.log(value);
+  };
+
+  onFinish = (values) => {
+    console.log(values);
+  };
+
   render() {
     return (
       <>
@@ -77,48 +69,44 @@ class MypageContent extends Component {
             </strong>
           </div>
 
-          <div className={classes.form_box}>
+          <div className={classes.form_box} style={{ height: 370 }}>
             <h3 className={classes.form_text}>비밀번호 변경</h3>
-            <Form
-              {...layout}
-              name="basic"
-              initialValues={{ remember: true }}
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
-            >
-              <Form.Item rules={[{ required: true, message: '현재 비밀번호를 입력해주세요.' }]}>
-                현재 비밀번호{' '}
+            현재 비밀번호
+            <Form name="basic" onFinish={this.onFinish} onFinishFailed={onFinishFailed}>
+              <Form.Item name="CurrentPassword" rules={[{ required: true, message: '현재 비밀번호를 입력하세요' }]}>
                 <Input type="password" placeholder="현재 비밀번호를 입력해주세요." style={{ width: 460 }} />
               </Form.Item>
-
-              <Form.Item rules={[{ required: true, message: '새로운 비밀번호를 입력해주세요' }]}>
-                새로운 비밀번호{' '}
+              새로운 비밀번호
+              <Form.Item rules={[{ required: true, message: '새로운 비밀번호를 입력해주세요' }]} name="NewPassword">
                 <Input
                   type="password"
                   placeholder="새로운 비밀번호를 입력해주세요."
                   style={{ width: 460 }}
-                  id="passwordInput"
                   onChange={(e) => this.handleOnPasswordInput(e.target.value)}
                 />
               </Form.Item>
-
-              <Form.Item rules={[{ required: true, message: '새로운 비밀번호 확인을 위해 입력해주세요' }]}>
-                새로운 비밀번호 확인
+              비밀번호 확인
+              <Form.Item
+                rules={[{ required: true, message: '새로운 비밀번호 확인을 위해 입력해주세요' }]}
+                name="NewPasswordInspection"
+              >
                 <Input
                   type="password"
+                  name="user"
                   placeholder="새로운 비밀번호 확인을 위해 입력해주세요."
                   style={{ width: 460 }}
-                  id="confirmPasswordInput"
                   onChange={(e) => this.handleOnConfirmPasswordInput(e.target.value)}
                 />
-                {this.renderFeedbackMessage()}
               </Form.Item>
-
-              <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit" className={classes.buttonstyle}>
-                  비밀번호 변경
-                </Button>
-              </Form.Item>
+              {this.renderFeedbackMessage()}
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{ marginLeft: 165, top: 10 }}
+                className={classes.buttonstyle}
+              >
+                비밀번호 변경
+              </Button>
             </Form>
           </div>
         </Col>
@@ -127,4 +115,4 @@ class MypageContent extends Component {
   }
 }
 
-export default MypageContent;
+export default withRouter(MypageContent);

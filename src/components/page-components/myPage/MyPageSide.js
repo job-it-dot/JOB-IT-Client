@@ -22,10 +22,6 @@ class MyPageSide extends Component {
                 <Menu.Item key="4">회원정보 수정</Menu.Item>
                 <Menu.Item key="5">비밀번호 변경</Menu.Item>
               </SubMenu>
-              <SubMenu key="2" title="스크랩/관심기업">
-                <Menu.Item key="6">스크랩</Menu.Item>
-                <Menu.Item key="7">관심기업</Menu.Item>
-              </SubMenu>
             </Menu>
           </div>
         </Col>

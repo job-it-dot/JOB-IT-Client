@@ -5,7 +5,7 @@ import css from './MyPage.module.less';
 
 const columns = [
   {
-    title: '기업명',
+    title: '기업',
     dataIndex: 'name',
   },
   {
@@ -27,20 +27,111 @@ const columns = [
 ];
 
 const data = [];
-for (let i = 0; i < 46; i++) {
-  data.push({
-    key: i,
-    name: `jobit(주) 테스ㅌㅌㅌㅌㅌ ${i}`,
-    age: `대졸이상, java가능자 오라클가능자 자바스크립트가능자 다가능한사람`,
-    address: `2020년 kosta web 과정 인재모집 중ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ ${i}`,
-    button: (
-      <Button className={css.buttonstyle} style={{ marginBottom: 60, right: 20 }}>
-        즉시지원
-      </Button>
-    ),
-    date: `~07/20`,
-  });
-}
+data.push({
+  name: `jobit㈜`,
+  age: `신입경력, 학력무관, 서울,경기, 계약직`,
+  address: `2020년 kosta web 과정 인재모집 중`,
+  button: (
+    <Button
+      className={css.buttonstyle}
+      style={{ marginBottom: 60, right: 20, paddingRight: 2, paddingLeft: 2, paddingTop: 0, paddingBottom: 0 }}
+    >
+      즉시지원
+    </Button>
+  ),
+  date: `~07/20`,
+});
+
+data.push({
+  name: `가피아 `,
+  age: `학력무관, 경력(2년이상), 컴퓨터전공 우대`,
+  address: `Java 개발자를 모집합니다.
+    `,
+  button: (
+    <Button
+      className={css.buttonstyle}
+      style={{ marginBottom: 60, right: 20, paddingRight: 2, paddingLeft: 2, paddingTop: 0, paddingBottom: 0 }}
+    >
+      즉시지원
+    </Button>
+  ),
+  date: `내일`,
+});
+
+data.push({
+  name: `㈜경동나비엔`,
+  age: `신입경력, 고졸이상, 서울,경기, 계약직`,
+  address: `2020년 신입/경력사원 공개채용(관리직/기술직)`,
+  button: (
+    <Button
+      className={css.buttonstyle}
+      style={{ marginBottom: 60, right: 20, paddingRight: 2, paddingLeft: 2, paddingTop: 0, paddingBottom: 0 }}
+    >
+      즉시지원
+    </Button>
+  ),
+  date: `~07/21`,
+});
+
+data.push({
+  name: `㈜푸른하제`,
+  age: `경력(3년이상), 학력무관, C#우대`,
+  address: `C# 응용소프트웨어 개발자 채용`,
+  button: (
+    <Button
+      className={css.buttonstyle}
+      style={{ marginBottom: 60, right: 20, paddingRight: 2, paddingLeft: 2, paddingTop: 0, paddingBottom: 0 }}
+    >
+      즉시지원
+    </Button>
+  ),
+  date: `~07/25`,
+});
+
+data.push({
+  name: `㈜구구스`,
+  age: `신입경력(1년이상), 학력무관, 관련 학과 우대`,
+  address: `웹기획, 모바일 APP/ASP/PHP 개발자, 매장판매직 모집`,
+  button: (
+    <Button
+      className={css.buttonstyle}
+      style={{ marginBottom: 60, right: 20, paddingRight: 2, paddingLeft: 2, paddingTop: 0, paddingBottom: 0 }}
+    >
+      즉시지원
+    </Button>
+  ),
+  date: `~07/18`,
+});
+
+data.push({
+  name: `㈜다보링크`,
+  age: `경력(2년이상), 학력무관, 컴퓨터공학 우대`,
+  address: `소프트웨어 개발자 경력직 모집`,
+  button: (
+    <Button
+      className={css.buttonstyle}
+      style={{ marginBottom: 60, right: 20, paddingRight: 2, paddingLeft: 2, paddingTop: 0, paddingBottom: 0 }}
+    >
+      즉시지원
+    </Button>
+  ),
+  date: `~07/23`,
+});
+
+data.push({
+  name: `㈜다보링크`,
+  age: `경력(2년이상), 학력무관, 컴퓨터공학 우대`,
+  address: `소프트웨어 개발자 경력직 모집`,
+  button: (
+    <Button
+      className={css.buttonstyle}
+      style={{ marginBottom: 60, right: 20, paddingRight: 2, paddingLeft: 2, paddingTop: 0, paddingBottom: 0 }}
+    >
+      즉시지원
+    </Button>
+  ),
+  date: `~07/23`,
+});
 
 class MyPageResumeList extends Component {
   state = {
@@ -72,9 +163,16 @@ class MyPageResumeList extends Component {
     };
     const hasSelected = selectedRowKeys.length > 0;
     return (
-      <div style={{ marginTop: 20 }}>
+      <>
         <div>
-          <Button type="primary" onClick={this.start} disabled={!hasSelected} loading={loading} className={css.sbutton}>
+          <Button
+            type="primary"
+            onClick={this.start}
+            disabled={!hasSelected}
+            loading={loading}
+            className={css.sbutton}
+            style={{ marginTop: 0 }}
+          >
             삭제
           </Button>
         </div>
@@ -85,7 +183,7 @@ class MyPageResumeList extends Component {
           dataSource={data}
           pagination={{ pageSize: 5 }}
         />
-      </div>
+      </>
     );
   }
 }

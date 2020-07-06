@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-import List from './List';
+import Test from './List';
 import AnnouncementList from './AnnouncementList';
 import { Row, Col } from 'antd';
 import Up from './Up';
@@ -46,7 +46,7 @@ class TestList extends Component {
         </div>
 
         <div className={classes.test1}>
-          <List />
+          <Test />
         </div>
 
         <div>
