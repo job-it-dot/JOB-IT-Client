@@ -34,6 +34,7 @@ export default (
     <Route exact path="/test" component={testList} />
     <Route exact path="/mypage" component={MyPage} />
     <Route exact path="/abc" component={ABC} />
+    <Route exact path="/applyList" component={applyList} />
   
     <Route exact path="/RecruitInsert" component={RecruitInsert} />
 
