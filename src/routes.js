@@ -8,14 +8,36 @@ import UserSignUp from './pages/SignUpUser.js';
 import testList from './components/page-components/Search/TestList';
 import ABC from './components/page-components/Search/ABC';
 import Mypage from './pages/MyPage';
+import ResumeResult from './components/page-components/Resume/ResumeResult';
+import Resume from './components/page-components/Resume/Resume';
+import RecruitDetail from './pages/Recruit';
+import JobMain from './pages/JobMain';
+import FindPassWord from './pages/FindPassWord';
+import ResumeList from './components/page-components/Resume/ResumeList';
+import ResumeView from './pages/ResumeView';
+import CompanyDetail from './pages/Company';
+import Apply from './pages/Apply.js';
+
 
 export default (
   <Switch>
     <Route exact path="/login" component={Login} />
+    <Route exact path="/findPassWord" component={FindPassWord} />
     <Route exact path="/signup" component={UserSignUp} />
+
     <Route exact path="/test" component={testList} />
-    <PrivateRoutes exact path="/" component={Index} />
     <PrivateRoutes exact path="/mypage" component={Mypage} />
     <Route exact path="/abc" component={ABC} />
+
+    <Route exact path="/recruitDetail" component={RecruitDetail} />
+    <Route exact path="/jobs" component={JobMain} />
+    <Route exact path="/companyDetail" component={CompanyDetail} />
+    <Route exact path="/" component={Index} />
+    <PrivateRoutes exact path="/resumeList" component={ResumeList} />
+    <PrivateRoutes exact path="/resume" component={Resume} />
+    <PrivateRoutes exact path="/resumeResult" component={ResumeResult} />
+    <PrivateRoutes exact path="/resumeView" component={ResumeView} />
+    <PrivateRoutes exact path="/apply" component={Apply} />
+
   </Switch>
 );
