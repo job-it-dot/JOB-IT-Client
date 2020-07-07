@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classes from './Company.module.less';
+import kosta from './../../../assets/kosta.png';
 import { Row, Col, Button, Typography } from 'antd';
 import { HeartOutlined, LogoutOutlined } from '@ant-design/icons';
 
@@ -13,7 +14,7 @@ class CompanyTop extends Component {
           <Col span={4}>
             <img
               width="170px"
-              src="http://pds.saramin.co.kr/company/logo/201902/27/pnjmyx_pcb7-0_logo.jpg"
+              src={kosta}
               alt="Sample"
               height="130"
             />
