@@ -15,11 +15,11 @@ class MyPageManage extends Component {
   render() {
     const key = this.state.key;
     let u;
-    if (key == 4) {
+    if (key === '4') {
       u = <MypageContent />; //이력서 등록 페이지 import 하기
-    } else if (key == 5) {
+    } else if (key === '5') {
       u = <MyPageResumeList />;
-    } else if (key == 6) {
+    } else if (key === '6') {
       u = <MyPageUserUpdate />;
     }
 

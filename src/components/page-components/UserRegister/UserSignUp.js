@@ -1,17 +1,30 @@
 import React from 'react';
-import { Button, Col, Divider, Form, Input } from 'antd';
+import { Button, Col, Form, Input } from 'antd';
 import { LockOutlined, UserOutlined, MobileOutlined } from '@ant-design/icons';
 import classes from './UserSignUp.module.less';
-import kakaologin from '../../../assets/kakaologin.png';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const LoginForm = () => {
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
-  };
-
-  const kakaoLoginButton = () => {
-    console.log('카카오로그인');
+    console.log(values.username);
+    axios({
+      method: 'post',
+      url: 'http://api.jobit.co.kr:9595/guest/insertUser',
+      data: JSON.stringify({
+        userPhone: values.phone,
+        member: {
+          memberEmail: values.username,
+          memberPassword: values.password,
+        },
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => console.log(res))
+      .catch((res) => console.log(res));
   };
 
   return (
@@ -105,12 +118,6 @@ const LoginForm = () => {
           </div>
         </Form.Item>
       </Form>
-      <Divider />
-      <div>
-        <button onClick={kakaoLoginButton} className={classes.kakao_button}>
-          <img src={kakaologin} height={50} alt="카카오로그인" />
-        </button>
-      </div>
     </Col>
   );
 };

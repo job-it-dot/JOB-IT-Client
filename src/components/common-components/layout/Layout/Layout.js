@@ -3,6 +3,7 @@ import { Layout as AntLayout } from 'antd';
 import classes from './Layout.module.less';
 import Logo from '../Logo/Logo';
 import Menu from '../Menu/Menu';
+import Footer from '../Footer/Footer';
 
 const { Content } = AntLayout;
 
@@ -19,7 +20,9 @@ function Layout({ children }) {
         <div className={classes.content_inner}>{children}</div>
       </Content>
       <footer className={classes.footer}>
-        <div className={classes.footer_inner}>Footer</div>
+        <div className={classes.footer_inner}>
+          <Footer />
+        </div>
       </footer>
     </AntLayout>
   );

@@ -10,10 +10,16 @@ const Menu = () => {
       <nav className={classes.nav}>
         <ul className={classes.list}>
           <li className={classNames(classes.item, classes.active)}>
-            <Link to="/test">탐색</Link>
+            <Link to="/jobs" style={{ color: 'black' }}>
+              탐색
+            </Link>
           </li>
           <li className={classes.item}>직군별 연봉</li>
-          <li className={classes.item}>이력서</li>
+          <li className={classes.item}>
+            <Link to="/resumeList" style={{ color: 'black' }}>
+              이력서
+            </Link>
+          </li>
           <li className={classes.item}>추천</li>
           <li className={classes.item}>이벤트</li>
           <li className={classes.item}>매치업</li>

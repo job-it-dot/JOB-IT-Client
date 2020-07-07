@@ -1,17 +1,24 @@
 import React from 'react';
-import { Button, Checkbox, Col, Divider, Form, Input } from 'antd';
+import { Button, Checkbox, Col, Form, Input } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import classes from './LoginForm.module.less';
-import kakaologin from '../../../assets/kakaologin.png';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const LoginForm = () => {
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
-  };
-
-  const kakaoLoginButton = () => {
-    console.log('카카오로그인');
+    axios({
+      method: 'post',
+      url: 'http://api.jobit.co.kr:9595/login?memberEmail=' + values.username + '&memberPassword=' + values.password,
+      data: JSON.stringify({}),
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => console.log('성공' + res))
+      .catch((res) => console.log('실패' + res));
   };
 
   return (
@@ -65,11 +72,10 @@ const LoginForm = () => {
           <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox>자동 로그인</Checkbox>
           </Form.Item>
-          <a className="login-form-forgot" href="a" style={{ float: 'right' }}>
-            비밀번호 찾기
-          </a>
+          <div className="login-form-forgot" style={{ float: 'right' }}>
+            <Link to="/findPassWord">비밀번호 찾기</Link>
+          </div>
         </div>
-
         <Form.Item>
           <Button block size={'large'} type="primary" htmlType="submit" className="login-form-button">
             로그인
@@ -79,12 +85,6 @@ const LoginForm = () => {
           </div>
         </Form.Item>
       </Form>
-      <Divider />
-      <div>
-        <button onClick={kakaoLoginButton} className={classes.kakao_button}>
-          <img src={kakaologin} height={50} alt="카카오로그인" />
-        </button>
-      </div>
     </Col>
   );
 };

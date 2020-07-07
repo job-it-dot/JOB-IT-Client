@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Jobs from '../components/page-components/index/Jobs';
+import Main from '../components/page-components/index/Main';
 
 class Index extends Component {
   render() {
     return (
       <div>
-        <Jobs />
+        <Main />
       </div>
     );
   }
