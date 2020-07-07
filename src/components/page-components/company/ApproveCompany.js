@@ -111,7 +111,7 @@ class ApproveCompany extends Component {
                       들의 이력서를 받아요.
                       <br />
                     </Text>
-                    <Button style={{ height: 70, marginTop: 7, marginLeft: 10, width: 190 }}>공고 등록 하기</Button>
+                    <Button style={{ height: 70, marginTop: 7, marginLeft: 10, width: 190 }}><Link to='/RecruitInsert'>공고 등록 하기</Link></Button>
                   </Col>
                 </Row>
               </Col>
