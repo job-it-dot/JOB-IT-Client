@@ -46,7 +46,7 @@ const Footer = () => {
         </Text>
       </div>
       <div className={classes.align}>
-        <Link className="link">개인정보 처리방침</Link>
+        <Link href="companyDetail" className="link">개인정보 처리방침</Link>
         <Text className={classes.link_divider}>
           <PauseOutlined />
         </Text>
