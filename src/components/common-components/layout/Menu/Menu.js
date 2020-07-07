@@ -33,7 +33,7 @@ const Menu = () => {
           <li className={classes.item}>
             <Link to="/mypage">마이페이지</Link>
           </li>
-          <li className={classes.item}>기업 서비스</li>
+          <li className={classes.item}><Link to="/approveCompany">기업 서비스</Link></li>
         </ul>
       </nav>
       <aside className={classes.aside}>
