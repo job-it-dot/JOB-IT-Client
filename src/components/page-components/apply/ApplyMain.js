@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './ApplyMain.module.less';
-import { Row, Select, Button, Modal, Radio, Input, Descriptions } from 'antd';
+import { Row, Col, Select, Button, Modal, Radio, Input, Descriptions } from 'antd';
 import { RetweetOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
@@ -197,7 +197,7 @@ class ApplyMain extends Component {
               </table>
               <hr></hr>
               <div className={classes.inDivStyle}>
-                <Input type="text" value={this.state.resumeValue} />
+                <Input type="text" value={this.state.resumeValue} readOnly/>
               </div>
 
               <div className={classes.inDivStyle}>
@@ -206,7 +206,7 @@ class ApplyMain extends Component {
                   <table>
                     <tbody>
                       <tr>
-                        <td width={'400px'}>
+                        <td width={'450px'}>
                           이메일
                           <Input
                             type="text"
@@ -214,60 +214,22 @@ class ApplyMain extends Component {
                             placeholder="khkim@kosta.com"
                             value={this.state.realemailValue}
                           />
-                          &nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; 휴대폰
+                         &nbsp; |&nbsp; 휴대폰
                           <Input
                             type="text"
                             placeholder="010-1234-5678"
                             className={classes.inputStyle}
                             value={this.state.realphoneValue}
                           />
-                          &nbsp;&nbsp;&nbsp;&nbsp;
+                          <br/>
+                          <br/>
                         </td>
                         <td style={{ textAlign: 'right' }} width={'100px'}>
                           <Button className={classes.buttonStyle} type="primary" onClick={this.showModalTwo}>
                             <h5>수정</h5>
                           </Button>
 
-                          <Modal
-                            title="이메일/휴대폰 수정"
-                            visible={this.state.visible2}
-                            onOk={this.handleOkTwo}
-                            onCancel={this.handleCancelTwo}
-                          >
-                            <Descriptions bordered>
-                              <Descriptions.Item label="이메일" span={3} className="paddingEmail">
-                                <Input type="email" placeholder="이메일을 입력해주세요." onChange={this.onChange2} />
-                              </Descriptions.Item>
-                              <Descriptions.Item label="전화번호" span={3}>
-                                <Select placeholder="010" style={{ width: 120 }} onChange={this.onChange3}>
-                                  <Option value="010">010</Option>
-                                  <Option value="011">011</Option>
-                                  <Option value="016">016</Option>
-                                  <Option value="017">017</Option>
-                                  <Option value="018">018</Option>
-                                  <Option value="019">019</Option>
-                                </Select>
-                                <strong className={classes.PhoneNumberTextBox}>-</strong>
-                                <Input
-                                  type="text"
-                                  placeholder="0000"
-                                  minLength="4"
-                                  maxLength="4"
-                                  className={classes.PhoneNumberTextBox}
-                                  onChange={this.onChange4}
-                                />
-                                <strong className={classes.PhoneNumberTextBox}>-</strong>
-                                <Input
-                                  type="text"
-                                  placeholder="0000"
-                                  minLength="4"
-                                  maxLength="4"
-                                  className={classes.PhoneNumberTextBox}
-                                  onChange={this.onChange5}
-                                />
-                              </Descriptions.Item>
-                            </Descriptions>
-                          </Modal>
+                      
                         </td>
                       </tr>
                     </tbody>
