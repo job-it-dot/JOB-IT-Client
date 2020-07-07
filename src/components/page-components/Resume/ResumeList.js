@@ -24,7 +24,7 @@ const ResumeList = () => {
           내 이력서
         </Title>
         <Row gutter={[16, 16]}>
-          {[0, 0, 0, 0, 0].map((_, index) => (
+          {[0, 0].map((_, index) => (
             <Col xs={{ span: 24 }} sm={{ span: 12 }} md={{ span: 6 }} key={index}>
               <Card
                 style={{ maxHeight: 130, minHeight: 130 }}

@@ -17,91 +17,60 @@ class CompanyRecruitList extends Component {
   render() {
     return (
       <>
-      <Row gutter={[16, 16]}>
-        
+        <Row gutter={[16, 16]}>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={kosta} />}
-            >
+            <Card hoverable cover={<img alt="example" src={kosta} />}>
               <Meta title="코스타 직원 채용(신입/경력 모집)" description="(주)코스타" />
             </Card>
           </Col>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={kosta} />}
-            >
+            <Card hoverable cover={<img alt="example" src={kosta} />}>
               <Meta title="코스타 강사 모집" description="(주)코스타" />
             </Card>
           </Col>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={key} />}
-            >
+            <Card hoverable cover={<img alt="example" src={key} />}>
               <Meta title="Visual Art Designer" description="©VISUAL ARTS / Key" />
             </Card>
           </Col>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={key} />}
-            >
+            <Card hoverable cover={<img alt="example" src={key} />}>
               <Meta title="Sounds Label Developer" description="©VISUAL ARTS / Key" />
             </Card>
           </Col>
-          </Row>
-          <Row gutter={[16, 16]}>
+        </Row>
+        <Row gutter={[16, 16]}>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={samsung} />}
-            >
+            <Card hoverable cover={<img alt="example" src={samsung} />}>
               <Meta title="2020 삼성전자 시스템 개발자" description="(주)삼성전자" />
             </Card>
           </Col>
-         
+
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={paworks} />}
-            >
+            <Card hoverable cover={<img alt="example" src={paworks} />}>
               <Meta title="Engineer CV 채용" description="P.A.WORKS" />
             </Card>
           </Col>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={paworks} />}
-            >
+            <Card hoverable cover={<img alt="example" src={paworks} />}>
               <Meta title="Server Engineer" description="P.A.WORKS" />
             </Card>
           </Col>
-          
+
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={instagram} />}
-            >
+            <Card hoverable cover={<img alt="example" src={instagram} />}>
               <Meta title="Instagram 프론트엔드 개발자 채용" description="Facebook, Inc." />
             </Card>
           </Col>
-      </Row>
-      <Row gutter={[16, 16]}>
+        </Row>
+        <Row gutter={[16, 16]}>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={bluehole} />}
-            >
+            <Card hoverable cover={<img alt="example" src={bluehole} />}>
               <Meta title="BlueHole QA 채용" description="Krafton Inc" />
             </Card>
           </Col>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={bluehole} />}
-            >
+            <Card hoverable cover={<img alt="example" src={bluehole} />}>
               <Meta title="BlueHole 서버 관리자 채용(경력)" description="Krafton Inc" />
             </Card>
           </Col>
@@ -114,50 +83,33 @@ class CompanyRecruitList extends Component {
             </Card>
           </Col>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={tiktok} />}
-            >
+            <Card hoverable cover={<img alt="example" src={tiktok} />}>
               <Meta title="android/iOS 개발자 채용" description="(주)바이트댄스" />
             </Card>
           </Col>
-      </Row>
-      <Row gutter={[16, 16]}>
-        
+        </Row>
+        <Row gutter={[16, 16]}>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={google} />}
-            >
+            <Card hoverable cover={<img alt="example" src={google} />}>
               <Meta title="YouTube 운영 경력직 채용" description="Google Inc" />
             </Card>
           </Col>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={netmarble} />}
-            >
+            <Card hoverable cover={<img alt="example" src={netmarble} />}>
               <Meta title="넷마블 홈페이지 개발자 채용" description="(주)넷마블" />
             </Card>
           </Col>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={naver} />}
-            >
+            <Card hoverable cover={<img alt="example" src={naver} />}>
               <Meta title="네이버 블로그 운영팀장 채용" description="ⓒ NAVER Corp." />
             </Card>
           </Col>
           <Col span={6}>
-            <Card
-              hoverable
-              cover={<img alt="example" src={naver} />}
-            >
+            <Card hoverable cover={<img alt="example" src={naver} />}>
               <Meta title="네이버 웹툰 개발자 채용" description="ⓒ NAVER Corp" />
             </Card>
           </Col>
-          </Row>
-          
+        </Row>
       </>
     );
   }

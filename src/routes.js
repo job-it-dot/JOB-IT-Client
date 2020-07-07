@@ -15,12 +15,15 @@ import ResumeView from './pages/ResumeView';
 import CompanyDetail from './pages/Company';
 import Apply from './pages/Apply.js';
 
+import ResumeViewTest from './components/page-components/ResumeView/ResumeViewMain2';
+
 export default (
   <Switch>
     <Route exact path="/login" component={Login} />
     <Route exact path="/findPassWord" component={FindPassWord} />
     <Route exact path="/signup" component={UserSignUp} />
     <Route exact path="/recruitDetail" component={RecruitDetail} />
+    <Route exact path="/resumeViewTest" component={ResumeViewTest} />
     <Route exact path="/jobs" component={JobMain} />
     <Route exact path="/companyDetail" component={CompanyDetail} />
     <Route exact path="/" component={Index} />
