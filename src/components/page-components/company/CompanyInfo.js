@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classes from './Company.module.less';
+import kosta from './../../../assets/kosta.png';
 import { Row, Col, Typography, Table, List } from 'antd';
 import { DollarOutlined, GiftOutlined, HomeOutlined, CoffeeOutlined } from '@ant-design/icons';
 
@@ -271,7 +272,7 @@ class Enviroment extends Component {
             <Col span={6}>
               <img
                 width="300px"
-                src="http://blogfiles.naver.net/MjAxODA2MDhfNzcg/MDAxNTI4NDMxOTIyMTA3.biKwp52ySDRUHGxQyYZi8Cd7cCCCKBAChdfb_wpzBkIg.6OYm3YLlshIBY3PsfNhpz2RartA85LujNINCeIZwj3Ag.JPEG.date982002/%B7%CE%B0%ED.jpg"
+                src={kosta}
                 alt="Company"
                 height="200"
               />
