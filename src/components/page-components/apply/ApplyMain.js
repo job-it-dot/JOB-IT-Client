@@ -8,10 +8,9 @@ import { withRouter } from 'react-router-dom';
 const { Option } = Select;
 
 class ApplyMain extends Component {
-
   state = {
     value: 1,
-    resumeValue: '대표이력서', //db에 있는 대표이력서 넣어주기
+    resumeValue: '이력서1', //db에 있는 대표이력서 넣어주기
     emailValue: '', //db에 있는 회원 이메일 넣어주기
     phoneValue: '', //db에 있는 회원 전화번호 010
     phoneValue2: '', //db에 있는 회원 전화번호 중간 4자리 1234
@@ -48,7 +47,7 @@ class ApplyMain extends Component {
   handleOk = (e) => {
     this.setState({
       visible: false,
-      resumeValue: this.state.value,
+      resumeValue: '이력서' + this.state.value,
     });
   };
 
@@ -138,10 +137,10 @@ class ApplyMain extends Component {
     return (
       <>
         <Row>
-          <b style={{ color: 'skyblue', marginTop: 70 }}>&nbsp;&nbsp;&nbsp;&nbsp;쿠도커뮤니케이션(주)</b>
+          <b style={{ color: 'skyblue', marginTop: 70 }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;코스타</b>
         </Row>
         <Row>
-          <h3>&nbsp;&nbsp;&nbsp;&nbsp;모바일/유니티/서버 개발자(경력) 정규직 채용</h3>
+          <h3>&nbsp;&nbsp;&nbsp;&nbsp;코스타 직원 채용(신입/경력 모집)</h3>
         </Row>
         <Row>
           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -153,9 +152,9 @@ class ApplyMain extends Component {
             onChange={this.onChangeField}
             filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
           >
-            <Option value="mobile">모바일 APP 개발</Option>
-            <Option value="unity">Unity 개발</Option>
-            <Option value="linux">Linux 시스템 개발자</Option>
+            <Option value="mobile">FronEnd(경력)</Option>
+            <Option value="unity">BackEnd(신입)</Option>
+            <Option value="linux">FronEnd(신입)</Option>
           </Select>
         </Row>
         <Row>
