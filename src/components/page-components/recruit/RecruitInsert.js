@@ -494,7 +494,9 @@ class RecruitInsert extends Component {
                 type="primary"
                 htmlType="submit"
               >
-                공고등록
+               <Link to='/companymain'>
+                  공고등록
+                </Link>
               </Button>
             </Form.Item>
           </div>
