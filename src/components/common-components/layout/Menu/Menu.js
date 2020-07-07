@@ -10,6 +10,7 @@ const Menu = () => {
       <nav className={classes.nav}>
         <ul className={classes.list}>
           <li className={classNames(classes.item, classes.active)}>
+
             <Link to="/jobs" style={{ color: 'black' }}>
               탐색
             </Link>
