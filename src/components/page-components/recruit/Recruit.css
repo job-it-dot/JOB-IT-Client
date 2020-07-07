@@ -1,0 +1,22 @@
+.ant-col.ant-col-18.ant-col-push-6.recruitTop {
+  padding: 0px !important;
+  border-top: 2px solid;
+  border-right: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.ant-col.ant-col-6.ant-col-pull-18.recruitTop {
+  padding: 0px !important;
+  border-top: 2px solid;
+  border-left: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.ant-row.row {
+  border-top: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
+}
+
+.ant-row.img {
+  border-right: 1px solid #e2e2e2;
+}

@@ -1,27 +1,32 @@
-import React from 'react';
-import classNames from 'classnames';
-import classes from './Menu.module.less';
-import { SearchOutlined, BellOutlined } from '@ant-design/icons';
+import React, { Component } from 'react';
+import UserMenu from './UserMenu';
+import CompanyMenu from './CompanyMenu';
 
-const Menu = () => {
-  return (
-    <>
-      <nav className={classes.nav}>
-        <ul className={classes.list}>
-          <li className={classNames(classes.item, classes.active)}>탐색</li>
-          <li className={classes.item}>직군별 연봉</li>
-          <li className={classes.item}>이력서</li>
-          <li className={classes.item}>추천</li>
-          <li className={classes.item}>이벤트</li>
-          <li className={classes.item}>매치업</li>
-        </ul>
-      </nav>
-      <aside className={classes.aside}>
-        <SearchOutlined />
-        <BellOutlined />
-      </aside>
-    </>
-  );
-};
+class Menu extends Component {
+  state = {
+    pageNumber: 0,
+  };
+
+  handleChange = () => {
+    this.setState({ pageNumber: 1 });
+    console.log('123');
+  };
+
+  handleClick = () => {
+    this.setState({ pageNumber: 0 });
+    console.log('123');
+  };
+
+  render() {
+    const pageNumber = this.state.pageNumber;
+    let page = null;
+    if (pageNumber === 0) {
+      page = <UserMenu handleChange={this.handleChange} />;
+    } else if (pageNumber === 1) {
+      page = <CompanyMenu handleClick={this.handleClick} />;
+    }
+    return <>{page}</>;
+  }
+}
 
 export default Menu;
