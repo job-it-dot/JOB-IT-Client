@@ -7,7 +7,7 @@ import Login from './pages/Login.js';
 import UserSignUp from './pages/SignUpUser.js';
 import testList from './components/page-components/Search/TestList';
 import ABC from './components/page-components/Search/ABC';
-import Mypage from './pages/MyPage';
+import MyPage from './pages/MyPage';
 import ResumeResult from './components/page-components/Resume/ResumeResult';
 import Resume from './components/page-components/Resume/Resume';
 import RecruitDetail from './pages/Recruit';
@@ -17,6 +17,7 @@ import ResumeList from './components/page-components/Resume/ResumeList';
 import ResumeView from './pages/ResumeView';
 import CompanyDetail from './pages/Company';
 import Apply from './pages/Apply.js';
+import MyPage2 from './pages/MyPage2';
 
 import ResumeViewTest from './components/page-components/ResumeView/ResumeViewMain2';
 
@@ -27,7 +28,7 @@ export default (
     <Route exact path="/signup" component={UserSignUp} />
 
     <Route exact path="/test" component={testList} />
-    <PrivateRoutes exact path="/mypage" component={Mypage} />
+    <Route exact path="/mypage" component={MyPage} />
     <Route exact path="/abc" component={ABC} />
 
     <Route exact path="/recruitDetail" component={RecruitDetail} />
@@ -40,6 +41,6 @@ export default (
     <PrivateRoutes exact path="/resumeResult" component={ResumeResult} />
     <PrivateRoutes exact path="/resumeView" component={ResumeView} />
     <PrivateRoutes exact path="/apply" component={Apply} />
-    <PrivateRoutes exact path="/mypage" component={Mypage} />
+    <PrivateRoutes exact path="/mypage2" component={MyPage2} />
   </Switch>
 );

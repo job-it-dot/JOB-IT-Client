@@ -166,10 +166,6 @@ class MyPageUserUpdate extends Component {
                 </Form.Item>
               </Descriptions.Item>
 
-              <Descriptions.Item label="아이디" span={3}>
-                <strong style={{ color: 'gray' }}>wnsduddlcjd</strong>
-              </Descriptions.Item>
-
               <Descriptions.Item label="전화번호" span={3}>
                 <Select placeholder="010" onChange={handleChange}>
                   <Option value="010">010</Option>

@@ -29,7 +29,7 @@ const LoginForm = () => {
 
   return (
     <Col xs={{ span: 24 }} sm={{ span: 12, offset: 6 }} md={{ span: 8, offset: 8 }}>
-      <h1 className={classes.title}>
+      <h1 className={classes.title} style={{ marginTop: 180 }}>
         초.간.단 회원가입하고
         <br />
         취준생 탈출하자!

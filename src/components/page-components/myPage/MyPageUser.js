@@ -12,9 +12,6 @@ class MyPageUser extends Component {
             <Descriptions.Item label="이름" span={3}>
               정준영
             </Descriptions.Item>
-            <Descriptions.Item label="아이디" span={3}>
-              wnsduddlcjd
-            </Descriptions.Item>
             <Descriptions.Item label="이메일" span={3}>
               wnsdud@naver.com
             </Descriptions.Item>

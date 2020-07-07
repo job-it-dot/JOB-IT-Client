@@ -4,7 +4,7 @@ import SubMenu from 'antd/lib/menu/SubMenu';
 import css from './MyPage.module.less';
 import { Link } from 'react-router-dom';
 
-class MyPageSide extends Component {
+class MyPageSide2 extends Component {
   handleLogin = () => {
     this.props.history.push('/mypage');
   };
@@ -13,7 +13,7 @@ class MyPageSide extends Component {
       <Row sm={{ span: 24 }}>
         <Col sm={{ span: 22 }} style={{ marginTop: 30 }}>
           <h1 style={{ marginLeft: 40 }}>
-            <Link to="/mypage2" className={css.sssssss}>
+            <Link to="/mypage" className={css.sssssss}>
               My Page
             </Link>
           </h1>
@@ -38,4 +38,4 @@ class MyPageSide extends Component {
   }
 }
 
-export default MyPageSide;
+export default MyPageSide2;
