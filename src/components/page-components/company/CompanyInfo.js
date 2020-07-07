@@ -255,10 +255,15 @@ class Enviroment extends Component {
         </Title>
         <div className={classes.company_box}>
           <Title level={4}>기업소개</Title>
-          <Text style={{ fontSize: 30 }}>
-            주식회사 코스타는 주사업인 제조업을 비롯하여 빌리엔젤과 평화다방 브랜드 (주)큐큐시스템, (주)에이폴드를
-            운영하는 회사입니다.
-          </Text>
+          <Text>경기도 의회 의장상 수상</Text>
+          <br />
+          <Text>우수 교육기관 인증</Text>
+          <br />
+          <Text>PKI 8400</Text>
+          <br />
+          <Text>벤처기업 인증</Text>
+          <br />
+          <Text>소비자 만족지수 2016,2017,2018연속 수상</Text>
         </div>
         <div className={classes.company_box}>
           <Title level={4}>사진/동영상</Title>
