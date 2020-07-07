@@ -40,5 +40,6 @@ export default (
     <PrivateRoutes exact path="/resumeResult" component={ResumeResult} />
     <PrivateRoutes exact path="/resumeView" component={ResumeView} />
     <PrivateRoutes exact path="/apply" component={Apply} />
+    <PrivateRoutes exact path="/mypage" component={Mypage} />
   </Switch>
 );

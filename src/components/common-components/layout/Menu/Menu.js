@@ -22,7 +22,6 @@ const Menu = () => {
           </li>
           <li className={classes.item}>추천</li>
           <li className={classes.item}>이벤트</li>
-          <li className={classes.item}>매치업</li>
         </ul>
       </nav>
       <nav className={classes.nav}>
@@ -30,6 +29,9 @@ const Menu = () => {
           <li className={classes.item}>
             <Link to="/signup">회원가입</Link>
             <Link to="/login">/로그인</Link>
+          </li>
+          <li className={classes.item}>
+            <Link to="/mypage">마이페이지</Link>
           </li>
           <li className={classes.item}>기업 서비스</li>
         </ul>
