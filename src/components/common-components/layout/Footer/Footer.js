@@ -16,27 +16,27 @@ const Footer = () => {
         </Col>
       </div>
       <div className={classes.footer_link1} style={{ marginTop: 20 }}>
-        <Link className="link">인재 채용</Link>
+        <Link href="/findpassword" className="link">인재 채용</Link>
         <Text className={classes.link_divider}>
           <PauseOutlined />
         </Text>
-        <Link className="link">회사 소개</Link>
+        <Link href="/abc" className="link">회사 소개</Link>
         <Text className={classes.link_divider}>
           <PauseOutlined />
         </Text>
-        <Link className="link">고객 지원</Link>
+        <Link href="/applyList" className="link">고객 지원</Link>
         <Text className={classes.link_divider}>
           <PauseOutlined />
         </Text>
-        <Link className="link">보도 자료</Link>
+        <Link href="/recruitDetail" className="link">보도 자료</Link>
         <Text className={classes.link_divider}>
           <PauseOutlined />
         </Text>
-        <Link className="link">API</Link>
+        <Link href="/companymain" className="link">API</Link>
         <Text className={classes.link_divider}>
           <PauseOutlined />
         </Text>
-        <Link className="link">제휴 신청</Link>
+        <Link href="/apply" className="link">제휴 신청</Link>
       </div>
       <div className={classes.align} style={{ marginTop: 14 }}>
         <Text>©2020 KOFI WORKS, INC. 모든 권리는 KOFI WORKS에 있습니다.</Text>
