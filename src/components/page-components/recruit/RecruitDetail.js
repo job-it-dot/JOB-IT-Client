@@ -5,8 +5,6 @@ import './Recruit.css';
 import testimg from './../../../assets/kosta.png';
 import { CheckOutlined, StarOutlined, HeartOutlined, ReconciliationOutlined } from '@ant-design/icons';
 import CountDown from './CountDown';
-import { withRouter } from 'react-router-dom';
-import axios from 'axios';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -87,16 +85,6 @@ class RecruitDetail extends Component {
   };
 
   support = () => {
-    axios({
-      method: 'post',
-      url: '어쩌구URl',
-      data: {
-        공고번호: '공고번호',
-        '더필요하면 더': '더 필요하면 더',
-      },
-    })
-      .then((res) => console.log(res), this.props.history.push('/apply'))
-      .catch((res) => console.log(res), this.props.history.push('/apply'));
     console.log('지원하기');
   };
 
@@ -115,7 +103,7 @@ class RecruitDetail extends Component {
                 <span style={{ fontSize: 22 }}>(주)코스타</span>
               </div>
               <div>
-                <h1 className={classes.recruit_title}>2020년도 업무지원직 직원 채용(촬영,국공유 실태조사,사무지원)</h1>
+                <h1 className={classes.recruit_title}>코스타 직원 채용(신입/경력 모집)</h1>
               </div>
               <Row style={{ padding: 10 }}>
                 <Col span={12}>
@@ -247,12 +235,7 @@ class RecruitDetail extends Component {
                     <span className={classes.recruit_detail_span2}>국민연금, 건강보험, 고용보험, 산재보험</span>
                   </div>
                   <div className={classes.details} stlye={{ marginBottom: 50 }}>
-                    <img
-                      alt="example"
-                      src="https://t1.daumcdn.net/comis/jobs/images/logo/meta_career.png"
-                      width="500px"
-                      height="500px"
-                    />
+                    <img alt="example" src={testimg} width="500px" height="500px" />
                     <br />
                     <br />
                     <br />
@@ -382,4 +365,4 @@ class RecruitDetail extends Component {
   }
 }
 
-export default withRouter(RecruitDetail);
+export default RecruitDetail;
