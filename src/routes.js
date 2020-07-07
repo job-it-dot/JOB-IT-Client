@@ -16,6 +16,8 @@ import FindPassWord from './pages/FindPassWord';
 import ResumeList from './components/page-components/Resume/ResumeList';
 import ResumeView from './pages/ResumeView';
 import CompanyDetail from './pages/Company';
+import CompanyMain from './pages/CompanyMain';
+import Admin from './pages/AdminMain';
 import Apply from './pages/Apply.js';
 import MyPage2 from './pages/MyPage2';
 
@@ -35,6 +37,8 @@ export default (
     <Route exact path="/resumeViewTest" component={ResumeViewTest} />
     <Route exact path="/jobs" component={JobMain} />
     <Route exact path="/companyDetail" component={CompanyDetail} />
+    <Route exact path="/companymain" component={CompanyMain} />
+    <Route exact path="/adminpage" component={Admin} />
     <Route exact path="/" component={Index} />
     <PrivateRoutes exact path="/resumeList" component={ResumeList} />
     <PrivateRoutes exact path="/resume" component={Resume} />
