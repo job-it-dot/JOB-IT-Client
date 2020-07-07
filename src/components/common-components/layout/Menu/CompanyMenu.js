@@ -20,7 +20,7 @@ class CompanyMenu extends Component {
       <>
         <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
           <Menu.Item>
-            <Link to="/approveCompany">기업 회원</Link>
+            <Link to="/CompanyMain">기업 회원</Link>
           </Menu.Item>
 
           <Menu.Item>공고 등록</Menu.Item>
