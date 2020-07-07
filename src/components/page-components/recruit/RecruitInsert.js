@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Input, InputNumber, Button, DatePicker, Cascader, Space, Modal } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import classes from './RecruitInsert.module.less';
+import { Link } from 'react-router-dom';
 //import axios from 'axios';
 import DaumPostcodes from '../myPage/DaumPostcode';
 /*
