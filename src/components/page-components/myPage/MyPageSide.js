@@ -8,7 +8,12 @@ class MyPageSide extends Component {
     return (
       <Row sm={{ span: 24 }}>
         <Col sm={{ span: 22 }} style={{ marginTop: 30 }}>
-          <h1 style={{ marginLeft: 40 }}>My Page</h1>
+          <h1 style={{ marginLeft: 40 }}>
+            {' '}
+            <a href="/mypage" className={css.sssssss}>
+              My Page
+            </a>
+          </h1>
           <div className={css.sideMnue}>
             <Menu
               theme="light"

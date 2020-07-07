@@ -16,7 +16,7 @@ const LoginForm = () => {
 
   return (
     <Col xs={{ span: 24 }} sm={{ span: 12, offset: 6 }} md={{ span: 8, offset: 8 }}>
-      <h1 className={classes.title}>
+      <h1 className={classes.title} style={{ marginTop: 35 }}>
         친구에게 딱 맞는
         <br />
         회사를 추천해 주세요!
