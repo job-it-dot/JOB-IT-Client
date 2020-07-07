@@ -12,9 +12,10 @@ class CompanyTop extends Component {
         <Row style={{ marginTop: 30, height: 150 }}>
           <Col span={4}>
             <img
-              width="150px"
-              src="https://previews.123rf.com/images/aquir/aquir1311/aquir131100316/23569861-sample-grunge-red-round-stamp.jpg"
+              width="170px"
+              src="http://pds.saramin.co.kr/company/logo/201902/27/pnjmyx_pcb7-0_logo.jpg"
               alt="Sample"
+              height="130"
             />
           </Col>
           <Col span={10} style={{ padding: 20 }}>
@@ -22,10 +23,10 @@ class CompanyTop extends Component {
               <Text className={classes.hiring}>채용중</Text>
             </p>
             <p>
-              <Title level={3}>(주)그레닉스</Title>
+              <Title level={3}>(주)코스타</Title>
             </p>
             <p>
-              <Text>그레닉스그룹 계열사 | 음식료·외식·프랜차이즈</Text>
+              <Text>SW 개발/공급</Text>
             </p>
           </Col>
           <Col span={7} offset={3}>
