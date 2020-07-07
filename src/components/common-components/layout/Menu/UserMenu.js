@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {Component} from 'react';
 import classNames from 'classnames';
 import classes from './Menu.module.less';
 import { SearchOutlined, BellOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import renderEmpty from 'antd/lib/config-provider/renderEmpty';
 
-const Menu = () => {
+class UserMenu extends Component {
+  render(){
+    
   return (
     <>
       <nav className={classes.nav}>
@@ -33,7 +36,12 @@ const Menu = () => {
           <li className={classes.item}>
             <Link to="/mypage">마이페이지</Link>
           </li>
-          <li className={classes.item}><Link to="/companymain">기업 서비스</Link></li>
+          
+          <li className={classes.item}>
+            <span onClick={this.props.handleChange}>
+            <Link to="/companymain">기업 서비스</Link>
+            </span>
+            </li>
         </ul>
       </nav>
       <aside className={classes.aside}>
@@ -42,6 +50,8 @@ const Menu = () => {
       </aside>
     </>
   );
-};
+  
+}
+}
 
-export default Menu;
+export default UserMenu;
