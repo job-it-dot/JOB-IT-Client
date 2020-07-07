@@ -33,7 +33,7 @@ class DeaultInfo extends Component {
               <Text type="secondary">산업</Text>
             </Col>
             <Col span={10}>
-              <Text>음식료,외식,프랜차이즈</Text>
+              <Text>IT</Text>
             </Col>
             <Col span={2}>
               <Text type="secondary">사원수</Text>
@@ -53,7 +53,7 @@ class DeaultInfo extends Component {
               <Text type="secondary">설립일</Text>
             </Col>
             <Col span={10}>
-              <Text>2012.06.12</Text>
+              <Text>2012년 08월(8년차)</Text>
             </Col>
           </Row>
           <Row className={classes.company_info_row}>
@@ -75,13 +75,13 @@ class DeaultInfo extends Component {
               <Text type="secondary">대표자</Text>
             </Col>
             <Col span={10}>
-              <Text>김종헌</Text>
+              <Text>이단형</Text>
             </Col>
             <Col span={2}>
               <Text type="secondary">주요사업</Text>
             </Col>
             <Col span={10}>
-              <Text>프랜차이즈</Text>
+              <Text>SW 개발 및 공급</Text>
             </Col>
           </Row>
           <Row className={classes.company_info_row}>
@@ -95,7 +95,7 @@ class DeaultInfo extends Component {
               <Text type="secondary">홈페이지</Text>
             </Col>
             <Col span={10}>
-              <Link>http://www.billyangel.co.kr/</Link>
+              <Link>http://edu.kosta.or.kr/</Link>
             </Col>
           </Row>
           <Row className={classes.company_info_row}>
@@ -103,7 +103,7 @@ class DeaultInfo extends Component {
               <Text type="secondary">주소</Text>
             </Col>
             <Col span={10}>
-              <Text>서울 강남구 강남대로94길 10 (역삼동) 13층 그레닉스</Text>
+              <Text>서울시 강남구 테혜란로 1 8층</Text>
             </Col>
             <Col span={2}>
               <Text type="secondary"></Text>
@@ -139,21 +139,21 @@ const columns = [
 const data = [
   {
     key: '1',
-    title: '돈들여서 분석해놓은 고급자료',
-    date: '2020.1.25',
-    origin: 'Nice 평가정보',
+    title: '2020년 KOSTA 기업분석(최신)',
+    date: '2020.03.25',
+    origin: 'JOB IT 기업분석팀',
   },
   {
     key: '2',
-    title: '돈들여서 분석해놓은 고급자료',
-    date: '2020.1.25',
-    origin: 'Nice 평가정보',
+    title: '2020년 KOSTA 사업계획서',
+    date: '2020.02.01',
+    origin: 'JOB IT 기업분석팀',
   },
   {
     key: '3',
-    title: '돈들여서 분석해놓은 고급자료',
-    date: '2020.1.25',
-    origin: 'Nice 평가정보',
+    title: '2019년 KOSTA 기업분석(사업,전망)',
+    date: '2019.02.25',
+    origin: 'JOB IT 기업분석팀',
   },
 ];
 
@@ -182,21 +182,19 @@ class Issue extends Component {
 
         <div className={classes.company_box}>
           <Title level={4}>연혁</Title>
-          <Text>2012년 6월 주식회사 빌리엔젤 창립(서울)</Text>
+          <Text>2008년 12월 주식회사 KOSTA 창립(강남)</Text>
           <br />
-          <Text>2014년 7월 빌리엔젤 1공장 준공</Text>
-          <br />
-          <Text>2015년 8월 빌리엔젤 2공장 준공</Text>
-          <br />
-          <Text>2017년 10월 빌리엔젤 3공장 준공</Text>
+          <Text>2015년 7월 가산 센터 설립</Text>
           <br />
           <Text>경기도 의회 의장상 수상</Text>
-          <br />
-          <Text>햅섭 인증</Text>
           <br />
           <Text>ISO 9001</Text>
           <br />
           <Text>벤처기업 인증</Text>
+          <br />
+          <Text>소비자 만족지수 2016,2017,2018연속 수상</Text>
+          <br />
+          <Text>2019년 교육생이 뽑은 최고의 교육기관 수상</Text>
           <br />
           <Text>소비자 만족지수 2016,2017,2018연속 수상</Text>
           <Text></Text>
@@ -207,9 +205,9 @@ class Issue extends Component {
 }
 
 const recruitData = [
-  '2020년 상반기 그레닉스 채용',
-  '2020년 상반기 그레닉스 공개 채용',
-  '2020년 상반기 그레닉스 각 부문 공개 채용',
+  '2020년 상반기 코스타 직원 채용(신입/경력)',
+  '2020년 코스타 각 부문 수시 채용',
+  '2020년 코스타 교육 연구원 채용(경력)',
 ];
 
 class Hiring extends Component {
@@ -257,36 +255,23 @@ class Enviroment extends Component {
         </Title>
         <div className={classes.company_box}>
           <Title level={4}>기업소개</Title>
-          <Text>2012년 6월 주식회사 빌리엔젤 창립(서울)</Text>
-          <br />
-          <Text>2014년 7월 빌리엔젤 1공장 준공</Text>
-          <br />
-          <Text>2015년 8월 빌리엔젤 2공장 준공</Text>
-          <br />
-          <Text>2017년 10월 빌리엔젤 3공장 준공</Text>
-          <br />
-          <Text>경기도 의회 의장상 수상</Text>
-          <br />
-          <Text>햅섭 인증</Text>
-          <br />
-          <Text>ISO 9001</Text>
-          <br />
-          <Text>벤처기업 인증</Text>
-          <br />
-          <Text>소비자 만족지수 2016,2017,2018연속 수상</Text>
-          <Text></Text>
+          <Text style={{ fontSize: 30 }}>
+            주식회사 코스타는 주사업인 제조업을 비롯하여 빌리엔젤과 평화다방 브랜드 (주)큐큐시스템, (주)에이폴드를
+            운영하는 회사입니다.
+          </Text>
         </div>
         <div className={classes.company_box}>
           <Title level={4}>사진/동영상</Title>
           <Row>
             <Col span={6}>
               <img
-                width="180px"
-                src="https://previews.123rf.com/images/aquir/aquir1311/aquir131100316/23569861-sample-grunge-red-round-stamp.jpg"
+                width="300px"
+                src="http://blogfiles.naver.net/MjAxODA2MDhfNzcg/MDAxNTI4NDMxOTIyMTA3.biKwp52ySDRUHGxQyYZi8Cd7cCCCKBAChdfb_wpzBkIg.6OYm3YLlshIBY3PsfNhpz2RartA85LujNINCeIZwj3Ag.JPEG.date982002/%B7%CE%B0%ED.jpg"
                 alt="Company"
+                height="200"
               />
             </Col>
-            <Col span={6}>
+            {/* <Col span={6}>
               <img
                 width="180px"
                 src="https://previews.123rf.com/images/aquir/aquir1311/aquir131100316/23569861-sample-grunge-red-round-stamp.jpg"
@@ -299,7 +284,7 @@ class Enviroment extends Component {
                 src="https://previews.123rf.com/images/aquir/aquir1311/aquir131100316/23569861-sample-grunge-red-round-stamp.jpg"
                 alt="Company"
               />
-            </Col>
+            </Col> */}
             <Col span={6}></Col>
           </Row>
         </div>
@@ -424,17 +409,17 @@ const companyAddr = [
   {
     key: '1',
     branch: '본사',
-    addr: '경기도 성남시 대왕판교로 123번길 유스페이스2차 8층',
+    addr: '서울시 강남구 테혜란로 1 8층',
   },
   {
     key: '2',
     branch: '지사',
-    addr: '서울시 강남구 청담동 하수구앞 박스',
+    addr: '서울 금천구 가산디지털1로 181 가산 더블유센터 3층 308호',
   },
   {
     key: '3',
     branch: '지점명',
-    addr: '그 지점의 주소',
+    addr: '코스타(가산지점)',
   },
 ];
 
