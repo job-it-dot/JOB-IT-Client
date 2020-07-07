@@ -20,6 +20,7 @@ import CompanyMain from './pages/CompanyMain';
 import Admin from './pages/AdminMain';
 import Apply from './pages/Apply.js';
 import MyPage2 from './pages/MyPage2';
+import RecruitInsert from './components/page-components/recruit/RecruitInsert'
 
 import ResumeViewTest from './components/page-components/ResumeView/ResumeViewMain2';
 
@@ -32,6 +33,8 @@ export default (
     <Route exact path="/test" component={testList} />
     <Route exact path="/mypage" component={MyPage} />
     <Route exact path="/abc" component={ABC} />
+  
+    <Route exact path="/RecruitInsert" component={RecruitInsert} />
 
     <Route exact path="/recruitDetail" component={RecruitDetail} />
     <Route exact path="/resumeViewTest" component={ResumeViewTest} />
