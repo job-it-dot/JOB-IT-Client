@@ -20,7 +20,8 @@ import CompanyMain from './pages/CompanyMain';
 import Admin from './pages/AdminMain';
 import Apply from './pages/Apply.js';
 import MyPage2 from './pages/MyPage2';
-import RecruitInsert from './components/page-components/recruit/RecruitInsert'
+import RecruitInsert from './components/page-components/recruit/RecruitInsert';
+import applyList from './components/page-components/company/ShowApplyForm';
 
 import ResumeViewTest from './components/page-components/ResumeView/ResumeViewMain2';
 
