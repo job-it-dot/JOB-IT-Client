@@ -5,6 +5,9 @@ import PrivateRoutes from './components/common-components/route/PrivateRoutes';
 import Index from './pages/Index';
 import Login from './pages/Login.js';
 import UserSignUp from './pages/SignUpUser.js';
+import testList from './components/page-components/Search/TestList';
+import ABC from './components/page-components/Search/ABC';
+import Mypage from './pages/MyPage';
 import ResumeResult from './components/page-components/Resume/ResumeResult';
 import Resume from './components/page-components/Resume/Resume';
 import RecruitDetail from './pages/Recruit';
@@ -22,6 +25,11 @@ export default (
     <Route exact path="/login" component={Login} />
     <Route exact path="/findPassWord" component={FindPassWord} />
     <Route exact path="/signup" component={UserSignUp} />
+
+    <Route exact path="/test" component={testList} />
+    <PrivateRoutes exact path="/mypage" component={Mypage} />
+    <Route exact path="/abc" component={ABC} />
+
     <Route exact path="/recruitDetail" component={RecruitDetail} />
     <Route exact path="/resumeViewTest" component={ResumeViewTest} />
     <Route exact path="/jobs" component={JobMain} />
